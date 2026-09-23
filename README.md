@@ -46,7 +46,9 @@ En resumen, este bloque les proporcionará una base sólida que les permitirá a
 Durante este bloque, los alumnos se centrarán en adquirir conocimientos sobre los servicios en la nube y su integración con los sistemas de procesamiento de datos. Aprenderán a utilizar plataformas como AWS, Azure y Google Cloud para desplegar y gestionar aplicaciones en la nube, así como a implementar soluciones de almacenamiento y procesamiento de datos en la nube.
 
 - Terraform
-- GCP
+- GCP almacenamiento
+- GCP procesamiento
+- GCP específicos
 
 
 
