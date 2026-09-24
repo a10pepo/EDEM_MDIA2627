@@ -34,10 +34,7 @@ def check_class(folder_path):
                     alumnos[alumno][element]=True
                     if element in comun_obligatorio:
                         comunes+=1
-                    if "MIA" in class_type:
-                        if element in mia1_obligatorio:
-                            mia1+=1
-                    if "MDA" in class_type:
+                    if "MDIA" in class_type:
                         if element in mda1_obligatorio:
                             mda1+=1
                         if element in mda2_obligatorio:
@@ -47,11 +44,9 @@ def check_class(folder_path):
                     alumnos[alumno][element]=False
             alumnos[alumno]["NOTA COMUNES"]=comunes*10/len(comun_obligatorio)
             if "MDA" in class_type:
-                alumnos[alumno]["MDA_M1"]=mda1*10/len(mda1_obligatorio)
-                alumnos[alumno]["MDA_M2"]=mda2*10/len(mda2_obligatorio)
+                alumnos[alumno]["MIDA_M1"]=mda1*10/len(mda1_obligatorio)
+                alumnos[alumno]["MIDA_M2"]=mda2*10/len(mda2_obligatorio)
                 
-            if "MIA" in class_type:
-                alumnos[alumno]["MIA_M1"]=mia1*10/len(mia1_obligatorio)
     return alumnos
 
 def check_names(folder_path):
@@ -79,10 +74,8 @@ def generate_table(clase,alumnos):
     deliverables=deliverables+["NOTA COMUNES"]
     if ".DS_Store" in deliverables:
         deliverables.remove(".DS_Store")
-    if "MDA" in class_type:
-        deliverables=deliverables+["MDA_M1","MDA_M2"]
-    if "MIA" in class_type:
-        deliverables=deliverables+["MIA_M1"]
+    if "MDIA" in class_type:
+        deliverables=deliverables+["MIDA_M1","MIDA_M2"]
     print("Generating Table")
     try:
         table="<table>\n<tr><th>Alumno</th>"
@@ -97,12 +90,12 @@ def generate_table(clase,alumnos):
             table+="<tr>\n<td><a href='https://github.com/a10pepo/EDEM_MDA2526/tree/main/ALUMNOS/"+clase+"/"+alumno+"'>"+str.upper(alumno)+"</a></td>"
             for element in deliverables:
                 if alumnos[alumno][element]:
-                    if element in ("NOTA COMUNES","MDA_M1","MIA_M1","MDA_M2"):
+                    if element in ("NOTA COMUNES","MIDA_M1","MIDA_M2"):
                         table+="\n<td>"+str(alumnos[alumno][element])+"</td>"
                     else:
                         table+="\n<td>✅</td>"
                 else:
-                    if element in ("NOTA COMUNES","MDA_M1","MIA_M1","MDA_M2"):
+                    if element in ("NOTA COMUNES","MIDA_M1","MIDA_M2"):
                         table+="\n<td>0.0</td>"
                     else:
                         table+="\n<td>❌</td>"
@@ -127,15 +120,11 @@ def modify_readme():
         try: 
             file.write(parts[0])
             file.write('### Estado de las entregas\n')
-            file.write('Entregas Grupo MIA\n')
-            file.write(generate_table("MIA",check_class(os.path.join(os.getcwd(), "ALUMNOS/MIA"))))
+            file.write('Entregas Grupo MDIA A\n')
+            file.write(generate_table("MDIAA",check_class(os.path.join(os.getcwd(), "ALUMNOS/MDIAA"))))
             file.write('\n')
-            file.write('\n')
-            file.write('Entregas Grupo MDA A\n')
-            file.write(generate_table("MDAA",check_class(os.path.join(os.getcwd(), "ALUMNOS/MDAA"))))
-            file.write('\n')
-            file.write('Entregas Grupo MDA B\n')
-            file.write(generate_table("MDAB",check_class(os.path.join(os.getcwd(), "ALUMNOS/MDAB"))))
+            file.write('Entregas Grupo MDIA B\n')
+            file.write(generate_table("MDIAB",check_class(os.path.join(os.getcwd(), "ALUMNOS/MDIAB"))))
             file.write('\n')            
         except Exception as e:
             print("Error writing file")
@@ -210,8 +199,7 @@ if __name__ == '__main__':
     # First check if PROFESORES folder is being modified
     check_profesores_modified()
     
-    check_names(os.path.join(os.getcwd(), "ALUMNOS/MDAA"))
-    check_names(os.path.join(os.getcwd(), "ALUMNOS/MDAB"))
-    check_names(os.path.join(os.getcwd(), "ALUMNOS/MIA"))
+    check_names(os.path.join(os.getcwd(), "ALUMNOS/MDIAA"))
+    check_names(os.path.join(os.getcwd(), "ALUMNOS/MDIAB"))
     modify_readme()    
     print("README.md updated")

@@ -10,8 +10,7 @@ ALLOWED_ROOT_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg"}
 def get_expected_deliverables():
     profesores_paths = [
         os.path.join(os.getcwd(), "PROFESORES/COMUN"),
-        os.path.join(os.getcwd(), "PROFESORES/MIA"),
-        os.path.join(os.getcwd(), "PROFESORES/MDA"),
+        os.path.join(os.getcwd(), "PROFESORES/MDIA"),
     ]
 
     deliverables = []
@@ -116,6 +115,5 @@ def validate_modified_files(modified_files):
 if __name__ == "__main__":
     expected_deliverables = get_expected_deliverables()
     validate_modified_files(get_modified_files())
-    validate_folder_structure(os.path.join(os.getcwd(), "ALUMNOS/MDAA"), expected_deliverables)
-    validate_folder_structure(os.path.join(os.getcwd(), "ALUMNOS/MDAB"), expected_deliverables)
-    validate_folder_structure(os.path.join(os.getcwd(), "ALUMNOS/MIA"), expected_deliverables)
+    validate_folder_structure(os.path.join(os.getcwd(), "ALUMNOS/MDIAA"), expected_deliverables)
+    validate_folder_structure(os.path.join(os.getcwd(), "ALUMNOS/MDIAB"), expected_deliverables)
