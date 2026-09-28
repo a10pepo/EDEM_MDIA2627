@@ -101,6 +101,7 @@ Actualiza Homebrew e instala Python 3:
 ```bash
 brew update
 brew install python
+echo 'alias python="python3"' >> ~/.zshrc
 ```
 
 ### CHECK
