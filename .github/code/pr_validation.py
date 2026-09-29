@@ -5,6 +5,7 @@ import sys
 
 ALLOWED_ROOT_FILES = {"README.md"}
 ALLOWED_ROOT_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg"}
+MASTERS = ("MDIAA", "MDIAB", "MDES")
 
 
 def get_expected_deliverables():
@@ -83,6 +84,13 @@ def validate_modified_files(modified_files):
 
     for path in alumnos_files:
         parts = path.split("/")
+        if (
+            len(parts) == 3
+            and parts[1] in MASTERS
+            and parts[2] == ".gitkeep"
+        ):
+            continue
+
         if len(parts) < 4:
             print(f"\n❌ ERROR: Ruta de alumno no válida: {path}")
             sys.exit(1)
@@ -115,5 +123,7 @@ def validate_modified_files(modified_files):
 if __name__ == "__main__":
     expected_deliverables = get_expected_deliverables()
     validate_modified_files(get_modified_files())
-    validate_folder_structure(os.path.join(os.getcwd(), "ALUMNOS/MDIAA"), expected_deliverables)
-    validate_folder_structure(os.path.join(os.getcwd(), "ALUMNOS/MDIAB"), expected_deliverables)
+    for master in MASTERS:
+        validate_folder_structure(
+            os.path.join(os.getcwd(), "ALUMNOS", master), expected_deliverables
+        )

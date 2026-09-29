@@ -4,26 +4,56 @@ import traceback
 import sys
 import subprocess
 
-comun_obligatorio=["DOCKER","PYTHON","SQL","LINUX","APIS"]
-mda1_obligatorio=["DBT", ]
-mda2_obligatorio=[ "GCP_ALMACENAMIENTO"]
+COMMON_REQUIRED_DELIVERABLES = ["DOCKER", "PYTHON", "SQL", "LINUX", "APIS"]
+MODULE_1_REQUIRED_DELIVERABLES = ["DBT"]
+MODULE_2_REQUIRED_DELIVERABLES = ["GCP_ALMACENAMIENTO"]
+COMMON_GRADE = "NOTA COMUNES"
+MODULE_1_GRADE = "MDIA_M1"
+MODULE_2_GRADE = "MDIA_M2"
 
+# Cada grupo de alumnos indica qué materiales docentes determinan sus
+# entregables. MDES comparte los mismos entregables que los grupos MDIA.
+# Todos se apoyan en los materiales docentes de MDIA.
+MASTER_DELIVERABLE_SOURCES = {
+    "MDIAA": "MDIA",
+    "MDIAB": "MDIA",
+    "MDES": "MDIA",
+}
+
+MASTER_TITLES = {
+    "MDIAA": "Entregas Grupo MDIA A",
+    "MDIAB": "Entregas Grupo MDIA B",
+    "MDES": "Entregas Grupo MDES",
+}
+
+
+
+def get_deliverables(master):
+    source = MASTER_DELIVERABLE_SOURCES[master]
+    master_path = os.path.join(os.getcwd(), "PROFESORES", source)
+    common_path = os.path.join(os.getcwd(), "PROFESORES", "COMUN")
+    deliverables = os.listdir(master_path) + os.listdir(common_path)
+    return [
+        deliverable
+        for deliverable in deliverables
+        if os.path.isdir(os.path.join(master_path, deliverable))
+        or os.path.isdir(os.path.join(common_path, deliverable))
+    ]
 
 
 def check_class(folder_path):
-    class_type=folder_path.split("/")[-1][0:3]
-    deliverables=os.listdir(os.path.join(os.getcwd(), "PROFESORES"+"/"+class_type))
-    deliverables=deliverables+os.listdir(os.path.join(os.getcwd(), "PROFESORES"+"/COMUN"))
+    master = os.path.basename(folder_path)
+    source = MASTER_DELIVERABLE_SOURCES[master]
+    deliverables=get_deliverables(master)
     if ".DS_Store" in deliverables:
         deliverables.remove(".DS_Store")
     alumnos={}
     
     for alumno in os.listdir(folder_path):
         file_path = os.path.join(folder_path, alumno)
-        comunes=0
-        mia1=0
-        mda1=0
-        mda2=0
+        common_deliverables_completed = 0
+        module_1_deliverables_completed = 0
+        module_2_deliverables_completed = 0
         if os.path.isdir(file_path):
             delivs={}
             alumnos[alumno]=delivs
@@ -32,20 +62,26 @@ def check_class(folder_path):
                 if os.path.exists(file_path+"/"+element) & os.path.isdir(file_path+"/"+element):
                     print("Entregable "+element+" Existe para el alumno "+alumno)
                     alumnos[alumno][element]=True
-                    if element in comun_obligatorio:
-                        comunes+=1
-                    if "MDIA" in class_type:
-                        if element in mda1_obligatorio:
-                            mda1+=1
-                        if element in mda2_obligatorio:
-                            mda2+=1                                                       
+                    if element in COMMON_REQUIRED_DELIVERABLES:
+                        common_deliverables_completed += 1
+                    if source == "MDIA":
+                        if element in MODULE_1_REQUIRED_DELIVERABLES:
+                            module_1_deliverables_completed += 1
+                        if element in MODULE_2_REQUIRED_DELIVERABLES:
+                            module_2_deliverables_completed += 1
                 else:
                     print("Entregable "+element+" NO Existe para el alumno "+alumno)
                     alumnos[alumno][element]=False
-            alumnos[alumno]["NOTA COMUNES"]=comunes*10/len(comun_obligatorio)
-            if "MDA" in class_type:
-                alumnos[alumno]["MIDA_M1"]=mda1*10/len(mda1_obligatorio)
-                alumnos[alumno]["MIDA_M2"]=mda2*10/len(mda2_obligatorio)
+            alumnos[alumno][COMMON_GRADE] = (
+                common_deliverables_completed * 10 / len(COMMON_REQUIRED_DELIVERABLES)
+            )
+            if source == "MDIA":
+                alumnos[alumno][MODULE_1_GRADE] = (
+                    module_1_deliverables_completed * 10 / len(MODULE_1_REQUIRED_DELIVERABLES)
+                )
+                alumnos[alumno][MODULE_2_GRADE] = (
+                    module_2_deliverables_completed * 10 / len(MODULE_2_REQUIRED_DELIVERABLES)
+                )
                 
     return alumnos
 
@@ -60,42 +96,37 @@ def check_names(folder_path):
 
 
 def generate_table(clase,alumnos):
-    class_type=clase[0:3]
-    deliverables=os.listdir(os.path.join(os.getcwd(), "PROFESORES"+"/"+class_type))
-    deliverables=deliverables+os.listdir(os.path.join(os.getcwd(), "PROFESORES"+"/COMUN"))
-    
-    # Filter out non-directories (like .gitkeep files)
-    profesores_class_path = os.path.join(os.getcwd(), "PROFESORES"+"/"+class_type)
-    profesores_comun_path = os.path.join(os.getcwd(), "PROFESORES"+"/COMUN")
-    deliverables = [d for d in deliverables if 
-                   (d in os.listdir(profesores_class_path) and os.path.isdir(os.path.join(profesores_class_path, d))) or
-                   (d in os.listdir(profesores_comun_path) and os.path.isdir(os.path.join(profesores_comun_path, d)))]
-    
-    deliverables=deliverables+["NOTA COMUNES"]
+    source = MASTER_DELIVERABLE_SOURCES[clase]
+    deliverables=get_deliverables(clase)
+    deliverables = deliverables + [COMMON_GRADE]
     if ".DS_Store" in deliverables:
         deliverables.remove(".DS_Store")
-    if "MDIA" in class_type:
-        deliverables=deliverables+["MIDA_M1","MIDA_M2"]
+    if source == "MDIA":
+        deliverables = deliverables + [MODULE_1_GRADE, MODULE_2_GRADE]
     print("Generating Table")
     try:
         table="<table>\n<tr><th>Alumno</th>"
         for element in deliverables:     
-            if element in mda1_obligatorio+comun_obligatorio+mia1_obligatorio+mda2_obligatorio:
+            if element in (
+                MODULE_1_REQUIRED_DELIVERABLES
+                + COMMON_REQUIRED_DELIVERABLES
+                + MODULE_2_REQUIRED_DELIVERABLES
+            ):
                 table+="\n<th>*"+element+"*</th>"
             else:
                 table+="\n<th>"+element+"</th>"
         table+="\n</tr>\n"
         table+="<tr>\n"  
         for alumno in sorted(alumnos):            
-            table+="<tr>\n<td><a href='https://github.com/a10pepo/EDEM_MDA2526/tree/main/ALUMNOS/"+clase+"/"+alumno+"'>"+str.upper(alumno)+"</a></td>"
+            table+="<tr>\n<td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/"+clase+"/"+alumno+"'>"+str.upper(alumno)+"</a></td>"
             for element in deliverables:
                 if alumnos[alumno][element]:
-                    if element in ("NOTA COMUNES","MIDA_M1","MIDA_M2"):
+                    if element in (COMMON_GRADE, MODULE_1_GRADE, MODULE_2_GRADE):
                         table+="\n<td>"+str(alumnos[alumno][element])+"</td>"
                     else:
                         table+="\n<td>✅</td>"
                 else:
-                    if element in ("NOTA COMUNES","MIDA_M1","MIDA_M2"):
+                    if element in (COMMON_GRADE, MODULE_1_GRADE, MODULE_2_GRADE):
                         table+="\n<td>0.0</td>"
                     else:
                         table+="\n<td>❌</td>"
@@ -120,12 +151,12 @@ def modify_readme():
         try: 
             file.write(parts[0])
             file.write('### Estado de las entregas\n')
-            file.write('Entregas Grupo MDIA A\n')
-            file.write(generate_table("MDIAA",check_class(os.path.join(os.getcwd(), "ALUMNOS/MDIAA"))))
-            file.write('\n')
-            file.write('Entregas Grupo MDIA B\n')
-            file.write(generate_table("MDIAB",check_class(os.path.join(os.getcwd(), "ALUMNOS/MDIAB"))))
-            file.write('\n')            
+            masters = list(MASTER_TITLES.items())
+            for index, (master, title) in enumerate(masters):
+                file.write(f'{title}\n')
+                file.write(generate_table(master, check_class(os.path.join(os.getcwd(), "ALUMNOS", master))))
+                if index < len(masters) - 1:
+                    file.write('\n')
         except Exception as e:
             print("Error writing file")
             print(e)
@@ -199,7 +230,7 @@ if __name__ == '__main__':
     # First check if PROFESORES folder is being modified
     check_profesores_modified()
     
-    check_names(os.path.join(os.getcwd(), "ALUMNOS/MDIAA"))
-    check_names(os.path.join(os.getcwd(), "ALUMNOS/MDIAB"))
+    for master in MASTER_DELIVERABLE_SOURCES:
+        check_names(os.path.join(os.getcwd(), "ALUMNOS", master))
     modify_readme()    
     print("README.md updated")
