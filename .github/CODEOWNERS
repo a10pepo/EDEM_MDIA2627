@@ -1,41 +1,41 @@
 # List of codeowners based on project team
 
-/Alumnos/MDAA/*/DOCKER/** @SofiaPinilla
-/Alumnos/MDAB/*/DOCKER/** @SofiaPinilla
+/Alumnos/MDIAA/*/DOCKER/** @SofiaPinilla
+/Alumnos/MDIAB/*/DOCKER/** @SofiaPinilla
 /Alumnos/MIA/*/DOCKER/** @SofiaPinilla
 
-/Alumnos/MDAA/*/DEMO/** @a10pepo
-/Alumnos/MDAB/*/DEMO/** @a10pepo
+/Alumnos/MDIAA/*/DEMO/** @a10pepo
+/Alumnos/MDIAB/*/DEMO/** @a10pepo
 /Alumnos/MIA/*/DEMO/** @a10pepo
 
-/Alumnos/MDAA/*/LINUX/** @SofiaPinilla
-/Alumnos/MDAB/*/LINUX/** @SofiaPinilla
+/Alumnos/MDIAA/*/LINUX/** @SofiaPinilla
+/Alumnos/MDIAB/*/LINUX/** @SofiaPinilla
 /Alumnos/MIA/*/LINUX/** @SofiaPinilla
 
-/Alumnos/MDAA/*/PYTHON/** @SofiaPinilla
-/Alumnos/MDAB/*/PYTHON/** @SofiaPinilla
+/Alumnos/MDIAA/*/PYTHON/** @SofiaPinilla
+/Alumnos/MDIAB/*/PYTHON/** @SofiaPinilla
 /Alumnos/MIA/*/PYTHON/** @SofiaPinilla
 
-/Alumnos/MDAA/*/SQL/** @SofiaPinilla
-/Alumnos/MDAB/*/SQL/** @SofiaPinilla
+/Alumnos/MDIAA/*/SQL/** @SofiaPinilla
+/Alumnos/MDIAB/*/SQL/** @SofiaPinilla
 /Alumnos/MIA/*/SQL/** @SofiaPinilla
 
-/Alumnos/MDAA/*/AHORCADO/** @a10pepo
-/Alumnos/MDAB/*/AHORCADO/** @a10pepo
+/Alumnos/MDIAA/*/AHORCADO/** @a10pepo
+/Alumnos/MDIAB/*/AHORCADO/** @a10pepo
 /Alumnos/MIA/*/AHORCADO/** @a10pepo
 
-/Alumnos/MDAA/*/APIS/** @marcolapietro
-/Alumnos/MDAB/*/APIS/** @marcolapietro
+/Alumnos/MDIAA/*/APIS/** @marcolapietro
+/Alumnos/MDIAB/*/APIS/** @marcolapietro
 /Alumnos/MIA/*/APIS/** @marcolapietro
 
-/Alumnos/MDAA/*/PYSPARK/** @nachoreyesv
-/Alumnos/MDAB/*/PYSPARK/** @nachoreyesv
+/Alumnos/MDIAA/*/PYSPARK/** @nachoreyesv
+/Alumnos/MDIAB/*/PYSPARK/** @nachoreyesv
 
-/Alumnos/MDAA/*/TERRAFORM/** @a10pepo
-/Alumnos/MDAB/*/TERRAFORM/** @a10pepo
+/Alumnos/MDIAA/*/TERRAFORM/** @a10pepo
+/Alumnos/MDIAB/*/TERRAFORM/** @a10pepo
 
-/Alumnos/MDAA/*/GCP_ALMACENAMIENTO/** @mimove @JaviBriones
-/Alumnos/MDAB/*/GCP_ALMACENAMIENTO/** @mimove @JaviBriones
+/Alumnos/MDIAA/*/GCP_ALMACENAMIENTO/** @mimove @JaviBriones
+/Alumnos/MDIAB/*/GCP_ALMACENAMIENTO/** @mimove @JaviBriones
 
-/Alumnos/MDAA/*/VALENCIA/** @a10pepo
-/Alumnos/MDAB/*/VALENCIA/** @a10pepo
+/Alumnos/MDIAA/*/VALENCIA/** @a10pepo
+/Alumnos/MDIAB/*/VALENCIA/** @a10pepo

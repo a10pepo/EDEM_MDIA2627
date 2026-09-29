@@ -8,8 +8,8 @@ __pycache__
 node_modules
 .terraform
 *.tfstate
-PROFESORES/MDA/AWS_ESPECIFICOS/personal
-PROFESORES/MDA/AWS_ESPECIFICOS/personal_account.sh
-ALUMNOS/MDAA/CELIA_SARRIO/AHORCADO/docker-compose.yml
+PROFESORES/MDIA/AWS_ESPECIFICOS/personal
+PROFESORES/MDIA/AWS_ESPECIFICOS/personal_account.sh
+ALUMNOS/MDIAA/CELIA_SARRIO/AHORCADO/docker-compose.yml
 **/.duckcb
 **/.csv
