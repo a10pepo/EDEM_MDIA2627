@@ -4,4 +4,4 @@ Soy de Albal (Valencia) y técnico superior en DAM. Hice las prácticas en Indra
 
 Quiero aprender a crear productos completos y bien desplegados, con una buena base en desarrollo web, IA y DevOps.
 
-📫 raulferris6@gmail.com
+📫 raulferris6@gmail.com 
