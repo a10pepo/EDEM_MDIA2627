@@ -42,4 +42,3 @@ Desarrollador de **EasyML**, una librería interactiva en Python y aplicación w
 <p align="center">
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=agimcer&theme=tokyonight&hide_border=true" alt="Racha de GitHub" />
 </p>
-
