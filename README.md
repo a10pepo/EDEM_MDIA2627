@@ -73,41 +73,59 @@ Durante este bloque, los alumnos se centrarán en adquirir conocimientos sobre l
 Entregas Grupo MDIA A
 <table>
 <tr><th>Alumno</th>
-<th>TERRAFORM</th>
-<th>*APIS*</th>
-<th>*DBT*</th>
 <th>*GCP_ALMACENAMIENTO*</th>
+<th>*DBT*</th>
 <th>GCP_ESPECIFICOS</th>
-<th>DEMO</th>
+<th>*APIS*</th>
+<th>TERRAFORM</th>
+<th>TICTACTOE</th>
 <th>*DOCKER*</th>
 <th>*PYTHON*</th>
-<th>TICTACTOE</th>
-<th>AHORCADO</th>
 <th>*LINUX*</th>
+<th>DEMO</th>
+<th>AHORCADO</th>
 <th>*SQL*</th>
 <th>NOTA COMUNES</th>
 <th>MDIA_M1</th>
 <th>MDIA_M2</th>
 </tr>
 <tr>
+<tr>
+<td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/MDIAA/INGRID'>INGRID</a></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
 </table>
 
-Last Checked: 2026-09-29 12:45:50
+Last Checked: 2026-10-01 16:04:47
 
 Entregas Grupo MDIA B
 <table>
 <tr><th>Alumno</th>
-<th>TERRAFORM</th>
-<th>*APIS*</th>
-<th>*DBT*</th>
 <th>*GCP_ALMACENAMIENTO*</th>
+<th>*DBT*</th>
 <th>GCP_ESPECIFICOS</th>
-<th>DEMO</th>
+<th>*APIS*</th>
+<th>TERRAFORM</th>
+<th>TICTACTOE</th>
 <th>*DOCKER*</th>
 <th>*PYTHON*</th>
-<th>TICTACTOE</th>
-<th>AHORCADO</th>
 <th>*LINUX*</th>
+<th>DEMO</th>
+<th>AHORCADO</th>
 <th>*SQL*</th>
 <th>NOTA COMUNES</th>
 <th>MDIA_M1</th>
@@ -116,28 +134,46 @@ Entregas Grupo MDIA B
 <tr>
 </table>
 
-Last Checked: 2026-09-29 12:45:50
+Last Checked: 2026-10-01 16:04:47
 
 Entregas Grupo MDES
 <table>
 <tr><th>Alumno</th>
-<th>TERRAFORM</th>
-<th>*APIS*</th>
-<th>*DBT*</th>
 <th>*GCP_ALMACENAMIENTO*</th>
+<th>*DBT*</th>
 <th>GCP_ESPECIFICOS</th>
-<th>DEMO</th>
+<th>*APIS*</th>
+<th>TERRAFORM</th>
+<th>TICTACTOE</th>
 <th>*DOCKER*</th>
 <th>*PYTHON*</th>
-<th>TICTACTOE</th>
-<th>AHORCADO</th>
 <th>*LINUX*</th>
+<th>DEMO</th>
+<th>AHORCADO</th>
 <th>*SQL*</th>
 <th>NOTA COMUNES</th>
 <th>MDIA_M1</th>
 <th>MDIA_M2</th>
 </tr>
 <tr>
+<tr>
+<td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/MDES/RICARDO_ROMAN'>RICARDO_ROMAN</a></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
 </table>
 
-Last Checked: 2026-09-29 12:45:50
+Last Checked: 2026-10-01 16:04:47
