@@ -13,10 +13,10 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout Git repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           lfs: true
-          ssh-key: ${{ secrets.DEPLOYMENT_TOKEN }}
+          ssh-key: ${{ secrets.DEPLOYMENT_KEY }}
       - name: Configure Git user
         run: |
           git config --global user.name 'github-actions[bot]'
@@ -33,5 +33,3 @@ jobs:
           git add .
           git commit -m "Automated commit by GitHub Actions"
           git push origin main
-        env:
-          GITHUB_TOKEN: ${{ secrets.DEPLOYMENT_TOKEN }}
