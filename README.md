@@ -450,9 +450,45 @@ Entregas Grupo MDIA A
 <td>0.0</td>
 <td>0.0</td>
 </tr>
+<tr>
+<td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/MDIAA/PABLO_LEGORBURO'>PABLO_LEGORBURO</a></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/MDIAA/RAFA_BROTONS'>RAFA_BROTONS</a></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
 </table>
 
-Last Checked: 2026-10-01 16:42:50
+Last Checked: 2026-10-01 16:44:42
 
 Entregas Grupo MDIA B
 <table>
@@ -476,7 +512,7 @@ Entregas Grupo MDIA B
 <tr>
 </table>
 
-Last Checked: 2026-10-01 16:42:50
+Last Checked: 2026-10-01 16:44:42
 
 Entregas Grupo MDES
 <table>
@@ -528,6 +564,24 @@ Entregas Grupo MDES
 <td>❌</td>
 <td>❌</td>
 <td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/MDES/DAVID_GALLART'>DAVID_GALLART</a></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>0.0</td>
@@ -644,4 +698,4 @@ Entregas Grupo MDES
 </tr>
 </table>
 
-Last Checked: 2026-10-01 16:42:50
+Last Checked: 2026-10-01 16:44:42
