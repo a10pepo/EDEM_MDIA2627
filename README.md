@@ -108,9 +108,27 @@ Entregas Grupo MDIA A
 <td>0.0</td>
 <td>0.0</td>
 </tr>
+<tr>
+<td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/MDIAA/JADE_LOPEZ'>JADE_LOPEZ</a></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
 </table>
 
-Last Checked: 2026-10-01 16:04:47
+Last Checked: 2026-10-01 16:06:48
 
 Entregas Grupo MDIA B
 <table>
@@ -134,7 +152,7 @@ Entregas Grupo MDIA B
 <tr>
 </table>
 
-Last Checked: 2026-10-01 16:04:47
+Last Checked: 2026-10-01 16:06:48
 
 Entregas Grupo MDES
 <table>
@@ -176,4 +194,4 @@ Entregas Grupo MDES
 </tr>
 </table>
 
-Last Checked: 2026-10-01 16:04:47
+Last Checked: 2026-10-01 16:06:48
