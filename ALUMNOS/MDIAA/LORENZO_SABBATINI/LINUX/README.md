@@ -1,4 +1,6 @@
-Entregable Linux
+<h2 align="center">
+    Entregable Linux
+</h2   >
 
 1. Listar todos los archivos del directorio bin.
 ```bash
