@@ -379,6 +379,24 @@ Entregas Grupo MDIA A
 <td>0.0</td>
 </tr>
 <tr>
+<td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/MDIAA/LAURA_SOLER'>LAURA_SOLER</a></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
 <td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/MDIAA/LOLA_BONET'>LOLA_BONET</a></td>
 <td>❌</td>
 <td>❌</td>
@@ -524,7 +542,7 @@ Entregas Grupo MDIA A
 </tr>
 </table>
 
-Last Checked: 2026-10-06 12:51:59
+Last Checked: 2026-10-08 07:19:57
 
 Entregas Grupo MDIA B
 <table>
@@ -548,7 +566,7 @@ Entregas Grupo MDIA B
 <tr>
 </table>
 
-Last Checked: 2026-10-06 12:51:59
+Last Checked: 2026-10-08 07:19:57
 
 Entregas Grupo MDES
 <table>
@@ -734,4 +752,4 @@ Entregas Grupo MDES
 </tr>
 </table>
 
-Last Checked: 2026-10-06 12:51:59
+Last Checked: 2026-10-08 07:19:57
