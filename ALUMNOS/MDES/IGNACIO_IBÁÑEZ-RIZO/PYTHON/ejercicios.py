@@ -12,3 +12,10 @@ if festivo:
     print("Hoy es fiesta voy a echarme una siesta!!")
 else:
     print("No es fiesta pero no pasa nada porque tengo que hacer el entregable de Python :)")
+
+#Ejercicio 4
+def ultimoCaracter(texto):
+    if type(texto) != str:
+        return "Debo ser ejecutada con un string"
+    else:
+        return texto[-1]
