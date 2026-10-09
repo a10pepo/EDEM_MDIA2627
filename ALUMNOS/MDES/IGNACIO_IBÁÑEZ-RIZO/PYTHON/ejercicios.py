@@ -19,3 +19,23 @@ def ultimoCaracter(texto):
         return "Debo ser ejecutada con un string"
     else:
         return texto[-1]
+
+#Ejercicio 5
+def norm(s: str) -> str:
+    return s.strip().lower()
+
+palabra = norm(input("Escriba una palabra "))
+
+bad = set()
+with open("bad_words.txt", encoding="utf-8") as f:
+    for line in f:
+        w = line.strip()
+        if w:
+            bad.add(norm(w))
+
+if  len(palabra) == 0 or " "  in palabra:
+    print("Introduce una sola palabra (sin espacios).")
+elif palabra in bad:
+    print("NO CORRECTA")
+else:
+    print("CORRECTA")
