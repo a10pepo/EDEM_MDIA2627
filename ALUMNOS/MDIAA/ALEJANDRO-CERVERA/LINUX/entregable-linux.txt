@@ -4,11 +4,11 @@ EJERCICIO DE ALEJANDRO CERVERA ALCALÁ
 
 1.Listar todos los archivos del directorio bin.
 
-ls bin
+ls /bin
 
 2.Listar todos los archivos del directorio tmp.
 
-ls tmp
+ls /tmp
 
 3.Listar todos los archivos del directorio etc que empiecen por t
 
@@ -66,7 +66,7 @@ ls -l
 
 16.Borrar todos los archivos y directorios visibles de vuestro directorio PRUEBA.
 
-rm -r /tmp/PRUEBA/
+rm -r /tmp/PRUEBA/*
 
 17.Crear los directorios dir1, dir2 y dir3 en el directorio PRUEBA. Dentro de dir1 crear el directorio dir11. Dentro del directorio dir3 crear el directorio dir31. Dentro del directorio dir31, crear los directorios dir311 y dir312.
 
