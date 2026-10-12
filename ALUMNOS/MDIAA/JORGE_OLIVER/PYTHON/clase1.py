@@ -114,9 +114,9 @@
 
 # Ahora tenemos las siguientes variables:
 
-A = 4
-B = "Text"
-C = 4.1
+# A = 4
+# B = "Text"
+# C = 4.1
 
 # Comprueba:
 # 1. Si A y B son equivalentes
@@ -137,7 +137,12 @@ C = 4.1
 #     3) Declara un string texto = "python" y verifica si "y" está en texto
 #     4) Comprueba si "z" no está en texto
 
-
+# lista = [3, 7, 10]
+# texto:str = "Python"
+# print(3 in lista)
+# print(6 in lista)
+# print("y" in texto)
+# print("z" not in texto)
 
 # *Operadores de Asignación (=, +=, -=, *=, /=, %=, **=, //=)*
 #     1) Crea una variable x = 10. Súmale 5 usando asignación abreviada x += 5
@@ -147,3 +152,19 @@ C = 4.1
 #     5) Obtén el módulo de x entre 3 con x %= 3
 #     6) Eleva x a la potencia 3 usando x **= 3
 #     7) Realiza una división entera de x entre 2 con x //= 2
+
+x = 10
+x += 5
+print(x)
+x -= 3
+print(x)
+x *= 2
+print(x)
+x /=4
+print(x)
+x %= 3
+print(x)
+x ** 3
+print(x)
+x //= 2
+print(x)
