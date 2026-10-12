@@ -153,18 +153,18 @@
 #     6) Eleva x a la potencia 3 usando x **= 3
 #     7) Realiza una división entera de x entre 2 con x //= 2
 
-x = 10
-x += 5
-print(x)
-x -= 3
-print(x)
-x *= 2
-print(x)
-x /=4
-print(x)
-x %= 3
-print(x)
-x ** 3
-print(x)
-x //= 2
-print(x)
+# x = 10
+# x += 5
+# print(x)
+# x -= 3
+# print(x)
+# x *= 2
+# print(x)
+# x /=4
+# print(x)
+# x %= 3
+# print(x)
+# x ** 3
+# print(x)
+# x //= 2
+# print(x)
