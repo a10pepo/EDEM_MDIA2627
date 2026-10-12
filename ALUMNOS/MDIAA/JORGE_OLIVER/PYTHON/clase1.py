@@ -168,3 +168,23 @@
 # print(x)
 # x //= 2
 # print(x)
+# ---------------------------------------------------------------
+# #### Ejercicio 5
+# Utilizaremos como base el siguiente string:
+
+#     "A quien madruga, dios le ayuda"
+
+# Imprime por pantalla lo siguiente:
+# 1. Pasarlo todo a mayúsculas
+# 2. Pasarlo todo a minúsculas
+# 3. Pasar a mayúsculas solo las iniciales de las palabras
+# 4. Crea una lista dividiendo por sus espacios en diferentes string
+# 5. Sustituye las comas `,` por puntos y comas `;`
+# 6. Elimina las `a` minúsculas
+
+frase:str = "A quien madruga, dios le ayuda"
+
+print(frase.upper())
+print(frase.lower())
+print(frase.upper())
+print(frase.replace(",", ":"))
