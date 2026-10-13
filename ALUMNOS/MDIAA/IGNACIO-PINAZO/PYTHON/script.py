@@ -24,3 +24,25 @@ def ultimoCaracter(str: str) -> str:
 
 # Ejercicio 5
 
+def norm(s: str) -> str:
+    return s.lower().strip()
+
+from pathlib import Path
+
+bad = set()
+with open(Path(__file__).parent / "bad_words.txt", encoding="utf-8") as f:
+    for line in f:
+        w = line.strip()
+        if w:
+            bad.add(norm(w))
+
+entrada = input("Introduce una palabra: ")
+
+if not entrada.strip() or " " in entrada.strip():
+    print("Introduce una sola palabra (sin espacios).")
+else:
+    if norm(entrada) in bad:
+        print("NO CORRECTA")
+    else:
+        print("CORRECTA")
+
