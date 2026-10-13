@@ -182,9 +182,175 @@
 # 5. Sustituye las comas `,` por puntos y comas `;`
 # 6. Elimina las `a` minúsculas
 
-frase:str = "A quien madruga, dios le ayuda"
+# frase:str = "A quien madruga, dios le ayuda"
 
-print(frase.upper())
-print(frase.lower())
-print(frase.upper())
-print(frase.replace(",", ":"))
+# print(frase.upper())
+# print(frase.lower())
+# print(frase.title())
+# print(frase.split())
+# print(frase.replace(",", ";"))
+#  ---------------------------------------------------------------
+# #### Ejercicio 6
+# En este ejercicio se va a crear una lista con distintos elementos. 
+
+# Crea primero las variables que luego añadiremos a la lista. Sigue las instrucciones detalladas a continuación:
+
+# 1. Crea una variable llamada `puntuación` de tipo Integer que represente la puntuación obtenida en un juego.
+# 2. Crea una variable llamada `nombre_equipo` de tipo String que contenga el nombre de tu equipo favorito de deportes seguido de un espacio en blanco y el deporte que practicas.
+# 3. Crea una variable llamada `promedio_tiempo` con el promedio de tiempo en horas que dedicas diariamente al estudio o trabajo, de tipo float.
+# 4. Crea una variable llamada `es_habil` de tipo Boolean True si eres diestro y False si eres zurdo.
+# 5. Crea una variable llamada `lista_compras` de tipo List que contenga los nombres de los cinco alimentos que más consumes. Cada elemento debe ser de tipo String.
+# 6. Crea una variable llamada `tupla_mascotas` de tipo Tuple que incluya el nombre, la edad y la especie de tus dos mascotas -en dos tuplas, una por mascota-.
+# 7. Crea una variable llamada `dict_contactos` con tres keys y tres values. Una key es `amigos`, con los nombres y apellidos ("Juan Pablo Pérez García") de tus dos amigos como value. Otra key es `telefonos`, con sus números de teléfono como value. La última key es `emails`, con sus direcciones de correo electrónico como value.
+# 8. Añade todos estos elementos en una lista llamada `lista_actividades` en el orden de aparición **usando la función de lista que aprendimos en clase**.
+# 9. Responde en un comentario a la siguiente pregunta: ¿Cómo podrías verificar si un elemento está presente en `lista_actividades` antes de agregarlo a la lista para evitar duplicados?
+
+puntuacion:int = 0
+
+nombre_equipo:str = "Valencia Futbol"
+
+promedio_tiempo: float = 20.5
+
+es_habil:bool = True
+
+lista_compras:list = ["huevo", "aguacate", "pollo", "brocoli", "pimiento" ]
+
+tupla_mascotas1:tuple = ("Eren", 6, "perro")
+
+tupla_mascotas2:tuple = ("Pepin", 1, "gato")
+
+dict_contactos: dict = {
+    "amigos": ["Pepe Luis González", "Angel Perez Garcia", "Jose Manuel Linares"],
+    "telefonos": ["687697788", "678997643", "634356823"],
+    "emails": ["pepe@gmail.com", "angel@gmail.com", "jose@gmail.com"]
+}
+
+lista_actividades: list = [puntuacion, nombre_equipo, promedio_tiempo, es_habil, lista_compras, tupla_mascotas1, tupla_mascotas2, dict_contactos]
+ 
+# 9. Responde en un comentario a la siguiente pregunta: ¿Cómo podrías verificar si un elemento está presente en `lista_actividades` antes de agregarlo a la lista para evitar duplicados?
+
+# ejemplo:
+# if puntuacion in lista_actividades:
+#     print("Duplicado")
+# else:
+#     print("No duplicado")
+
+#  ---------------------------------------------------------------
+#### Ejercicio 6
+
+# En este ejercicio seguimos trabajando con diccionarios. 
+
+# 1. Crea un diccionario llamado agenda con tres entradas iniciales, por ejemplo:
+#     - "Ana" → "654123987"
+#     - "Luis" → "678555111"
+#     -"Marta" → "622444333"
+
+# 2. Realiza las siguientes operaciones usando métodos de diccionario (puedes investigar en [esta página](https://www.w3schools.com/python/python_dictionaries_methods.asp) los distintos métodos built-in):
+#     1) Muestra todas las claves (nombres) y todos los valores (números).
+#     2) Usa algún método para obtener el número de "Luis". ¿Qué ocurre si buscas el número de "Pedro", que no existe?
+#     3) Añade un nuevo contacto llamado "Pedro" con su número.
+#     4) Muestra todos los pares nombre-teléfono.
+#     5) Borra a "Marta" de la agenda e imprime la agenda resultante. ***IMPORTANTE!*** Utiliza el método que te permita guardar a "Marta" en una lista de "Eliminados"
+#     6) Finalmente, limpia toda la agenda y confirma que está vacía.
+
+# agenda: dict = {
+#     "Ana" : "654123987",
+#     "Luis" : "678555111",
+#     "Marta" : "622444333"
+# }
+# print(agenda)
+# print(agenda.get("Pedro"))
+# agenda.update({"Pedro":"657348374"})
+# eliminados = agenda.pop("Marta")
+# print(agenda)
+# print(eliminados)
+# agenda.clear()
+# print(agenda)
+
+# #  ---------------------------------------------------------------
+# #### Ejercicio 7
+
+# Ahora vamos a practicar los métodos con listas. Si quieres investigar un poco, te recomendamos [esta página](https://www.w3schools.com/python/python_lists_methods.asp)
+
+# Crea una lista llamada "peliculas" con los títulos de tus pelis preferidas, por ejemplo:
+
+peliculas: list = ["Gladiator", "Seven", "Shrek", "1917"]
+
+# Realiza estas operaciones usando métodos de listas:
+
+# a) Imprime todas las películas.
+
+# print("Mis peliculas favoritas son:", peliculas)
+
+# b) Añade "El Padrino" al final.
+
+# peliculas.append("El Padrino")
+# print("Mis peliculas favoritas son:", peliculas)
+
+# # c) Inserta "Memento" en la posición 2.
+
+# peliculas.insert(1, "Memento")
+# print("Mis peliculas favoritas son:", peliculas)
+
+# # d) Elimina "Gladiator".
+
+# peliculas.remove("Gladiator")
+# print("Mis peliculas favoritas son:", peliculas)
+
+# e) Elimina y muestra la última película. Investiga si puedes hacer lo mismo con cualquier elemento de la lista, o sólo con el último. Contéstalo en un comentario.
+
+# del peliculas [-1]
+# print("Mis peliculas favoritas son:", peliculas)
+#afirmativo, en el caso de querer eliminar otro valor, tendria que indicar la posicion en la que se encuentra el valor
+
+# f) Ordena la lista alfabéticamente.
+
+# peliculas.sort()
+# print("Mis peliculas favoritas en orden alfabético:", peliculas)
+
+# g) Vacía la lista y muestra que está vacía.
+
+# peliculas.clear()
+# print("Mis peliculas favoritas son:", peliculas)
+
+# #  ---------------------------------------------------------------
+# #### Ejercicio 8
+
+# Practicaremos ahora los Condicionales que hemos visto en clase. Ya adivinarás, te recomendamos investigar un poquito para terminar de fijar [aquí](https://www.w3schools.com/python/python_conditions.asp)
+
+# Evalúa las notas de examen de la clase. 
+# 1. Crea una variable nota con un valor numérico entre 0 y 100 que represente la calificación de un examen.
+
+nota:int = 100
+    
+# 2. Usa sentencias `if` y `else` anidadas para imprimir la siguiente evaluación según la nota:
+#     - Si la nota es mayor o igual a 90, imprime: *"Excelente"*
+if nota > 100:
+    print("Nota inválida")
+elif nota >= 90:
+    print("Excelente", nota)
+elif nota >= 70:
+    print("Bueno", nota)
+elif nota >= 50:
+    print("Suficiente", nota)
+elif nota >= 0:
+    print("Insuficiente,", nota)
+elif nota < 0:
+    print("Nota inválida")
+    
+#     - Si la nota está entre 70 y 89 (inclusive), imprime: *"Bueno"*
+#     - Si la nota está entre 50 y 69 (inclusive), imprime: *"Suficiente"*
+#     - Si la nota es menor que 50, imprime: *"Insuficiente"*
+
+# #  ---------------------------------------------------------------
+# #### Ejercicio 9
+
+# **Para cerrar: Importancia de documentar el código:**
+
+# Documentar tu código usando comentarios es *esencial* para que tú y otros programadores puedan entender fácilmente lo que hace cada parte del código, especialmente cuando el proyecto crece o pasa tiempo sin tocarlo. Los comentarios permiten explicar la lógica, el propósito de variables, funciones y bloques de código, y apuntar detalles relevantes que no se ven directamente en el código.
+
+# Además, comentar el código ayuda a detectar errores y facilita el trabajo en equipo, ya que otros pueden seguir el flujo sin confusión. También es útil para que los profesores puedan evaluar el proceso de razonamiento detrás de las soluciones.
+
+# Por eso, como último ejercicio en esta práctica, documenta todo el código que hayan escrito hasta ahora, agregando comentarios claros que expliquen qué hace cada sección y por qué.
+
+# [Aquí](https://peps.python.org/pep-0008/#comments) tienes un recurso si quieres investigar un poco sobre comentarios en Python.
