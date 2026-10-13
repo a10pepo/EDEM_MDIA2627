@@ -1,4 +1,4 @@
-palabra_teclado = input("Ingrese una palabra: ")
+palabra_teclado : str = input("Introduce una palabra: ")
 
 def norm(s: str) -> str:
     return s.lower().strip()
