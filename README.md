@@ -55,18 +55,12 @@ Durante este bloque, los alumnos se centrarán en adquirir conocimientos sobre l
 ### Entregables Individuales
 
 <table>
-<tr><th>Modulo</th><th>Entregable</th><th>Fecha Entrega ES</th><th>Fecha Entrega FS</th></tr>
-<tr><th>M0</th><td>Python</td><td>03 nov.</td><td>24 oct.</td></tr>
-<tr><th>M0</th><td>Linux</td><td>28 oct.</td><td>04 oct.</td></tr>
-<tr><th>M0</th><td>Docker</td><td>04 nov.</td><td>07 nov.</td></tr>
-<tr><th>M0</th><td>DBT</td><td>26 nov.</td><td>12 dic.</td></tr>
-<tr><th>M1</th><td>SQL</td><td>10 nov.</td><td>14 nov.</td></tr>
-<tr><th>M1</th><td>APIs</td><td>09 dic.</td><td>30 ene.</td></tr>
-<tr><th>M1</th><td>Kafka</td><td>12 feb.</td><td>02 ene.</td></tr>
-<tr><th>M1</th><td>Spark Streaming</td><td>15 dic.</td><td>06 feb.</td></tr>
-<tr><th>M2</th><td>GCP</td><td>25 feb.</td><td>05 jun.</td></tr>
-<tr><th>M2</th><td>AWS</td><td>24 mar.</td><td>26 jun.</td></tr>
-<tr><th>M2</th><td>Azure</td><td>12 may.</td><td>24 jul.</td></tr>
+<tr><th>Modulo</th><th>Entregable</th><th>Fecha Gr. A</th><th>Fecha Gr. B</th></tr>
+<tr><th>M0</th><td>Linux</td><td>15 oct</td><td>10 nov</td></tr>
+<tr><th>M0</th><td>Python</td><td>21 oct</td><td>23 nov</td></tr>
+<tr><th>M0</th><td>Git Actions</td><td>27 oct</td><td>26 nov</td></tr>
+<tr><th>M0</th><td>SQL</td><td>04 nov</td><td>08 dic</td></tr>
+<tr><th>M0</th><td>Docker</td><td>09nov</td><td>09 dic</td></tr>
 </table>
 
 ### Estado de las entregas
