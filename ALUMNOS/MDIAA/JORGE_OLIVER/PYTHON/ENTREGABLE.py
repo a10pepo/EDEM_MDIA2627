@@ -28,7 +28,7 @@
 # ## Ejercicio 4
 # 1. Crea la función ultimoCaracter debe recibir un tipo string y devolver un string con el último carácter. 
 
-# def ultimoCaracter (palabra = input("Introduce la palabra deseada: ")):
+# def ultimoCaracter (palabra:str = input("Introduce la palabra deseada: ")):
 #         return (f"Este es su último carácter: {palabra [-1]}")
     
 
@@ -42,7 +42,7 @@
 #     else:
 #         return("Debo ser ejecutada con un string")
 
-# print(ultimoCaracter(89))
+# print(ultimoCaracter("Hola"))
 
 # ## Ejercicio 5 — **Bad Words**
 
@@ -72,9 +72,11 @@
 # ### Entrada
 # Pide al usuario **una sola palabra** con `input()`.
 
+palabra: str = input("Introduzca una palabra: ")
+
 # ### Validación
 # Si la entrada está vacía o contiene espacios, muestra exactamente:
-# ```
+if palabra == "":
 # Introduce una sola palabra (sin espacios).
 # ```
 # y termina el programa.
