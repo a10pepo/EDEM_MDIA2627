@@ -1,4 +1,3 @@
-# Ejercicio 2
 festivo = True
 
 if festivo:
