@@ -3,7 +3,7 @@ import subprocess
 import sys
 
 
-ALLOWED_ROOT_FILES = {"README.md"}
+ALLOWED_ROOT_FILES = {"README.md",".gitkeep"}
 ALLOWED_ROOT_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg"}
 MASTERS = ("MDIAA", "MDIAB", "MDES")
 

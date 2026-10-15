@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Fran Alapont Sánchez</title>
+  <desc id="desc">A dark purple and turquoise banner introducing Fran as a Master's student at EDEM.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1022"/>
+      <stop offset="0.55" stop-color="#111a36"/>
+      <stop offset="1" stop-color="#1b1740"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#65f0da"/>
+      <stop offset="0.52" stop-color="#8ea4ff"/>
+      <stop offset="1" stop-color="#cf8fff"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#7a66ff" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#7a66ff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="#a6b7ff" stroke-opacity=".07"/>
+    </pattern>
+    <clipPath id="frame"><rect width="1200" height="360" rx="24"/></clipPath>
+    <style>
+      .orbit { transform-origin: 944px 176px; animation: spin 28s linear infinite; }
+      .orbit-reverse { transform-origin: 944px 176px; animation: spin 34s linear infinite reverse; }
+      .pulse { animation: pulse 4s ease-in-out infinite; }
+      .float { animation: float 5s ease-in-out infinite; }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      @keyframes pulse { 50% { opacity: .52; } }
+      @keyframes float { 50% { transform: translateY(-8px); } }
+    </style>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="360" fill="url(#background)"/>
+    <rect width="1200" height="360" fill="url(#grid)"/>
+    <circle cx="940" cy="180" r="270" fill="url(#glow)" class="pulse"/>
+    <path d="M0 344H1200" stroke="url(#accent)" stroke-width="5"/>
+
+    <g font-family="Segoe UI, Arial, sans-serif">
+      <rect x="66" y="58" width="222" height="34" rx="17" fill="#66e9d9" fill-opacity=".1" stroke="#66e9d9" stroke-opacity=".42"/>
+      <circle cx="84" cy="75" r="5" fill="#68efdb" class="pulse"/>
+      <text x="98" y="80" fill="#9ff8e9" font-size="15" font-weight="600" letter-spacing="1.4">HELLO, I'M FRAN</text>
+
+      <text x="64" y="174" fill="#f7f8ff" font-size="67" font-weight="750" letter-spacing="-2">Fran Alapont</text>
+      <text x="64" y="246" fill="url(#accent)" font-size="67" font-weight="750" letter-spacing="-2">Sánchez</text>
+      <text x="68" y="295" fill="#c9d3ef" font-size="23" font-weight="400">Master's student at EDEM</text>
+    </g>
+
+    <g fill="none" stroke-linecap="round">
+      <circle cx="944" cy="176" r="107" stroke="#9b8cff" stroke-opacity=".26" stroke-width="1.4" stroke-dasharray="5 10" class="orbit"/>
+      <circle cx="944" cy="176" r="143" stroke="#63e9d8" stroke-opacity=".28" stroke-width="1.4" stroke-dasharray="2 12" class="orbit-reverse"/>
+      <circle cx="944" cy="176" r="73" stroke="url(#accent)" stroke-opacity=".55" stroke-width="1.5"/>
+      <path d="M857 89l174 174M1031 89L857 263" stroke="#a8a1f8" stroke-opacity=".12"/>
+    </g>
+    <g class="float">
+      <rect x="880" y="112" width="128" height="128" rx="28" fill="#171b39" stroke="#a89cff" stroke-opacity=".7" stroke-width="2"/>
+      <text x="944" y="195" text-anchor="middle" fill="url(#accent)" font-family="Consolas, monospace" font-size="54" font-weight="700">FA</text>
+    </g>
+    <circle cx="1087" cy="176" r="7" fill="#68efdb" class="pulse"/>
+    <circle cx="837" cy="86" r="5" fill="#c68eff" class="pulse"/>
+  </g>
+</svg>
