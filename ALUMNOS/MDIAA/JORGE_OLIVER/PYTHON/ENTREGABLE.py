@@ -69,14 +69,27 @@
 # - convierte a minúsculas,
 # - quita espacios al inicio y al final.
 
+def norm(s: str) -> str:
+    return s.lower().strip()
+
+bad = set()
+with open("bad_words.txt", encoding="utf-8") as f:
+    for line in f:
+        w = line.strip()
+        if w:
+            bad.add(norm(w))
+            
 # ### Entrada
 # Pide al usuario **una sola palabra** con `input()`.
 
-palabra: str = input("Introduzca una palabra: ")
+palabra = norm(input("Introduzca una palabra: "))
 
 # ### Validación
 # Si la entrada está vacía o contiene espacios, muestra exactamente:
-if palabra == "":
+
+if palabra == "" or " " in palabra:
+    print("Introduzca una palabra (sin espacios).")
+
 # Introduce una sola palabra (sin espacios).
 # ```
 # y termina el programa.
@@ -84,6 +97,11 @@ if palabra == "":
 # ### Comprobación
 # - Normaliza la palabra introducida con `norm(...)`.
 # - Comprueba si pertenece al conjunto `bad` cargado con el bloque proporcionado.
+
+if palabra in bad:
+    print ("NO CORRECTA")
+else:
+    print("CORRECTA")
 
 # ### Salida
 # - Si pertenece: imprime **NO CORRECTA**
