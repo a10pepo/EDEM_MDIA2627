@@ -15,8 +15,6 @@ Graduado en **Ciencia de Datos** y actualmente cursando el **Máster en IA, Big 
 ## 🔭 En lo que estoy ahora
 
 - 🎓 Cursando el máster de IA, Big Data & Cloud en EDEM
-- 🇬🇧 Preparando el C1 de Cambridge (ya con el B2)
-- 🛒 Emprendiendo como autónomo: vendo un producto en Amazon bajo mi propia marca registrada
 
 ## 📌 Proyecto destacado
 
