@@ -1,6 +1,6 @@
 # ¡Hola! 👋 Soy Jorge Durá Jiménez
 
-Graduado en **Ciencia de Datos** y actualmente cursando el **Máster en IA, Big Data & Cloud en EDEM**. Vivo en Valencia 🇪🇸.
+Graduado en **Ciencia de Datos** y actualmente cursando el **Máster en IA, Big Data & Cloud en EDEM**. Vivo en Valencia capital. 🇪🇸
 
 ## 🛠️ Herramientas
 
