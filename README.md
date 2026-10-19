@@ -463,6 +463,24 @@ Entregas Grupo MDIA A
 <td>0.0</td>
 </tr>
 <tr>
+<td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/MDIAA/Manolo_Tortajada'>MANOLO_TORTAJADA</a></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>2.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
 <td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/MDIAA/OSCAR_HERREROS'>OSCAR_HERREROS</a></td>
 <td>❌</td>
 <td>❌</td>
@@ -536,7 +554,7 @@ Entregas Grupo MDIA A
 </tr>
 </table>
 
-Last Checked: 2026-10-18 12:23:48
+Last Checked: 2026-10-19 13:23:53
 
 Entregas Grupo MDIA B
 <table>
@@ -560,7 +578,7 @@ Entregas Grupo MDIA B
 <tr>
 </table>
 
-Last Checked: 2026-10-18 12:23:48
+Last Checked: 2026-10-19 13:23:53
 
 Entregas Grupo MDES
 <table>
@@ -746,4 +764,4 @@ Entregas Grupo MDES
 </tr>
 </table>
 
-Last Checked: 2026-10-18 12:23:48
+Last Checked: 2026-10-19 13:23:53
