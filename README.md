@@ -58,7 +58,7 @@ Durante este bloque, los alumnos se centrarán en adquirir conocimientos sobre l
 <tr><th>Modulo</th><th>Entregable</th><th>Fecha Gr. A</th><th>Fecha Gr. B</th></tr>
 <tr><th>M0</th><td>Linux</td><td>15 oct</td><td>10 nov</td></tr>
 <tr><th>M0</th><td>Python</td><td>21 oct</td><td>23 nov</td></tr>
-<tr><th>M0</th><td>Git Actions</td><td>27 oct</td><td>26 nov</td></tr>
+<tr><th>M0</th><td>Git Actions</td><td>3 Nov</td><td>26 nov</td></tr>
 <tr><th>M0</th><td>SQL</td><td>04 nov</td><td>08 dic</td></tr>
 <tr><th>M0</th><td>Docker</td><td>09nov</td><td>09 dic</td></tr>
 </table>
