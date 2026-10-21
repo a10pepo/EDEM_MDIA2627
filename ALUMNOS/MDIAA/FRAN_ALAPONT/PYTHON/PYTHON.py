@@ -25,7 +25,7 @@ else:
 # 1. Crea la función ultimoCaracter debe recibir un tipo string y devolver un string con el último carácter. 
 # 2. Si la función no recibe un dato tipo string debe devolver el string 'Debo ser ejecutada con un string'.
 def ultimoCaracter(palabra):
-    if  type(palabra) == str:
+    if type(palabra) == str:
         return palabra[-1]
     else:
         return "Debo ser ejecutada con un string"
@@ -66,17 +66,17 @@ def norm(s: str) -> str:
         if s == "":
             return s
         if s[-1] == " ":
-            s = s[0:len(s)-1]
+            s = s[0:len(s) - 1]
 
     return s
 
 # Entrada
 # Pide al usuario **una sola palabra** con `input()`.
 procedimiento = True
-word=input("Introduce una sola palabra: ")
+word = input("Introduce una sola palabra: ")
 # Validación
 # Si la entrada está vacía o contiene espacios, muestra exactamente:
-check=word.replace(" ","")
+check = word.replace(" ", "")
 if word == "" or word != check:
 # Introduce una sola palabra (sin espacios).
 #
