@@ -53,6 +53,6 @@ WHERE salario = (SELECT MAX(salario) FROM empleados)
 
 SELECT * 
 FROM empleados
-WHERE departamento_id = (
+WHERE departamento_id in (
     SELECT id FROM departamentos WHERE nombre = 'Tecnología'
 );
