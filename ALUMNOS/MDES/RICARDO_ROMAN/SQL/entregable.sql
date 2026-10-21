@@ -112,7 +112,7 @@ WHERE e.salario = (
 -- Empleados de Tecnologia por su id con subconsulta por nombre
 SELECT nombre
 FROM empleados
-WHERE departamento_id = (
+WHERE departamento_id IN (
     SELECT id
     FROM departamentos
     WHERE nombre = 'Tecnología'
