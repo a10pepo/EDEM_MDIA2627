@@ -43,9 +43,9 @@ SELECT e.nombre, d.nombre AS departamento FROM empleados e
 inner JOIN departamentos d 
 ON e.departamento_id = d.id;
 
----------
-- EXTRA -
----------
+-----------
+-- EXTRA --
+-----------
 SELECT e.nombre, d.nombre FROM empleados e
 RIGHT JOIN departamentos d 
 ON e.departamento_id = d.id
