@@ -12,4 +12,4 @@ WHERE salario = (
 
 SELECT *
 FROM empleados
-WHERE departamento_id = (SELECT id FROM departamentos WHERE nombre = 'Tecnología');
+WHERE departamento_id IN (SELECT id FROM departamentos WHERE nombre = 'Tecnología');
