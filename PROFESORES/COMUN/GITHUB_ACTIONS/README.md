@@ -2,7 +2,7 @@
 
 Para entregar este ejercicio, debes subir el Código generado a vuestro repositorio remoto de GitHub y realizar una Pull Request poniendo a *Ignacio Reyes* como reviewer.
 
-Tu empresa necesita automatizar un proceso que recibe datos de ventas en formato JSON. Debes crear un workflow llamado 20.ejercicio_entregable.yaml que cumpla con los siguientes requisitos:
+Tu empresa necesita automatizar un proceso que recibe datos de ventas en formato JSON. Debes crear un workflow llamado ejercicio_entregable.yaml que cumpla con los siguientes requisitos:
 
 1. Activación: Se debe activar manualmente y permitir al usuario elegir si quiere ejecutar los "Tests de Seguridad" (sí/no).
 
