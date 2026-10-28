@@ -581,7 +581,7 @@ Entregas Grupo MDIA A
 </tr>
 </table>
 
-Last Checked: 2026-10-28 18:08:48
+Last Checked: 2026-10-28 18:10:26
 
 Entregas Grupo MDIA B
 <table>
@@ -604,6 +604,25 @@ Entregas Grupo MDIA B
 <th>MDIA_M2</th>
 </tr>
 <tr>
+<tr>
+<td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/MDIAB/CARLA_LOPEZ'>CARLA_LOPEZ</a></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
 <tr>
 <td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/MDIAB/MAKSIM_GONZALEZ'>MAKSIM_GONZALEZ</a></td>
 <td>❌</td>
@@ -663,7 +682,7 @@ Entregas Grupo MDIA B
 </tr>
 </table>
 
-Last Checked: 2026-10-28 18:08:48
+Last Checked: 2026-10-28 18:10:26
 
 Entregas Grupo MDES
 <table>
@@ -859,4 +878,4 @@ Entregas Grupo MDES
 </tr>
 </table>
 
-Last Checked: 2026-10-28 18:08:48
+Last Checked: 2026-10-28 18:10:26
