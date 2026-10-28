@@ -581,7 +581,7 @@ Entregas Grupo MDIA A
 </tr>
 </table>
 
-Last Checked: 2026-10-28 18:07:39
+Last Checked: 2026-10-28 18:08:48
 
 Entregas Grupo MDIA B
 <table>
@@ -624,6 +624,25 @@ Entregas Grupo MDIA B
 <td>0.0</td>
 </tr>
 <tr>
+<td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/MDIAB/PILAR_PITARCH'>PILAR_PITARCH</a></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
 <td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/MDIAB/SERGIO_MANCEBO'>SERGIO_MANCEBO</a></td>
 <td>❌</td>
 <td>❌</td>
@@ -644,7 +663,7 @@ Entregas Grupo MDIA B
 </tr>
 </table>
 
-Last Checked: 2026-10-28 18:07:39
+Last Checked: 2026-10-28 18:08:48
 
 Entregas Grupo MDES
 <table>
@@ -840,4 +859,4 @@ Entregas Grupo MDES
 </tr>
 </table>
 
-Last Checked: 2026-10-28 18:07:39
+Last Checked: 2026-10-28 18:08:48
