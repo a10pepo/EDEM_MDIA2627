@@ -581,7 +581,7 @@ Entregas Grupo MDIA A
 </tr>
 </table>
 
-Last Checked: 2026-10-28 18:20:21
+Last Checked: 2026-10-28 18:21:11
 
 Entregas Grupo MDIA B
 <table>
@@ -814,6 +814,25 @@ Entregas Grupo MDIA B
 <td>0.0</td>
 </tr>
 <tr>
+<td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/MDIAB/NEUS_SANMARTIN'>NEUS_SANMARTIN</a></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
 <td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/MDIAB/PILAR_PITARCH'>PILAR_PITARCH</a></td>
 <td>❌</td>
 <td>❌</td>
@@ -891,7 +910,7 @@ Entregas Grupo MDIA B
 </tr>
 </table>
 
-Last Checked: 2026-10-28 18:20:21
+Last Checked: 2026-10-28 18:21:11
 
 Entregas Grupo MDES
 <table>
@@ -1087,4 +1106,4 @@ Entregas Grupo MDES
 </tr>
 </table>
 
-Last Checked: 2026-10-28 18:20:21
+Last Checked: 2026-10-28 18:21:11
