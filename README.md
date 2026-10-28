@@ -581,7 +581,7 @@ Entregas Grupo MDIA A
 </tr>
 </table>
 
-Last Checked: 2026-10-28 18:11:22
+Last Checked: 2026-10-28 18:12:01
 
 Entregas Grupo MDIA B
 <table>
@@ -643,6 +643,25 @@ Entregas Grupo MDIA B
 <td>0.0</td>
 </tr>
 <tr>
+<td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/MDIAB/JORGE_CEBOLLA'>JORGE_CEBOLLA</a></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
 <td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/MDIAB/JOSEP_MARTINEZ'>JOSEP_MARTINEZ</a></td>
 <td>❌</td>
 <td>❌</td>
@@ -663,6 +682,25 @@ Entregas Grupo MDIA B
 </tr>
 <tr>
 <td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/MDIAB/MAKSIM_GONZALEZ'>MAKSIM_GONZALEZ</a></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/MDIAB/MARIA_SARRIO'>MARIA_SARRIO</a></td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
@@ -720,7 +758,7 @@ Entregas Grupo MDIA B
 </tr>
 </table>
 
-Last Checked: 2026-10-28 18:11:22
+Last Checked: 2026-10-28 18:12:01
 
 Entregas Grupo MDES
 <table>
@@ -916,4 +954,4 @@ Entregas Grupo MDES
 </tr>
 </table>
 
-Last Checked: 2026-10-28 18:11:22
+Last Checked: 2026-10-28 18:12:01
