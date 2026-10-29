@@ -1,0 +1,17 @@
+{
+  "ventas": [
+    {
+      "id": 1,
+      "producto": "Portatil",
+      "precio": 850,
+      "cantidad": 2
+    },
+    {
+      "id": 2,
+      "producto": "Monitor",
+      "precio": 200,
+      "cantidad": 3
+
+    }
+  ]
+}
