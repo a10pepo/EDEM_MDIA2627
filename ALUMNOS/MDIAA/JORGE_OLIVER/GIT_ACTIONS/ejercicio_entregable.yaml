@@ -1,4 +1,4 @@
-name: Security Workflow (entregable de clase)
+name: Workflow de seguridad (entregable de clase)
 
 on:
   workflow_dispatch:
@@ -13,13 +13,13 @@ jobs:
   security:
     runs-on: ubuntu-latest
     steps:
-      - name: Step 1 - Download/Clone the repo on the runner
+      - name: Step 1 - Descargar/Clonar el repo en el runner
         uses: actions/checkout@v4 #action oficial de Github para descargar el repo en la máquina
 
-      - name: Step 2 - Validate the JSON file (syntax)
+      - name: Step 2 - Validar el archivo JSON (syntax)
         run: python3 -m json.tool .github/workflows/ventas.json #comando nativo de python que lee y válida el archivo .json (ventas.json)
 
-      - name: Step 3 - Checking the security of exposed APIs
+      - name: Step 3 - Comprobando seguridad de las APIs expuestas
         if: ${{ inputs.testseguridad == true }} #en el caso de que el input sea true, ejecuta esto...
         run: python .github/workflows/script.py
   processing:
@@ -29,17 +29,17 @@ jobs:
       matrix:
         environment: [staging,production] #definimos los environments que vamos a usar para el job (previamente hay que crearlos.
     steps:
-      - name: Step 1 - Download/Clone the repo on the runner
+      - name: Step 1 - Descargar/Clonar el repo en el runner
         uses: actions/checkout@v4 #volvemos a descargar el repo, ya que, cada job es independiente al anterior
 
-      - name: Step 2 - Generate reports per environment
+      - name: Step 2 - Generar los reportes en cada environment #procesar VENTAS.JSON en cada environment
         run: |
           echo "===ENVIRONMENT REPORT==" > report_${{matrix.environment}}.txt 
           echo "Selected environment: ${{matrix.environment}}" >> report_${{matrix.environment}}.txt
           echo "Process finished succesfully" >> report_${{matrix.environment}}.txt
           echo "Execution date $(date)" >> report_${{matrix.environment}}.txt
 
-      - name: Step 3 - Upload reports per environment 
+      - name: Step 3 - Subir los reportes de cada environment 
         uses: actions/upload-artifact@v4 #con este action nos permite subir los artefacts generados en el step 1 a github
         with: #abre la configuracion de la accion
           name: report_${{matrix.environment}}.txt #nombre del archivo artifact que se genera en github
