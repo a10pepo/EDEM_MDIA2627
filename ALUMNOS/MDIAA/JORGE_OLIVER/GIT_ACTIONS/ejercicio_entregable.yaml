@@ -1,8 +1,57 @@
+name: Security Workflow (entregable de clase)
+
 on:
   workflow_dispatch:
+    inputs: #petición al usuario de declarar si quiere runnear o no el test "security" de tipo booleano donde el valor default es false.
+      testseguridad:
+        description: 'Would you like to run the security tests?'
+        required: true
+        type: boolean
+        default: false
 
 jobs:
-  say-hello:
-    runs-on: ubuntu:latest
+  security:
+    runs-on: ubuntu-latest
     steps:
-    - run: echo "Hello there!"
+      - name: Step 1 - Download/Clone the repo on the runner
+        uses: actions/checkout@v4 #action oficial de Github para descargar el repo en la máquina
+
+      - name: Step 2 - Validate the JSON file (syntax)
+        run: python3 -m json.tool .github/workflows/ventas.json #comando nativo de python que lee y válida el archivo .json (ventas.json)
+
+      - name: Step 3 - Checking the security of exposed APIs
+        if: ${{ inputs.testseguridad == true }} #en el caso de que el input sea true, ejecuta esto...
+        run: python .github/workflows/script.py
+  processing:
+    runs-on: ubuntu-latest
+    needs: security #processing depende de security, cuando security termine, se ejecutará processing
+    strategy:
+      matrix:
+        environment: [staging,production] #definimos los environments que vamos a usar para el job (previamente hay que crearlos.
+    steps:
+      - name: Step 1 - Download/Clone the repo on the runner
+        uses: actions/checkout@v4 #volvemos a descargar el repo, ya que, cada job es independiente al anterior
+
+      - name: Step 2 - Generate reports per environment
+        run: |
+          echo "===ENVIRONMENT REPORT==" > report_${{matrix.environment}}.txt 
+          echo "Selected environment: ${{matrix.environment}}" >> report_${{matrix.environment}}.txt
+          echo "Process finished succesfully" >> report_${{matrix.environment}}.txt
+          echo "Execution date $(date)" >> report_${{matrix.environment}}.txt
+
+      - name: Step 3 - Upload reports per environment 
+        uses: actions/upload-artifact@v4 #con este action nos permite subir los artefacts generados en el step 1 a github
+        with: #abre la configuracion de la accion
+          name: report_${{matrix.environment}}.txt #nombre del archivo artifact que se genera en github
+          path: report_${{matrix.environment}}.txt #ubicacion del archivo para salvarlo una vez termine el proceso en la maquina virtual (runner)
+  success:
+    runs-on: ubuntu-latest
+    needs: [security, processing]
+    steps:
+      - name: Step 1 - Print Discord URL
+        env:
+          WEBHOOK_URL: ${{secrets.DISCORD_WEBHOOK}}
+        run: echo "Please find the URL $WEBHOOK_URL"
+    
+      - name: Final Step
+        run: echo "Workflow completed succesfully"
