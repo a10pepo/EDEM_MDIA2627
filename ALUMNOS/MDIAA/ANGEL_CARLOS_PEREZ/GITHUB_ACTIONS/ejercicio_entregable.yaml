@@ -1,0 +1,71 @@
+name: Ejercicio Entregable - Pipeline de Ventas
+
+# EVENT: el workflow se ejecuta manualmente al pulsar "Run workflow"
+on:
+  workflow_dispatch:
+    inputs:
+      tests_seguridad:
+        description: '¿Quieres ejecutar los Tests de Seguridad?'
+        required: true
+        default: 'si'
+        type: choice
+        options:
+          - 'si'
+          - 'no'
+
+jobs:
+  # ---------------- JOB 1: CI & Seguridad ----------------
+  ci_seguridad:
+    name: "CI y Seguridad"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el código del repositorio
+        uses: actions/checkout@v4
+
+      - name: Validar que ventas.json es un JSON válido
+        run: |
+          python -m json.tool ventas.json
+          echo "El archivo ventas.json es un JSON válido"
+
+      - name: Escaneo de seguridad (claves API expuestas)
+        if: ${{ inputs.tests_seguridad == 'si' }}
+        run: python security_scan.py
+
+  # ---------------- JOB 2: Procesamiento ----------------
+  procesamiento:
+    name: "Procesamiento"
+    needs: ci_seguridad
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        entorno: [staging, production]
+    steps:
+      - name: Descargar el código del repositorio
+        uses: actions/checkout@v4
+
+      - name: Generar el reporte del entorno
+        run: |
+          echo "Reporte de ventas" > reporte_${{ matrix.entorno }}.txt
+          echo "Entorno: ${{ matrix.entorno }}" >> reporte_${{ matrix.entorno }}.txt
+          echo "Fecha: $(date)" >> reporte_${{ matrix.entorno }}.txt
+          echo "Datos procesados:" >> reporte_${{ matrix.entorno }}.txt
+          cat ventas.json >> reporte_${{ matrix.entorno }}.txt
+          cat reporte_${{ matrix.entorno }}.txt
+
+      - name: Subir el reporte como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-${{ matrix.entorno }}
+          path: reporte_${{ matrix.entorno }}.txt
+
+  # ---------------- JOB 3: Notificación de Éxito ----------------
+  notificacion:
+    name: "Notificación de Éxito"
+    needs: [ci_seguridad, procesamiento]
+    if: ${{ success() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simular envío de notificación a Discord
+        run: |
+          echo "Pipeline completado con éxito"
+          echo "Enviando notificación a: ${{ secrets.DISCORD_WEBHOOK }}"
