@@ -1,0 +1,82 @@
+# Desafío final: pipeline de datos seguro y automatizado
+name: "Desafío final - Ventas"
+
+on:
+  workflow_dispatch:
+    inputs:
+      tests_seguridad:
+        description: "¿Ejecutar los tests de seguridad?"
+        required: true
+        type: choice
+        options:
+          - "si"
+          - "no"
+        default: "si"
+
+permissions:
+  contents: read
+
+jobs:
+  ci_seguridad:
+    name: "CI y seguridad"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validar ventas.json
+        run: python -m json.tool ventas.json > /dev/null
+
+      - name: Buscar claves API expuestas
+        if: ${{ inputs.tests_seguridad == 'si' }}
+        run: python scan_seguridad.py ventas.json
+
+  procesamiento:
+    name: "Procesar en ${{ matrix.entorno }}"
+    needs: ci_seguridad
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        entorno: [staging, production]
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generar el reporte
+        env:
+          ENTORNO: ${{ matrix.entorno }}
+        run: python generar_reporte.py ventas.json "$ENTORNO"
+
+      - name: Subir el reporte
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-${{ matrix.entorno }}
+          path: reporte_${{ matrix.entorno }}.txt
+          if-no-files-found: error
+
+  notificacion:
+    name: "Notificación de éxito"
+    needs: [ci_seguridad, procesamiento]
+    if: ${{ success() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simular la notificación
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          if [ -n "$DISCORD_WEBHOOK" ]; then
+            echo "::add-mask::$DISCORD_WEBHOOK"
+            echo "Notificación simulada a $DISCORD_WEBHOOK"
+          else
+            echo "DISCORD_WEBHOOK no está configurado; notificación simulada."
+          fi

@@ -1,0 +1,30 @@
+# Ejercicio 2: manejo de secretos
+name: "Ejercicio 2 - Secretos"
+
+on:
+  workflow_dispatch:
+
+# Se necesita permiso de lectura únicamente; el workflow no modifica el repositorio.
+permissions:
+  contents: read
+
+jobs:
+  login-simulado:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simular un login con una contraseña secreta
+        # Antes de ejecutar el workflow hay que crear MY_PASSWORD en:
+        # Settings > Secrets and variables > Actions > New repository secret.
+        # Al pasar el secreto mediante env evitamos escribirlo directamente en el script.
+        env:
+          PASSWORD: ${{ secrets.MY_PASSWORD }}
+        run: |
+          if [ -z "$PASSWORD" ]; then
+            echo "No se ha configurado el secreto MY_PASSWORD."
+            exit 1
+          fi
+
+          echo "Contraseña recibida; login simulado correctamente."
+          # GitHub enmascara los valores guardados como secretos y mostrará *** en el log.
+          # Se imprime solo porque el ejercicio lo solicita; en un caso real no se revela.
+          echo "Valor enmascarado por GitHub: $PASSWORD"

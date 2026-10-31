@@ -1,0 +1,32 @@
+# Ejercicio 10: build, aprobación manual y despliegue
+name: "Ejercicio 10 - Despliegue manual"
+
+# Este es el único evento: por tanto, el pipeline no se ejecuta con push o pull request.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Construir la aplicación
+        # En un proyecto real se sustituiría por npm build, mvn package, etc.
+        run: echo "Build completada correctamente."
+
+  deploy:
+    name: Deploy
+    # needs obliga a esperar al build y expone su resultado a la condición siguiente.
+    needs: build
+    # La condición documenta explícitamente los dos requisitos del ejercicio.
+    if: ${{ github.event_name == 'workflow_dispatch' && needs.build.result == 'success' }}
+    runs-on: ubuntu-latest
+    # Si se configuran revisores obligatorios para el environment "production" en
+    # Settings > Environments, GitHub pausará aquí hasta recibir su aprobación.
+    environment: production
+    steps:
+      - name: Desplegar la aplicación
+        run: echo "Despliegue manual completado en production."
