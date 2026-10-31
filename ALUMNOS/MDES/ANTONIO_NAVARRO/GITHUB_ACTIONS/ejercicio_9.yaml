@@ -1,0 +1,51 @@
+# Ejercicio 9: contenedor de servicio PostgreSQL
+name: "Ejercicio 9 - Servicio PostgreSQL"
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probar-postgres:
+    runs-on: ubuntu-latest
+
+    # Estas variables estarán disponibles en todos los steps del job.
+    # Son credenciales efímeras del contenedor de prueba, no datos de producción.
+    env:
+      POSTGRES_USER: usuario_ci
+      POSTGRES_PASSWORD: password_ci
+      POSTGRES_DB: base_ci
+
+    services:
+      postgres:
+        image: postgres:16
+        # La imagen oficial usa estas variables para crear usuario, contraseña y base.
+        env:
+          # Deben coincidir con las variables del job para que el cliente use la
+          # misma configuración con la que PostgreSQL inicializa el servicio.
+          POSTGRES_USER: usuario_ci
+          POSTGRES_PASSWORD: password_ci
+          POSTGRES_DB: base_ci
+        ports:
+          # Como el job corre directamente en el runner, se accede mediante localhost.
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U usuario_ci -d base_ci"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Verificar la conexión y ejecutar una consulta
+        # psql lee PGPASSWORD para autenticarse sin pedir la contraseña interactivamente.
+        env:
+          PGPASSWORD: ${{ env.POSTGRES_PASSWORD }}
+        run: |
+          psql \
+            --host localhost \
+            --port 5432 \
+            --username "$POSTGRES_USER" \
+            --dbname "$POSTGRES_DB" \
+            --command "SELECT 1 AS conexion_correcta;"

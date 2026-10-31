@@ -1,0 +1,23 @@
+# Ejercicio 5: filtros de rama y ruta
+name: "Ejercicio 5 - Filtros de rama y ruta"
+
+on:
+  push:
+    # Los filtros de branches y paths se evalúan conjuntamente (operador AND).
+    branches:
+      - develop
+    paths:
+      # /** incluye archivos situados en docs y en cualquiera de sus subcarpetas.
+      - "docs/**"
+
+permissions:
+  contents: read
+
+jobs:
+  comprobar-filtros:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Confirmar que se cumplieron ambos filtros
+        run: |
+          echo "Push recibido en la rama develop."
+          echo "El push incluye al menos un cambio dentro de docs/."
