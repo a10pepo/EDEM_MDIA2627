@@ -1,0 +1,57 @@
+name: "Pipeline de datos seguro y automatizado"
+on:
+  workflow_dispatch:
+    inputs: 
+      debug_mode:
+        type: boolean
+        description: Debug
+        default: false
+        required: true
+
+jobs: 
+  job1:
+    name: CI and Seguridad
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Ver ventas.json
+        run: python -m json.tool ventas.json
+
+      - name: Debugear si debug es true
+        if: ${{ github.event.inputs.debug_mode == 'true' }}
+        run: python search_api_key.py
+
+  job2:
+    name: Procesamiento
+    runs-on: ubuntu-latest
+    needs: job1
+    strategy: 
+      matrix:
+        entorno: [staging, produccion]
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+      
+      - name: Procesar entorno
+        run: echo "Entorno ${{ matrix.entorno }}"
+
+      - name: Generar reporte
+        run: echo "Reporte de entorno ${{matrix.entorno}}" > reporte_${{matrix.entorno}}.txt
+
+      - name: Generar artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte_${{matrix.entorno}} 
+          path: reporte_${{matrix.entorno}}.txt
+
+  job3:
+    name: Notificacion
+    runs-on: ubuntu-latest
+    needs: [job1, job2]
+    steps:
+      - name: Enviar notificacion
+        env: 
+          DISCORD_WEBHOOK: ${{secrets.DISCORD_WEBHOOK}}
+        run: echo "Notificacion a $DISCORD_WEBHOOK"
