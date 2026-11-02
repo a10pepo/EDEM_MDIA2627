@@ -1,0 +1,82 @@
+name: ejercicio_entregable
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_security_tests:
+        type: boolean
+        description: '¿Ejecutar los Tests de Seguridad?'
+        required: true
+        default: false
+
+jobs:
+  # -------------------------------------------------------------
+  # JOB 1: CI & Seguridad
+  # -------------------------------------------------------------
+  job1_ci_seguridad:
+    name: "Job 1: CI & Seguridad"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar código fuente
+        uses: actions/checkout@v4
+
+      - name: Validar sintaxis de ventas.json
+        run: |
+          python3 -c "import json; json.load(open('ventas.json'))"
+
+      - name: Escaneo de seguridad (solo si se activó el input)
+        if: ${{ inputs.run_security_tests == true }}
+        run: |
+          python3 -c "
+          import re
+          content = open('ventas.json').read()
+          if re.search(r'api[_-]?key\s*=\s*[\'\"][^\'\"]+[\'\"]', content, re.I):
+              print('CRÍTICO: Se ha detectado una clave API expuesta en el fichero ventas.json')
+              exit(1)
+          else:
+              print('Escaneo de seguridad superado sin incidencias.')
+          "
+
+  # -------------------------------------------------------------
+  # JOB 2: Procesamiento (Matrix & Artefactos)
+  # -------------------------------------------------------------
+  job2_procesamiento:
+    name: "Job 2: Procesamiento (${{ matrix.environment }})"
+    needs: job1_ci_seguridad
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment: [staging, production]
+
+    steps:
+      - name: Descargar código fuente
+        uses: actions/checkout@v4
+
+      - name: Generar archivo de reporte (.txt)
+        run: |
+          echo "=== REPORTE DE PROCESAMIENTO DE VENTAS ===" > reporte_${{ matrix.environment }}.txt
+          echo "Entorno: ${{ matrix.environment }}" >> reporte_${{ matrix.environment }}.txt
+          echo "Fecha de ejecución: $(date)" >> reporte_${{ matrix.environment }}.txt
+          echo "Estado del Job 1: Exitoso" >> reporte_${{ matrix.environment }}.txt
+
+      - name: Subir reporte como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-${{ matrix.environment }}
+          path: reporte_${{ matrix.environment }}.txt
+
+  # -------------------------------------------------------------
+  # JOB 3: Notificación de Éxito
+  # -------------------------------------------------------------
+  job3_notificacion:
+    name: "Job 3: Notificación de Éxito"
+    needs: job2_procesamiento
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simular envío de notificación a Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          echo "Enviando notificación al webhook configurado..."
+          echo "Webhook activo: ${DISCORD_WEBHOOK}"
+          echo "Notificación enviada con éxito tras completar los Jobs 1 y 2."

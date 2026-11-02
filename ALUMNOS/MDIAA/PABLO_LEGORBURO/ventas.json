@@ -1,0 +1,18 @@
+{
+  "empresa": "EDEM",
+  "fecha": "2026-11-02",
+  "ventas": [
+    {
+      "id": 1,
+      "producto": "Licencia Software",
+      "unidades": 5,
+      "precio_unitario": 120.50
+    },
+    {
+      "id": 2,
+      "producto": "Servicio Cloud",
+      "unidades": 2,
+      "precio_unitario": 450.00
+    }
+  ]
+}
