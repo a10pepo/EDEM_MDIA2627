@@ -1,0 +1,6 @@
+[
+  {"id": 1, "producto": "Aceite de oliva 1L", "cantidad": 120, "precio_unitario": 6.50},
+  {"id": 2, "producto": "Arroz bomba 1kg", "cantidad": 300, "precio_unitario": 2.80},
+  {"id": 3, "producto": "Naranjas malla 3kg", "cantidad": 210, "precio_unitario": 3.20},
+  {"id": 4, "producto": "Horchata 1L", "cantidad": 95, "precio_unitario": 1.95}
+]
