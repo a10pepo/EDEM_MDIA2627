@@ -1,0 +1,87 @@
+name: Ejercicio Final - Pipeline de Datos Seguro y Automatizado
+
+on:
+  workflow_dispatch:
+    inputs:
+      ejecutar_seguridad:
+        description: "¿Ejecutar los Tests de Seguridad?"
+        type: choice
+        required: true
+        default: "si"
+        options:
+          - "si"
+          - "no"
+
+jobs:
+  # ---------------------------------------------------------------
+  # JOB 1: CI & Seguridad
+  # ---------------------------------------------------------------
+  ci-seguridad:
+    name: CI & Seguridad
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v7
+
+      - name: Validar que ventas.json es un JSON válido
+        run: |
+          python3 -m json.tool ventas.json > /dev/null
+          echo "ventas.json es un JSON válido"
+
+      - name: Escaneo de seguridad (claves API expuestas)
+        if: ${{ inputs.ejecutar_seguridad == 'si' }}
+        run: python3 scripts/escaneo_seguridad.py .
+
+  # ---------------------------------------------------------------
+  # JOB 2: Procesamiento (matrix staging / production)
+  # ---------------------------------------------------------------
+  procesamiento:
+    name: Procesamiento (${{ matrix.entorno }})
+    needs: ci-seguridad
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        entorno: [staging, production]
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v7
+
+      - name: Generar reporte del entorno ${{ matrix.entorno }}
+        env:
+          ENTORNO: ${{ matrix.entorno }}
+        run: |
+          python3 - <<'PY' > "reporte_${ENTORNO}.txt"
+          import json, os
+          from datetime import datetime, timezone
+          ventas = json.load(open("ventas.json", encoding="utf-8"))
+          total = sum(v["cantidad"] * v["precio_unitario"] for v in ventas)
+          print("REPORTE DE VENTAS")
+          print(f"Entorno: {os.environ['ENTORNO']}")
+          print(f"Generado: {datetime.now(timezone.utc).isoformat(timespec='seconds')}")
+          print(f"Registros procesados: {len(ventas)}")
+          print(f"Importe total: {total:.2f} EUR")
+          PY
+          echo "Reporte generado:"
+          cat "reporte_${ENTORNO}.txt"
+
+      - name: Subir reporte como artefacto
+        uses: actions/upload-artifact@v7
+        with:
+          name: reporte-${{ matrix.entorno }}
+          path: reporte_${{ matrix.entorno }}.txt
+          if-no-files-found: error
+
+  # ---------------------------------------------------------------
+  # JOB 3: Notificación de éxito
+  # ---------------------------------------------------------------
+  notificacion:
+    name: Notificación de éxito
+    needs: [ci-seguridad, procesamiento]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simular envío a Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          echo "Pipeline completado correctamente. Enviando notificación a:"
+          echo "$DISCORD_WEBHOOK"

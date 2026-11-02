@@ -1,0 +1,72 @@
+name: 20.ejercicio_entregable
+
+on:
+  workflow_dispatch:
+    inputs:
+      Test_de_Seguridad:
+        type: boolean
+        default: false
+        required: false
+
+jobs:
+  Job1:
+    name: Seguridad
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repo
+        uses: actions/checkout@v4
+
+      - name: Validacion
+        id: validation
+        uses: GrantBirki/json-yaml-validate@v5
+        continue-on-error: true
+        with:
+          pattern: 'ventas.json'
+          mode: 'fail'
+
+      - name: JSON Correcto
+        if: ${{ steps.validation.outcome == 'success' }} 
+        run: echo "EL JSON es valido"
+
+      - name: JSON Incorrecto
+        if: ${{ steps.validation.outcome == 'failure' }} 
+        run: echo "EL JSON no es valido"
+
+      - name: Modo Test_de_Seguridad 
+        if: ${{ github.event.inputs.Test_de_Seguridad == 'true' }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Ejecucion scprit
+        if: ${{ github.event.inputs.Test_de_Seguridad == 'true' }}
+        run: python .github/workflows/script.py
+
+  Job2:
+    name: Procesamiento
+    needs: Job1
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        entornos: ["staging", "production"]
+    steps:
+      - name: Generar reporte
+        run: echo "Este es el reporte para ${{ matrix.entornos }}" >> reporte_${{ matrix.entornos }}.txt
+
+      - name: Subir artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: artefacto_reporte_${{ matrix.entornos }}.txt
+          path: reporte_${{ matrix.entornos }}.txt
+
+  Job3:
+    name: Notificacion
+    needs:
+      - Job1
+      - Job2
+    runs-on: ubuntu-latest
+    env:
+      SECRETO: ${{ secrets.DISCORD_WEBHOOK }}
+    steps:
+      - name: Notificacion
+        run: echo "$SECRETO"   
