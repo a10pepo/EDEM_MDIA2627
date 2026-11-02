@@ -1,5 +1,1 @@
-<<<<<<< Updated upstream
-Esta es la demo de Pilar
-=======
-este es mi entregable demo 
->>>>>>> Stashed changes
+Esta es la prueba para que Arturo la mergee
