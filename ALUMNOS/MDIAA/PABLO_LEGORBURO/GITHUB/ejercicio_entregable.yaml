@@ -1,4 +1,4 @@
-name: ejercicio_entregable_pablo_legorburo
+name: ejercicio_entregable
 
 on:
   workflow_dispatch:
@@ -10,9 +10,9 @@ on:
         default: false
 
 jobs:
-  # -------------------------------------------------------------
-  # JOB 1: CI & Seguridad
-  # -------------------------------------------------------------
+
+  # Job 1 (CI & Seguridad)
+  
   job1_ci_seguridad:
     name: "Job 1: CI & Seguridad"
     runs-on: ubuntu-latest
@@ -22,14 +22,14 @@ jobs:
 
       - name: Validar sintaxis de ventas.json
         run: |
-          python3 -c "import json; json.load(open('ALUMNOS/MDIAA/PABLO_LEGORBURO/GITHUB/ventas.json'))"
+          python3 -c "import json; json.load(open('ventas.json'))"
 
-      - name: Escaneo de seguridad (solo si se activó el input)
+      - name: Escaneo de seguridad (Condicional por Input)
         if: ${{ inputs.run_security_tests == true }}
         run: |
           python3 -c "
           import re
-          content = open('ALUMNOS/MDIAA/PABLO_LEGORBURO/GITHUB/ventas.json').read()
+          content = open('ventas.json').read()
           if re.search(r'api[_-]?key\s*=\s*[\'\"][^\'\"]+[\'\"]', content, re.I):
               print('CRÍTICO: Se ha detectado una clave API expuesta')
               exit(1)
@@ -37,9 +37,9 @@ jobs:
               print('Escaneo de seguridad superado sin incidencias.')
           "
 
-  # -------------------------------------------------------------
-  # JOB 2: Procesamiento (Matrix & Artefactos)
-  # -------------------------------------------------------------
+  
+  #  Job 2 (Procesamiento con Matrix & Artefactos)
+  
   job2_procesamiento:
     name: "Job 2: Procesamiento (${{ matrix.environment }})"
     needs: job1_ci_seguridad
@@ -52,22 +52,21 @@ jobs:
       - name: Descargar código fuente
         uses: actions/checkout@v4
 
-      - name: Generar archivo de reporte (.txt)
+      - name: Generar archivo de reporte .txt
         run: |
           echo "=== REPORTE DE PROCESAMIENTO DE VENTAS ===" > reporte_${{ matrix.environment }}.txt
           echo "Entorno: ${{ matrix.environment }}" >> reporte_${{ matrix.environment }}.txt
           echo "Fecha de ejecución: $(date)" >> reporte_${{ matrix.environment }}.txt
           echo "Estado del Job 1: Exitoso" >> reporte_${{ matrix.environment }}.txt
 
-      - name: Subir reporte como artefacto
+      - name: Subir reportes como artefactos
         uses: actions/upload-artifact@v4
         with:
           name: reporte-${{ matrix.environment }}
           path: reporte_${{ matrix.environment }}.txt
 
-  # -------------------------------------------------------------
-  # JOB 3: Notificación de Éxito
-  # -------------------------------------------------------------
+  # Job 3 (Notificación de Éxito con Secreto)
+  
   job3_notificacion:
     name: "Job 3: Notificación de Éxito"
     needs: job2_procesamiento
