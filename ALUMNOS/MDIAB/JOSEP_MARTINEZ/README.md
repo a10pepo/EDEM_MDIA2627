@@ -1,0 +1,1 @@
+Josep Martínez Boix, Alumno del master MDIA B 2026-27 en EDEM.
