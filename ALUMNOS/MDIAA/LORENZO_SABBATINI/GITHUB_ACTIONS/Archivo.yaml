@@ -1,0 +1,57 @@
+name: workflow_1
+on:
+  workflow_dispatch:
+    inputs:
+      test_seguridad:
+        description: "Ejecutar tests de seguridad?"
+        required: True
+        default: "si"
+        type: choice
+        options:
+          - "si"
+          - "no"
+jobs:
+  seguridad:
+    name: CI_&_Seguridad
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar opción elegida
+        run: |
+          echo "Tests de seguridad: ${{ inputs.test_seguridad }}"
+      - name: Descargar repositorio
+        uses: actions/checkout@v7
+      - name: Validar ventas.json
+        run: python -m json.tool ventas.json
+      - name: Escaneo de seguridad (claves API)
+        if: inputs.test_seguridad == 'si'
+        run: python scan_seguridad.py
+  procesamiento:
+    name: Process
+    runs-on: ubuntu-latest
+    needs: seguridad
+    strategy:
+      matrix:
+        environment: [staging, production]
+    steps:
+      - name: Process environment
+        run: echo ${{ matrix.environment }}
+      - name: Archivo
+        run: |
+          echo "Este es el report de ${{ matrix.environment }}" > report_${{ matrix.environment }}.txt
+          echo "$(date)" >> report_${{ matrix.environment }}.txt
+          echo "Estamos reportando" >> report_${{ matrix.environment }}.txt
+          cat report_${{ matrix.environment }}.txt
+      - name: Create artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: Artifact_${{ matrix.environment }}
+          path: report_${{ matrix.environment }}.txt
+  Notification:
+    name: Notification
+    runs-on: ubuntu-latest
+    needs: [seguridad, procesamiento]
+    steps:
+      - name: Notify user
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: echo "Sending notification to $DISCORD_WEBHOOK"
