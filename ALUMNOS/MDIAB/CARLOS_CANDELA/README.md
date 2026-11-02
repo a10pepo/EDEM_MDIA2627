@@ -39,8 +39,6 @@ $$
 class CarlosCandela(DataScientist):
     education = {
         "BSc":  "Mathematics · Universitat de València",
-        "BSc ": "Biomedical Engineering",
-        "MSc":  "Business Management",
         "MSc ": "AI, Big Data & Cloud · EDEM",
     }
     core = {
