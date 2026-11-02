@@ -1,0 +1,103 @@
+name: Pipeline de Datos Seguro y Automatizado
+
+on:
+  workflow_dispatch:
+    inputs:
+      ejecutar_tests_seguridad:
+        description: "¿Ejecutar los Tests de Seguridad?"
+        required: true
+        type: choice
+        default: "no"
+        options:
+          - "si"
+          - "no"
+
+jobs:
+  # ---------------------------------------------------------------
+  # JOB 1: CI & Seguridad
+  # ---------------------------------------------------------------
+  ci-seguridad:
+    name: CI & Seguridad
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Validar que ventas.json es un JSON válido
+        run: |
+          python3 -m json.tool ventas.json > /dev/null
+          echo "✅ ventas.json es un JSON válido"
+
+      - name: Escaneo de seguridad (búsqueda de claves API expuestas)
+        if: ${{ inputs.ejecutar_tests_seguridad == 'si' }}
+        run: |
+          python3 - <<'PYEOF'
+          import re, sys
+
+          # Patrones típicos de claves API expuestas
+          patrones = {
+              "AWS Access Key": r"AKIA[0-9A-Z]{16}",
+              "GitHub Token": r"ghp_[A-Za-z0-9]{36}",
+              "Clave genérica": r"(?i)(api[_-]?key|secret|token)[\"'\s:=]+[A-Za-z0-9_\-]{16,}",
+          }
+
+          with open("ventas.json", encoding="utf-8") as f:
+              contenido = f.read()
+
+          hallazgos = [n for n, p in patrones.items() if re.search(p, contenido)]
+
+          print("🔍 Simulando escaneo de seguridad sobre ventas.json...")
+          if hallazgos:
+              print(f"❌ Posibles claves expuestas: {', '.join(hallazgos)}")
+              sys.exit(1)
+          print("✅ No se han encontrado claves API expuestas")
+          PYEOF
+
+  # ---------------------------------------------------------------
+  # JOB 2: Procesamiento (matrix staging / production)
+  # ---------------------------------------------------------------
+  procesamiento:
+    name: Procesamiento (${{ matrix.entorno }})
+    needs: ci-seguridad
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        entorno: [staging, production]
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Generar reporte del entorno
+        run: |
+          TOTAL=$(python3 -c "import json; print(len(json.load(open('ventas.json'))))")
+          {
+            echo "REPORTE DE VENTAS - ENTORNO: ${{ matrix.entorno }}"
+            echo "Fecha: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+            echo "Registros procesados: $TOTAL"
+            echo "Ejecutado por: ${{ github.actor }}"
+            echo "Estado: OK"
+          } > reporte_${{ matrix.entorno }}.txt
+          cat reporte_${{ matrix.entorno }}.txt
+
+      - name: Subir reporte como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-${{ matrix.entorno }}
+          path: reporte_${{ matrix.entorno }}.txt
+
+  # ---------------------------------------------------------------
+  # JOB 3: Notificación de éxito
+  # ---------------------------------------------------------------
+  notificacion:
+    name: Notificación de éxito
+    needs: [ci-seguridad, procesamiento]
+    if: ${{ success() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simular envío a Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          echo "📣 Enviando notificación de éxito a Discord..."
+          echo "Webhook: $DISCORD_WEBHOOK"   # GitHub lo muestra enmascarado (***)
+          echo "✅ Pipeline completado correctamente"
