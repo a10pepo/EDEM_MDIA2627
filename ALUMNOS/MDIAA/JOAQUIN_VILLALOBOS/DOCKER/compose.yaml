@@ -1,0 +1,7 @@
+services:
+  app_1:
+    build: .
+    image: suma_entregable
+    container_name: entregable_docker
+    volumes:
+      - .:/app
