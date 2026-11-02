@@ -1,0 +1,54 @@
+name: Pipeline de Datos Seguro y Automatizado
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_security:
+        type: boolean
+        description: "Tests de Seguridad"
+        default: false
+        required: false
+
+jobs:
+  ci-security:
+    name: CI and Security
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Validate JSON
+        run: python -m json.tool ventas.json
+
+      - name: Security Scan
+        if: ${{ github.event.inputs.test_security == 'true' }}
+        run: python scan_security.py
+  
+  processing:
+    name: Processing
+    needs: ci-security
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        environments: ['staging', 'production']
+    
+    steps:
+      - name: Generate Report
+        run: echo "Reporte para ${{ matrix.environments }}" > ${{ matrix.environments }}.txt
+
+      - name: Upload Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Reports-${{ matrix.environments }}
+          path: ${{ matrix.environments }}.txt
+  
+  notification:
+    name: Notifications
+    needs: processing
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send notification
+        run: echo ${{ secrets.DISCORD_WEBHOOK }}
