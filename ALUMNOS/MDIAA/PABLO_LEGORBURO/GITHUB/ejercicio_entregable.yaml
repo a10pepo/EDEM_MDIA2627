@@ -1,4 +1,4 @@
-name: ejercicio_entregable
+name: ejercicio_entregable_pablo_legorburo
 
 on:
   workflow_dispatch:
@@ -22,16 +22,16 @@ jobs:
 
       - name: Validar sintaxis de ventas.json
         run: |
-          python3 -c "import json; json.load(open('ventas.json'))"
+          python3 -c "import json; json.load(open('ALUMNOS/MDIAA/PABLO_LEGORBURO/GITHUB/ventas.json'))"
 
       - name: Escaneo de seguridad (solo si se activó el input)
         if: ${{ inputs.run_security_tests == true }}
         run: |
           python3 -c "
           import re
-          content = open('ventas.json').read()
+          content = open('ALUMNOS/MDIAA/PABLO_LEGORBURO/GITHUB/ventas.json').read()
           if re.search(r'api[_-]?key\s*=\s*[\'\"][^\'\"]+[\'\"]', content, re.I):
-              print('CRÍTICO: Se ha detectado una clave API expuesta en el fichero ventas.json')
+              print('CRÍTICO: Se ha detectado una clave API expuesta')
               exit(1)
           else:
               print('Escaneo de seguridad superado sin incidencias.')

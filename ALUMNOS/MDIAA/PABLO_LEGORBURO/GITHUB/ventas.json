@@ -1,16 +1,16 @@
 {
-  "empresa": "EDEM",
+  "empresa": "EDEM Logistics",
   "fecha": "2026-11-02",
   "ventas": [
     {
       "id": 1,
-      "producto": "Licencia Software",
+      "producto": "Licencia Software ERP",
       "unidades": 5,
       "precio_unitario": 120.50
     },
     {
       "id": 2,
-      "producto": "Servicio Cloud",
+      "producto": "Suscripción Cloud Database",
       "unidades": 2,
       "precio_unitario": 450.00
     }
