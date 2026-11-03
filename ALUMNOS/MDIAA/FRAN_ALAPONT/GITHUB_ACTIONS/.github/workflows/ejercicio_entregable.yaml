@@ -1,0 +1,95 @@
+# Nombre del workflow que aparecerá en GitHub Actions
+name: Pipeline de Datos Seguro
+
+# Define cuándo se ejecuta el workflow
+on:
+  # Permite ejecutar el workflow manualmente desde GitHub
+  workflow_dispatch:
+    # Parámetros que el usuario puede configurar antes de ejecutarlo
+    inputs:
+      # Identificador del parámetro para los tests de seguridad
+      tests_seguridad:
+        # Pregunta que verá el usuario en GitHub Actions
+        description: "¿Ejecutar tests de seguridad?"
+        # Indica que el parámetro es obligatorio
+        required: true
+        # Tipo booleano: true (sí) o false (no)
+        # GitHub lo mostrará como una casilla de verificación
+        type: boolean
+        # Por defecto, los tests de seguridad estarán desactivados
+        default: false
+
+# Definimos los trabajos que ejecutará nuestro workflow
+jobs:
+  # Primer job: integración continua y seguridad
+  ci_seguridad:
+    # Nombre que aparecerá en GitHub Actions
+    name: CI & Seguridad
+    # Sistema operativo de la máquina virtual
+    runs-on: ubuntu-latest
+    # Lista de pasos que ejecutará este job
+    steps:
+      # Descargamos el contenido del repositorio en la máquina virtual
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+      # Comprobamos que ventas.json tenga una sintaxis JSON válida
+      - name: Validar JSON
+        run: python -m json.tool ventas.json > /dev/null
+      # Ejecutamos el escaneo solo si el usuario marca la casilla
+      - name: Tests de Seguridad
+        # Evaluamos el input booleano del usuario
+        if: ${{ inputs.tests_seguridad == true }}
+        # Ejecutamos nuestro script de Python
+        run: python security_scan.py
+
+  # Segundo job: procesamiento de los datos de ventas
+  procesamiento:
+    # Nombre que aparecerá en GitHub Actions
+    name: Procesamiento
+    # Este job depende de que ci_seguridad termine correctamente
+    needs: ci_seguridad
+    # Sistema operativo donde se ejecutará
+    runs-on: ubuntu-latest
+    # Estrategia para ejecutar el job con distintas configuraciones
+    strategy:
+      # Definimos una matriz de entornos
+      matrix:
+        # El job se ejecutará una vez por cada entorno
+        entorno: [staging, production]
+    # Pasos que ejecutará cada entorno de la Matrix
+    steps:
+      # Generamos un reporte de texto para el entorno correspondiente
+      - name: Generar reporte
+        run: |
+          echo "Reporte de procesamiento de ventas" > reporte_${{ matrix.entorno }}.txt
+          echo "Entorno: ${{ matrix.entorno }}" >> reporte_${{ matrix.entorno }}.txt
+          echo "Procesamiento completado correctamente" >> reporte_${{ matrix.entorno }}.txt
+      # Guardamos el reporte generado como artefacto descargable
+      - name: Subir reporte
+        # Action oficial para subir artefactos a GitHub
+        uses: actions/upload-artifact@v4
+        # Parámetros que recibe la Action
+        with:
+          # Nombre del artefacto en GitHub
+          name: reporte-${{ matrix.entorno }}
+          # Archivo que queremos guardar
+          path: reporte_${{ matrix.entorno }}.txt
+  # Tercer job: notificación de éxito
+  notificacion:
+    # Nombre visible del job
+    name: Notificación de Éxito
+    # Espera a que finalicen correctamente los dos jobs anteriores
+    needs: [ci_seguridad, procesamiento]
+    # Sistema operativo de ejecución
+    runs-on: ubuntu-latest
+    # Pasos del job de notificación
+    steps:
+      # Simulamos una notificación a Discord
+      - name: Notificar éxito
+        # Pasamos el secreto a una variable de entorno
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        # Simulamos el envío mostrando la URL enmascarada
+        run: |
+          echo "Pipeline completado correctamente"
+          echo "Webhook de Discord: ${DISCORD_WEBHOOK}"

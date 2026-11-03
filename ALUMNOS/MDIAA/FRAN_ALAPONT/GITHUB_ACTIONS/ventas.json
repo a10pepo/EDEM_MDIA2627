@@ -1,0 +1,22 @@
+{
+  "ventas": [
+    {
+      "id": 1,
+      "producto": "Portatil",
+      "cantidad": 2,
+      "precio": 850.50
+    },
+    {
+      "id": 2,
+      "producto": "Monitor",
+      "cantidad": 3,
+      "precio": 199.99
+    },
+    {
+      "id": 3,
+      "producto": "Teclado",
+      "cantidad": 5,
+      "precio": 45.00
+    }
+  ]
+}
