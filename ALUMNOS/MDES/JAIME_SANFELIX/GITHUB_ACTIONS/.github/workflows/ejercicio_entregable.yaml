@@ -1,0 +1,69 @@
+name: Ejercicio entregable
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_security_tests:
+        description: Ejecutar los Tests de Seguridad
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+  ci-security:
+    name: CI y Seguridad
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Validar ventas.json
+        run: python -m json.tool ventas.json > /dev/null
+
+      - name: Buscar claves API expuestas
+        if: ${{ inputs.run_security_tests }}
+        run: python scripts/security_scan.py ventas.json
+
+  processing:
+    name: Procesar ${{ matrix.environment }}
+    needs: ci-security
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment: [staging, production]
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Generar reporte
+        run: |
+          printf 'Reporte de ventas\nEntorno: %s\nArchivo: ventas.json\n' \
+            '${{ matrix.environment }}' > "reporte-${{ matrix.environment }}.txt"
+
+      - name: Subir reporte
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-${{ matrix.environment }}
+          path: reporte-${{ matrix.environment }}.txt
+          if-no-files-found: error
+
+  success-notification:
+    name: Notificación de éxito
+    needs: [ci-security, processing]
+    if: ${{ success() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simular notificación a Discord_Webhook
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          if [ -z "$DISCORD_WEBHOOK" ]; then
+            echo "::error::Configura el secreto DISCORD_WEBHOOK en el repositorio."
+            exit 1
+          fi
+          echo "Notificación enviada a Discord_Webhook (URL enmascarada)."
