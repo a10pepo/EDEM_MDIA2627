@@ -1,0 +1,28 @@
+on: 
+  workflow_dispatch:
+    inputs:
+      seguridad:
+        description: "¿Quieres hacer un escaneo de seguirdad?"
+        required: true
+        type: choice
+        options:
+          - Si
+          - No
+        default: "Si"
+
+
+jobs:
+  ci_seguridad:
+    runs_on: ubuntu-latest
+    steps:
+    # Copia el repo a la máquina del runner. Utilizamos una action que ya existe
+    - name: Descargar repo
+      uses: actions/checkout@4
+    # Parsea ventas.json con el módulo json.tool de Python: 
+    # si es inválido, sale con exit 1 y falla el job
+    - name: Validar ventas.json
+      run: python3 -m json.tool > /dev/null
+
+    - name: Scanneo de seguridad
+      if: inputs.seguirdad == 'Si'
+      run: python3 scan_seguridad.py
