@@ -89,7 +89,12 @@ jobs:
         # Pasamos el secreto a una variable de entorno
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        # Simulamos el envío mostrando la URL enmascarada
+        # Comprobamos que el secreto existe sin mostrar su valor
         run: |
-          echo "Pipeline completado correctamente"
-          echo "Webhook de Discord: ${DISCORD_WEBHOOK}"
+          if [ -n "$DISCORD_WEBHOOK" ]; then
+            echo "Pipeline completado correctamente"
+            echo "Webhook de Discord: ***"
+          else
+            echo "ERROR: No se ha configurado DISCORD_WEBHOOK"
+            exit 1
+          fi
