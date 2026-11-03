@@ -32,7 +32,7 @@ jobs:
         entornos: [staging, production]
     steps:
       - name: Crear reportes
-        run: "Reporte de ${{ matrix.entorno }} creado" > ${{ matrix.entorno }}_report.txt
+        run: echo "Reporte de ${{ matrix.entorno }} creado" > ${{ matrix.entorno }}_report.txt
 
       - name: Subir reportes
         uses: actions/upload-artifact@v4
@@ -46,4 +46,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Simular Notificacion
-        run: echo "Notificacion: ${{ secrets.DISCORD_WEBHOOK }}"
+        run: echo "Notificacion - ${{ secrets.DISCORD_WEBHOOK }}"
