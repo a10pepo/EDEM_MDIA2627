@@ -1,4 +1,8 @@
 #!/bin/bash
+
+echo "El script debe ser reejecutable sin necesidad de modificarlo, por lo que debe borrar al inicio lo creado en la ejecución anterior"
+rm -r PRUEBA
+
 echo "1.Listar todos los archivos del directorio bin."
 ls /bin
 
