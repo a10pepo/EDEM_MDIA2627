@@ -90,12 +90,12 @@ Ejercicio de comandos en la consola de linux.
 
   19.Copiar /etc/mtab en dir1, dir2 y dir3.
     
-    cp /etc/mtab dir1/
-    cp /etc/mtab dir2/
-    cp /etc/mtab dir3/
+    cp /etc/mtab /tmp/PUEBA/dir1/
+    cp /etc/mtab /tmp/PRUEBA/dir2/
+    cp /etc/mtab /tmp/PRUEBA/dir3/
     
   20.Comprobar el ejercicio anterior mediante un solo comando.
     
-ls dir/mtab dir2/mtab dir3/mtab
+ls dir1/mtab dir2/mtab dir3/mtab
     
    
