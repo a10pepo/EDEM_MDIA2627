@@ -14,8 +14,9 @@ La disponibilidad y el esquema exacto del recurso pueden cambiar. El alumnado de
 
 ## Instrucciones
 
-- Todo el código debe estar en Python.
-- Los servicios y scripts se deben poder ejecutar con Docker Compose.
+- La lógica de captura y alertas debe implementarse en Python.
+- La solución final debe levantarse con `docker compose up`.
+- El frontend puede utilizar la tecnología que el alumno elija con ayuda de una herramienta de IA.
 - No se deben guardar credenciales ni datos sensibles en el repositorio.
 - Configurar el umbral de proximidad mediante una variable de entorno, por ejemplo `ALERT_DISTANCE_METERS`.
 - La distancia entre coordenadas se calculará en metros con una fórmula geodésica como Haversine.
@@ -28,14 +29,13 @@ La disponibilidad y el esquema exacto del recurso pueden cambiar. El alumnado de
 
 1. Consumir una API de datos abiertos en tiempo real.
 2. Inspeccionar y validar datos JSON externos.
-3. Diseñar un pipeline de captura y almacenamiento.
-4. Calcular distancias geográficas y aplicar una regla configurable.
-5. Visualizar posiciones y alertas en un dashboard.
-6. Ejecutar los componentes de forma reproducible con Docker Compose.
+3. Calcular distancias geográficas y aplicar una regla configurable.
+4. Contenerizar el colector y persistir datos en SQL.
+5. Construir una aplicación web que muestre posiciones y alertas recientes.
 
-## Fase 1: inspección de la fuente y captura
+## Fase 1: consumo de API y alertas en Python
 
-Crear `renfe_collector.py` para consultar periódicamente el recurso JSON. Como la fuente anuncia actualizaciones cada 15 segundos, se recomienda no consultar más rápido que esa frecuencia.
+Crear `renfe_collector.py` para consultar desde un equipo local el recurso JSON y generar alertas cuando dos trenes estén a menos del umbral configurado. Como la fuente anuncia actualizaciones cada 15 segundos, se recomienda no consultar más rápido que esa frecuencia.
 
 El parser debe extraer, cuando estén disponibles:
 
@@ -48,9 +48,19 @@ El parser debe extraer, cuando estén disponibles:
 
 El formato del feed puede seguir GTFS Realtime y cambiar. Validar campos ausentes, coordenadas fuera de rango, respuestas vacías, errores HTTP y registros duplicados. Conservar un ejemplo anonimizado de respuesta para facilitar el desarrollo sin conexión.
 
-## Fase 2: almacenamiento SQL
+La fase se considera completada cuando el alumno puede ejecutar el script en local, ver las posiciones leídas y comprobar una alerta con un umbral en metros configurable.
 
-Almacenar las observaciones sin perder el historial. Propuesta inicial de tabla:
+## Fase 2: dockerizar la solución Python
+
+Crear un `Dockerfile` para instalar dependencias y ejecutar el colector y el cálculo de proximidad dentro de un contenedor. Pasar el umbral y la frecuencia de consulta como variables de entorno, y documentar cómo construir y ejecutar la imagen.
+
+La lógica que funcionó en local en la fase anterior debe ejecutarse dentro del contenedor sin depender del entorno Python del host.
+
+## Fase 3: almacenamiento SQL con Docker Compose
+
+Añadir una base de datos SQL al proyecto y guardar las posiciones y alertas. Usar Docker Compose para definir al menos el servicio del colector y el de la base de datos, con persistencia mediante un volumen.
+
+Propuesta inicial de tabla para las posiciones:
 
 ```sql
 CREATE TABLE train_positions (
@@ -66,52 +76,38 @@ CREATE TABLE train_positions (
 );
 ```
 
-Añadir índices adecuados para consultar las posiciones más recientes por vehículo. Documentar las decisiones de deduplicación y los tipos de fecha/hora.
+Diseñar también una tabla para las alertas que registre ambos trenes, la distancia observada, las coordenadas y las marcas temporales. Añadir índices adecuados para consultar las posiciones recientes por vehículo y las alertas por fecha. Documentar las decisiones de deduplicación y los tipos de fecha/hora.
 
-## Fase 3: regla de proximidad y alertas
+El colector debe escribir en SQL las lecturas y alertas, y la configuración de conexión debe realizarse mediante variables de entorno.
 
-Crear un componente que lea las posiciones más recientes de los trenes y evalúe cada pareja única.
+## Fase 4: ejecución automática
 
-Requisitos:
+Completar `docker-compose.yml` para que un único comando levante toda la solución:
 
-- Aceptar el umbral en metros mediante `ALERT_DISTANCE_METERS`.
-- Calcular distancia geodésica entre cada pareja de vehículos.
-- Generar una alerta si `distancia < ALERT_DISTANCE_METERS`.
-- Ignorar posiciones antiguas con una ventana temporal configurable, para evitar comparar datos desfasados.
-- Evitar emitir la misma alerta repetidamente en cada ciclo. Definir una estrategia, por ejemplo, emitir solo al entrar en proximidad y volver a notificar después de que la pareja supere el umbral.
-- Registrar alertas con vehículos, distancia, coordenadas y marcas temporales.
-- Probar casos de umbral, parejas duplicadas, posición faltante y datos desactualizados.
+```bash
+docker compose up
+```
 
-Como ampliación, publicar alertas por consola, webhook o una cola de mensajes.
+La base de datos debe estar lista antes de que el colector intente conectarse. El proceso Python debe arrancar automáticamente, capturar datos de forma continua y generar alertas sin pasos manuales adicionales. Documentar cómo configurar el umbral y cómo consultar los logs.
 
-## Fase 4: transformación con DBT
+## Fase 5: frontend asistido por IA
 
-Configurar DBT para PostgreSQL y crear modelos que preparen las observaciones y alertas para el análisis. Incluir al menos:
+Con ayuda de una herramienta de IA, generar un frontend que se conecte a la solución y consulte la base de datos a través de una API backend. No conectar el navegador directamente a SQL ni exponer credenciales de base de datos.
 
-- Modelo limpio de posiciones con validación de coordenadas y normalización temporal.
-- Modelo de alertas con distancia observada y umbral aplicado.
-- Agregados por hora y por pareja de trenes.
+El frontend debe mostrar:
 
-Documentar los modelos y añadir pruebas de unicidad, valores no nulos y rangos válidos.
+- Las posiciones recientes de los trenes, con identificación y coordenadas disponibles.
+- Las alertas recientes, indicando los trenes, la distancia medida, el umbral configurado y la hora.
+- Actualización en tiempo real o sondeo periódico de la API para reflejar nuevos datos.
+- Un estado claro cuando no haya datos recientes o el servicio no esté disponible.
 
-## Fase 5: dashboard
-
-Crear un dashboard que permita:
-
-- Ver posiciones recientes en un mapa, si la herramienta elegida lo permite.
-- Consultar alertas por hora, pareja, distancia y servicio.
-- Cambiar o mostrar claramente el umbral aplicado.
-- Diferenciar datos recientes de posiciones desactualizadas.
-
-## Fase 6: almacenamiento NoSQL (extra)
-
-Ampliar el colector para replicar los eventos o alertas en MongoDB. Explicar qué consultas se benefician de esta copia y cómo se evita duplicar documentos.
+Añadir el backend y el frontend a Docker Compose para que toda la aplicación pueda iniciarse con `docker compose up`. Se permite utilizar IA para generar la interfaz, pero el alumno debe revisar, comprender y documentar el código resultante.
 
 ## Entregables
 
-- Código Python organizado y documentado.
-- `docker-compose.yml` para ejecutar el pipeline.
-- Esquema SQL y modelos DBT.
-- Dashboard o instrucciones reproducibles para levantarlo.
-- `README` con instalación, configuración, ejecución, ejemplo de alerta y limitaciones de los datos.
-- Evidencia de una alerta generada con un umbral configurable y datos de ejemplo.
+- Script Python que lea datos locales de la API y genere alertas con un umbral configurable.
+- `Dockerfile` y `docker-compose.yml` para el colector, la base SQL y la aplicación web.
+- Esquema SQL para almacenar posiciones y alertas, con persistencia de datos.
+- Backend que exponga los datos necesarios al frontend sin publicar las credenciales SQL.
+- Frontend que muestre trenes y alertas recientes.
+- `README` con configuración, instrucciones de ejecución con `docker compose up`, ejemplo de alerta y limitaciones de los datos.
