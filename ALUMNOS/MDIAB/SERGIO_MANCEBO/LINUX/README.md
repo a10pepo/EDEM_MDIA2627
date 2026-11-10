@@ -105,7 +105,7 @@
   ls -la /home
   ```
   > El parámetro `-l` permite mostrar la información en formato detallado, incluyendo permisos.
-  > El parámetro `-a` permite mostrar también los archivos ocultos, respectivamente.
+  > El parámetro `-a` permite mostrar también los archivos ocultos.
   ---
     
   ### 16.Borrar todos los archivos y directorios visibles de vuestro directorio PRUEBA.
