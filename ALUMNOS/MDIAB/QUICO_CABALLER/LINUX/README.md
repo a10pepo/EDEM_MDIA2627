@@ -8,8 +8,7 @@ Ejercicio de comandos en la consola de linux.
 
   1.Listar todos los archivos del directorio bin.
   
-  ls /bin
-     
+  ls /bin   
     
   2.Listar todos los archivos del directorio tmp.
    
@@ -78,7 +77,8 @@ Ejercicio de comandos en la consola de linux.
   mkdir dir1 dir2 dir3
   mkdir dir1/dir11
   mkdir dir3/dir31
-  mkdir dir3/dir31/dir311 dir3/dir31/dir312  
+  mkdir dir3/dir31/dir311 
+  mkdir dir3/dir31/dir312  
     
   18.Copiar el archivo /etc/mtab a vuestro directorio PRUEBA.
     
