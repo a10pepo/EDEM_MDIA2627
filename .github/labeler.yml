@@ -215,6 +215,5 @@ PROFESORES:
 RENFE:
 - changed-files:
   - any-glob-to-any-file:
-    - 'PROFESORES/RENFE/**'
     - 'ALUMNOS/{MDIAA,MDIAB,MDES}/*/RENFE/**'
     - 'ALUMNOS/MIA/*/RENFE/**'
