@@ -90,7 +90,19 @@ docker compose up
 
 La base de datos debe estar lista antes de que el colector intente conectarse. El proceso Python debe arrancar automáticamente, capturar datos de forma continua y generar alertas sin pasos manuales adicionales. Documentar cómo configurar el umbral y cómo consultar los logs.
 
-## Fase 5: frontend asistido por IA
+## Fase 5: backend con FastAPI
+
+Crear un backend en Python con FastAPI en un contenedor independiente. El backend consultará la base de datos y expondrá una API para el frontend. La documentación interactiva de Swagger debe estar disponible en `/docs`.
+
+Implementar como mínimo estos endpoints:
+
+- `GET /getAlertas`: devuelve las alertas registradas, incluyendo identificadores de trenes, distancia, umbral y fecha/hora. Permite limitar la cantidad de resultados y ordenarlos de más recientes a más antiguos.
+- `GET /getTren/{id}`: devuelve los datos y la posición más reciente del tren indicado. Responder con `404` si no existe.
+- `GET /getDistancia/{trenId1}/{trenId2}`: calcula y devuelve la distancia actual en metros entre las posiciones más recientes de los dos trenes. Validar que ambos trenes existan y que sus posiciones sean recientes.
+
+El backend debe leer la configuración de conexión mediante variables de entorno, manejar errores de base de datos y validar las respuestas con modelos de FastAPI/Pydantic. Añadir el servicio del backend a Docker Compose con dependencia de la base de datos.
+
+## Fase 6: frontend asistido por IA
 
 Con ayuda de una herramienta de IA, generar un frontend que se conecte a la solución y consulte la base de datos a través de una API backend. No conectar el navegador directamente a SQL ni exponer credenciales de base de datos.
 
@@ -101,13 +113,13 @@ El frontend debe mostrar:
 - Actualización en tiempo real o sondeo periódico de la API para reflejar nuevos datos.
 - Un estado claro cuando no haya datos recientes o el servicio no esté disponible.
 
-Añadir el backend y el frontend a Docker Compose para que toda la aplicación pueda iniciarse con `docker compose up`. Se permite utilizar IA para generar la interfaz, pero el alumno debe revisar, comprender y documentar el código resultante.
+Añadir el frontend a Docker Compose y conectarlo a los endpoints FastAPI. Toda la aplicación debe poder iniciarse con `docker compose up`. Se permite utilizar IA para generar la interfaz, pero el alumno debe revisar, comprender y documentar el código resultante.
 
 ## Entregables
 
 - Script Python que lea datos locales de la API y genere alertas con un umbral configurable.
-- `Dockerfile` y `docker-compose.yml` para el colector, la base SQL y la aplicación web.
+- `Dockerfile` y `docker-compose.yml` para el colector, la base SQL, el backend FastAPI y el frontend.
 - Esquema SQL para almacenar posiciones y alertas, con persistencia de datos.
-- Backend que exponga los datos necesarios al frontend sin publicar las credenciales SQL.
+- Backend FastAPI con Swagger y los endpoints mínimos `getAlertas`, `getTren(id)` y `getDistancia(trenId1, trenId2)`.
 - Frontend que muestre trenes y alertas recientes.
 - `README` con configuración, instrucciones de ejecución con `docker compose up`, ejemplo de alerta y limitaciones de los datos.
