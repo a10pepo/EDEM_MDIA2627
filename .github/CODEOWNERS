@@ -1,5 +1,7 @@
 # List of codeowners based on project team
 
+/PROFESORES/RENFE/** @a10pepo
+
 /ALUMNOS/MDIAA/*/DOCKER/** @SofiaPinilla
 /ALUMNOS/MDIAB/*/DOCKER/** @SofiaPinilla
 /ALUMNOS/MIA/*/DOCKER/** @SofiaPinilla
