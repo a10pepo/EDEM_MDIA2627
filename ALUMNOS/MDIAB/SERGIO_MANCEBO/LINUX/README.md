@@ -125,7 +125,7 @@
   ```
   > La expansión de llaves '{dir1,dir2}', es una funcionalidad que expande múltiples argumentos en una sola posición. Evita tener que escribir la ruta completa dos veces.
   
-  **Alternativa un solo comando:** 
+  **Alternativa una sola línea de comando:** 
   
   `mkdir -p /tmp/PRUEBA/{dir1/dir11,dir2,dir3/dir31/{dir311,dir312}}`
 
