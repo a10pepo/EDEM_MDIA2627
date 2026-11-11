@@ -1,0 +1,26 @@
+# Ejercicio 1: variables de entorno globales
+name: "Ejercicio 1 - Variables globales"
+
+# workflow_dispatch permite ejecutar el ejemplo manualmente desde la pestaña Actions.
+on:
+  workflow_dispatch:
+
+# Una variable declarada aquí está disponible para todos los jobs y steps.
+# Es apropiada para datos no sensibles; los secretos deben almacenarse en GitHub Secrets.
+env:
+  MENSAJE_CURSO: "Hola desde una variable global de GitHub Actions"
+
+jobs:
+  primer-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Usar la variable en el primer job
+        # GitHub inyecta MENSAJE_CURSO en el entorno del proceso de shell.
+        run: echo "$MENSAJE_CURSO"
+
+  segundo-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Usar la misma variable en el segundo job
+        # Los jobs se ejecutan en máquinas distintas, pero ambos reciben el env global.
+        run: echo "$MENSAJE_CURSO"

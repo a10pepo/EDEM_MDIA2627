@@ -1,0 +1,39 @@
+# Ejercicio 4: artefactos entre jobs
+name: "Ejercicio 4 - Artefactos"
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  construir:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generar el archivo de texto
+        run: |
+          mkdir -p salida
+          echo "Archivo generado por el job construir." > salida/mensaje.txt
+
+      - name: Subir el archivo como artefacto
+        # Los jobs usan runners aislados: el artefacto conserva el archivo al terminar este job.
+        uses: actions/upload-artifact@v4
+        with:
+          name: mensaje-construccion
+          path: salida/mensaje.txt
+          if-no-files-found: error
+
+  consumir:
+    # needs establece el orden y evita que este job se ejecute si construir falla.
+    needs: construir
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el artefacto del primer job
+        uses: actions/download-artifact@v4
+        with:
+          name: mensaje-construccion
+          path: descarga
+
+      - name: Mostrar el contenido descargado
+        run: cat descarga/mensaje.txt
