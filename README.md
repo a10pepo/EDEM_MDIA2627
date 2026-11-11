@@ -67,19 +67,19 @@ Durante este bloque, los alumnos se centrarán en adquirir conocimientos sobre l
 Entregas Grupo MDIA A
 <table>
 <tr><th>Alumno</th>
-<th>*GCP_ALMACENAMIENTO*</th>
-<th>TERRAFORM</th>
 <th>*APIS*</th>
-<th>*DBT*</th>
+<th>TERRAFORM</th>
+<th>*GCP_ALMACENAMIENTO*</th>
 <th>GCP_ESPECIFICOS</th>
-<th>*DOCKER*</th>
-<th>GITHUB_ACTIONS</th>
-<th>*LINUX*</th>
+<th>*DBT*</th>
 <th>AHORCADO</th>
-<th>DEMO</th>
-<th>*SQL*</th>
-<th>*PYTHON*</th>
 <th>TICTACTOE</th>
+<th>*SQL*</th>
+<th>*LINUX*</th>
+<th>DEMO</th>
+<th>GITHUB_ACTIONS</th>
+<th>*DOCKER*</th>
+<th>*PYTHON*</th>
 <th>NOTA COMUNES</th>
 <th>MDIA_M1</th>
 <th>MDIA_M2</th>
@@ -93,11 +93,11 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
 <td>✅</td>
-<td>❌</td>
-<td>❌</td>
 <td>✅</td>
-<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>0.0</td>
@@ -131,11 +131,11 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
 <td>✅</td>
-<td>❌</td>
-<td>❌</td>
 <td>✅</td>
-<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>0.0</td>
@@ -169,11 +169,11 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>✅</td>
-<td>✅</td>
+<td>❌</td>
 <td>❌</td>
 <td>✅</td>
-<td>❌</td>
+<td>✅</td>
+<td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>2.0</td>
@@ -207,11 +207,11 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
 <td>✅</td>
-<td>❌</td>
-<td>❌</td>
 <td>✅</td>
-<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>0.0</td>
@@ -245,11 +245,11 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
 <td>✅</td>
-<td>❌</td>
-<td>❌</td>
 <td>✅</td>
-<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>0.0</td>
@@ -264,11 +264,11 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>✅</td>
-<td>✅</td>
+<td>❌</td>
 <td>❌</td>
 <td>✅</td>
-<td>❌</td>
+<td>✅</td>
+<td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>2.0</td>
@@ -283,11 +283,11 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>✅</td>
-<td>✅</td>
+<td>❌</td>
 <td>❌</td>
 <td>✅</td>
-<td>❌</td>
+<td>✅</td>
+<td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>2.0</td>
@@ -303,10 +303,10 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>✅</td>
 <td>❌</td>
 <td>✅</td>
-<td>❌</td>
+<td>✅</td>
+<td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>2.0</td>
@@ -322,8 +322,8 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>✅</td>
 <td>❌</td>
+<td>✅</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
@@ -397,11 +397,11 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>✅</td>
-<td>✅</td>
+<td>❌</td>
 <td>❌</td>
 <td>✅</td>
-<td>❌</td>
+<td>✅</td>
+<td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>2.0</td>
@@ -416,11 +416,11 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
 <td>✅</td>
-<td>❌</td>
-<td>❌</td>
 <td>✅</td>
-<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>0.0</td>
@@ -436,8 +436,8 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>✅</td>
 <td>❌</td>
+<td>✅</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
@@ -493,8 +493,8 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>✅</td>
 <td>❌</td>
+<td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
@@ -511,11 +511,11 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>✅</td>
-<td>✅</td>
+<td>❌</td>
 <td>❌</td>
 <td>✅</td>
-<td>❌</td>
+<td>✅</td>
+<td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>2.0</td>
@@ -530,11 +530,11 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
 <td>✅</td>
-<td>❌</td>
-<td>❌</td>
 <td>✅</td>
-<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>0.0</td>
@@ -581,24 +581,24 @@ Entregas Grupo MDIA A
 </tr>
 </table>
 
-Last Checked: 2026-11-03 15:38:29
+Last Checked: 2026-11-11 09:30:43
 
 Entregas Grupo MDIA B
 <table>
 <tr><th>Alumno</th>
-<th>*GCP_ALMACENAMIENTO*</th>
-<th>TERRAFORM</th>
 <th>*APIS*</th>
-<th>*DBT*</th>
+<th>TERRAFORM</th>
+<th>*GCP_ALMACENAMIENTO*</th>
 <th>GCP_ESPECIFICOS</th>
-<th>*DOCKER*</th>
-<th>GITHUB_ACTIONS</th>
-<th>*LINUX*</th>
+<th>*DBT*</th>
 <th>AHORCADO</th>
-<th>DEMO</th>
-<th>*SQL*</th>
-<th>*PYTHON*</th>
 <th>TICTACTOE</th>
+<th>*SQL*</th>
+<th>*LINUX*</th>
+<th>DEMO</th>
+<th>GITHUB_ACTIONS</th>
+<th>*DOCKER*</th>
+<th>*PYTHON*</th>
 <th>NOTA COMUNES</th>
 <th>MDIA_M1</th>
 <th>MDIA_M2</th>
@@ -1081,24 +1081,24 @@ Entregas Grupo MDIA B
 </tr>
 </table>
 
-Last Checked: 2026-11-03 15:38:29
+Last Checked: 2026-11-11 09:30:43
 
 Entregas Grupo MDES
 <table>
 <tr><th>Alumno</th>
-<th>*GCP_ALMACENAMIENTO*</th>
-<th>TERRAFORM</th>
 <th>*APIS*</th>
-<th>*DBT*</th>
+<th>TERRAFORM</th>
+<th>*GCP_ALMACENAMIENTO*</th>
 <th>GCP_ESPECIFICOS</th>
-<th>*DOCKER*</th>
-<th>GITHUB_ACTIONS</th>
-<th>*LINUX*</th>
+<th>*DBT*</th>
 <th>AHORCADO</th>
-<th>DEMO</th>
-<th>*SQL*</th>
-<th>*PYTHON*</th>
 <th>TICTACTOE</th>
+<th>*SQL*</th>
+<th>*LINUX*</th>
+<th>DEMO</th>
+<th>GITHUB_ACTIONS</th>
+<th>*DOCKER*</th>
+<th>*PYTHON*</th>
 <th>NOTA COMUNES</th>
 <th>MDIA_M1</th>
 <th>MDIA_M2</th>
@@ -1150,11 +1150,11 @@ Entregas Grupo MDES
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>✅</td>
-<td>✅</td>
+<td>❌</td>
 <td>❌</td>
 <td>✅</td>
-<td>❌</td>
+<td>✅</td>
+<td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>2.0</td>
@@ -1169,11 +1169,11 @@ Entregas Grupo MDES
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>✅</td>
-<td>✅</td>
+<td>❌</td>
 <td>❌</td>
 <td>✅</td>
-<td>❌</td>
+<td>✅</td>
+<td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>2.0</td>
@@ -1207,11 +1207,11 @@ Entregas Grupo MDES
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
 <td>✅</td>
-<td>❌</td>
-<td>❌</td>
 <td>✅</td>
-<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>0.0</td>
@@ -1264,11 +1264,11 @@ Entregas Grupo MDES
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
 <td>✅</td>
-<td>❌</td>
-<td>❌</td>
 <td>✅</td>
-<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>0.0</td>
@@ -1277,4 +1277,4 @@ Entregas Grupo MDES
 </tr>
 </table>
 
-Last Checked: 2026-11-03 15:38:29
+Last Checked: 2026-11-11 09:30:43
