@@ -1,0 +1,64 @@
+name: Pipeline de Datos
+
+on:
+  workflow_dispatch:
+    inputs:
+      seguridad:
+        description: "Ejecutar tests de seguridad"
+        type: choice
+        options:
+          - "si"
+          - "no"
+        default: "si"
+
+jobs:
+
+  # JOB 1: VALIDACION Y SEGURIDAD
+  seguridad:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validar JSON
+        run: python -m json.tool ventas.json
+
+      - name: Test de seguridad
+        if: ${{ inputs.seguridad == 'si' }}
+        run: python security_scan.py
+
+  # JOB 2: PROCESAMIENTO
+  procesamiento:
+    needs: seguridad
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        entorno: [staging, production]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generar reporte
+        run: |
+          echo "Reporte de ${{ matrix.entorno }}" > reporte.txt
+          echo "Procesamiento completado" >> reporte.txt
+
+      - name: Subir reporte
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-${{ matrix.entorno }}
+          path: reporte.txt
+
+  # JOB 3: NOTIFICACION
+  notificacion:
+    needs: procesamiento
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Notificar exito
+        env:
+          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: echo "Notificacion enviada a $WEBHOOK"
+
+
