@@ -1,0 +1,52 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: ${DB_NAME:-renfe}
+      POSTGRES_USER: ${DB_USER:-renfe}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?define DB_PASSWORD en .env}
+    ports:
+      - "${DB_PORT:-5435}:5432" # puerto en tu equipo : puerto interno de Postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-renfe} -d ${DB_NAME:-renfe}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  collector:
+    build: .
+    env_file: .env
+    environment:
+      DB_HOST: db # dentro de Docker el host es el nombre del servicio
+      DB_PORT: 5432 # puerto interno; el 5435 solo aplica desde tu equipo
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    env_file: .env
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000" # Swagger en http://localhost:8000/docs
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "8080:80" # http://localhost:8080
+    restart: unless-stopped
+
+volumes:
+  pgdata:

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Renfe - Proximidad de trenes</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+  :root { --bg:#f6f7f9; --card:#fff; --text:#1c2430; --muted:#6b7686; --line:#e2e6ec; --accent:#6d28d9; --alert:#d92d20; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#12161c; --card:#1b212b; --text:#e8ecf2; --muted:#98a2b3; --line:#2b3340; --accent:#a78bfa; --alert:#f97066; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: system-ui, sans-serif; background:var(--bg); color:var(--text); display:flex; flex-direction:column; height:100vh; }
+  header { padding:12px 16px; border-bottom:1px solid var(--line); background:var(--card); display:flex; gap:16px; align-items:baseline; flex-wrap:wrap; }
+  h1 { font-size:18px; margin:0; }
+  #estado { color:var(--muted); font-size:13px; }
+  #estado.error { color:var(--alert); font-weight:600; }
+  main { flex:1; display:grid; grid-template-columns: 1fr 380px; min-height:0; }
+  #map { min-height:300px; }
+  aside { border-left:1px solid var(--line); background:var(--card); overflow:auto; padding:12px 16px; }
+  h2 { font-size:14px; margin:0 0 8px; }
+  .alerta { padding:8px 0; border-bottom:1px solid var(--line); font-size:13px; cursor:pointer; }
+  .alerta b { color:var(--alert); }
+  .alerta small { color:var(--muted); display:block; }
+  .vacio { color:var(--muted); font-size:13px; padding:8px 0; }
+  footer { font-size:11px; color:var(--muted); padding:6px 16px; border-top:1px solid var(--line); background:var(--card); }
+  @media (max-width:800px) { main { grid-template-columns:1fr; grid-template-rows: 55vh auto; } aside { border-left:0; border-top:1px solid var(--line); } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Trenes Renfe y alertas de proximidad</h1>
+  <span id="estado">Cargando…</span>
+</header>
+<main>
+  <div id="map"></div>
+  <aside>
+    <h2>Alertas recientes</h2>
+    <div id="alertas"></div>
+  </aside>
+</main>
+<footer>Posiciones operativas orientativas, con posible retraso o imprecisión GPS. No es un sistema de seguridad ferroviaria.</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const map = L.map('map').setView([40.2, -3.7], 6);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '© OpenStreetMap' }).addTo(map);
+const capaTrenes = L.layerGroup().addTo(map);
+const capaAlertas = L.layerGroup().addTo(map);
+const el = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+async function get(path) {
+  const r = await fetch('/api/' + path);
+  if (!r.ok) throw new Error(path + ' → HTTP ' + r.status);
+  return r.json();
+}
+
+async function refrescar() {
+  try {
+    const [trenes, alertas] = await Promise.all([get('getTrenes'), get('getAlertas?limit=30')]);
+    capaTrenes.clearLayers(); capaAlertas.clearLayers();
+    trenes.forEach(t => L.circleMarker([t.latitude, t.longitude], { radius: 4, color: '#6d28d9', weight: 1, fillOpacity: .7 })
+      .bindPopup(`<b>Tren ${esc(t.vehicle_id)}</b><br>Viaje: ${esc(t.trip_id ?? '-')}<br>Ruta: ${esc(t.route_id ?? '-')}<br>${t.latitude.toFixed(5)}, ${t.longitude.toFixed(5)}`)
+      .addTo(capaTrenes));
+    alertas.forEach(a => L.polyline([[a.lat_a, a.lon_a], [a.lat_b, a.lon_b]], { color: '#d92d20', weight: 4 })
+      .bindPopup(`${esc(a.vehicle_id_a)} ↔ ${esc(a.vehicle_id_b)}: ${Math.round(a.distance_m)} m`).addTo(capaAlertas));
+    el('alertas').innerHTML = alertas.length ? alertas.map(a => `
+      <div class="alerta" data-lat="${a.lat_a}" data-lon="${a.lon_a}">
+        <b>${Math.round(a.distance_m)} m</b> · ${esc(a.vehicle_id_a)} ↔ ${esc(a.vehicle_id_b)}
+        <small>umbral ${Math.round(a.threshold_m)} m · ${new Date(a.captured_at).toLocaleString()}</small>
+      </div>`).join('') : '<div class="vacio">No hay alertas registradas.</div>';
+    el('estado').className = '';
+    el('estado').textContent = trenes.length
+      ? `${trenes.length} trenes con posición reciente · actualizado ${new Date().toLocaleTimeString()}`
+      : 'Sin datos recientes (¿el colector está parado?)';
+  } catch (e) {
+    el('estado').className = 'error';
+    el('estado').textContent = 'Servicio no disponible: ' + e.message;
+  }
+}
+
+el('alertas').addEventListener('click', ev => {
+  const d = ev.target.closest('.alerta');
+  if (d) map.setView([+d.dataset.lat, +d.dataset.lon], 12);
+});
+refrescar();
+setInterval(refrescar, 15000);
+</script>
+</body>
+</html>
