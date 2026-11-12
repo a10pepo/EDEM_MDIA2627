@@ -1,0 +1,51 @@
+name: Ejercicio Entregable
+
+on:
+  workflow_dispatch:
+    inputs:
+      security_tests:
+        description: '¿Ejecutar Tests de Seguridad?'
+        type: boolean
+        required: true
+        default: true
+
+jobs:
+  ci_seguridad:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validar ventas.json
+        run: jq . ventas.json
+
+      - name: Escaneo de seguridad
+        if: ${{ inputs.security_tests == true || github.event.inputs.security_tests == 'true' }}
+        run: python3 security_scan.py
+
+  procesamiento:
+    runs-on: ubuntu-latest
+    needs: ci_seguridad
+    strategy:
+      matrix:
+        entorno: [staging, production]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generar reporte
+        run: echo "Reporte de ventas para ${{ matrix.entorno }}" > reporte_${{ matrix.entorno }}.txt
+
+      - name: Subir artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-${{ matrix.entorno }}
+          path: reporte_${{ matrix.entorno }}.txt
+
+  notificacion:
+    runs-on: ubuntu-latest
+    needs: procesamiento
+    if: ${{ success() }}
+    steps:
+      - name: Notificar a Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: echo "Notificación enviada a $DISCORD_WEBHOOK"

@@ -1,0 +1,42 @@
+{
+  "tienda": "Valencia Specialty Coffee Roasters",
+  "fecha_cierre": "2026-11-12",
+  "transacciones": [
+    {
+      "ticket_id": "TCK-8012",
+      "hora": "09:14:22",
+      "origen": "Tienda Centro",
+      "producto": "Etiopia Yirgacheffe 250g",
+      "unidades": 2,
+      "precio_unitario": 11.50,
+      "metodo_pago": "tarjeta"
+    },
+    {
+      "ticket_id": "TCK-8013",
+      "hora": "10:30:05",
+      "origen": "Tienda Ruzafa",
+      "producto": "Colombia Geisha Lavado 250g",
+      "unidades": 1,
+      "precio_unitario": 18.00,
+      "metodo_pago": "bizum"
+    },
+    {
+      "ticket_id": "TCK-8014",
+      "hora": "11:45:50",
+      "origen": "Online",
+      "producto": "Filtros V60 100u + Molinillo Manual",
+      "unidades": 1,
+      "precio_unitario": 42.00,
+      "metodo_pago": "tarjeta"
+    },
+    {
+      "ticket_id": "TCK-8015",
+      "hora": "13:20:10",
+      "origen": "Tienda Ruzafa",
+      "producto": "Pack Degustacion Espresso 1kg",
+      "unidades": 3,
+      "precio_unitario": 28.50,
+      "metodo_pago": "efectivo"
+    }
+  ]
+}
