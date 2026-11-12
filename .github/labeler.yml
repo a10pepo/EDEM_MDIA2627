@@ -211,3 +211,9 @@ entregable:
 PROFESORES:
 - changed-files:
   - any-glob-to-any-file: 'PROFESORES/**'
+
+RENFE:
+- changed-files:
+  - any-glob-to-any-file:
+    - 'ALUMNOS/{MDIAA,MDIAB,MDES}/*/RENFE/**'
+    - 'ALUMNOS/MIA/*/RENFE/**'
