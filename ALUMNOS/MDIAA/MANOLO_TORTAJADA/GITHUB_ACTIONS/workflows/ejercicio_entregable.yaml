@@ -1,0 +1,71 @@
+on: 
+  workflow_dispatch:
+    inputs:
+      seguridad:
+        description: "¿Quieres hacer un escaneo de seguridad?"
+        required: true
+        type: choice
+        options:
+          - "Si"
+          - "No"
+        default: "Si"
+
+
+jobs:
+  ci_seguridad:
+    runs-on: ubuntu-latest
+    steps:
+    # Copia el repo a la máquina del runner. Utilizamos una action que ya existe
+    - name: Descargar repo
+      uses: actions/checkout@v7
+    # Parsea ventas.json con el módulo json.tool de Python: 
+    # si es inválido, sale con exit 1 y falla el job
+    - name: Validar ventas.json
+      run: |
+        python3 -m json.tool ventas.json > /dev/null
+        echo "ventas.json es un JSON válido"
+
+    - name: Escaneo de seguridad
+      if: inputs.seguridad == 'Si'
+      run: python3 scan_seguridad.py
+  
+  procesamiento:
+    needs: ci_seguridad
+    runs-on: ubuntu-latest
+
+    strategy: 
+      matrix:
+        entorno: [staging, production]
+    steps: 
+      - name: Descargar repo
+        uses: actions/checkout@v7
+
+      - name: Generar reporte
+        run: |
+          # Crea el reporte del entorno con el título (> crea el archivo)
+          echo "Reporte de ventas - entorno: ${{ matrix.entorno }}" > reporte_${{ matrix.entorno }}.txt
+          # Cuenta las ventas con jq y lo añade al reporte (>> añade al final)
+          echo "Ventas: $(jq '.ventas | length' ventas.json)" >> reporte_${{ matrix.entorno }}.txt
+          # Suma cantidad * precio_unitario de cada venta y añade el total al reporte
+          echo "Total: $(jq '[.ventas[] | .cantidad * .precio_unitario] | add' ventas.json) EUR" >> reporte_${{ matrix.entorno }}.txt
+
+      - name: Subir reporte
+        uses: actions/upload-artifact@v7
+        with: 
+          name: reporte-${{ matrix.entorno }}
+          path: reporte_${{ matrix.entorno }}.txt
+
+  notificacion:
+    # Espera a los dos jobs anteriores
+    needs: [ci_seguridad, procesamiento]
+    # Solo se ejecuta si todos los jobs de needs terminaron bien (es el valor por defecto, lo dejamos explícito)
+    if: success()
+    runs-on: ubuntu-latest
+    steps:
+    # Simula el envío a Discord: GitHub enmascara el secreto en el log como ***
+    - name: Notificar éxito
+      env:
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      run: |
+        echo "Pipeline completado con éxito"
+        echo "Enviando notificación a: $DISCORD_WEBHOOK"
