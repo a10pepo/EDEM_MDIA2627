@@ -1,0 +1,60 @@
+{
+  "periodo": "2026-10",
+  "moneda": "EUR",
+  "ventas": [
+    {
+      "id": 1001,
+      "fecha": "2026-10-01",
+      "producto": "Teclado mecánico",
+      "cantidad": 2,
+      "precio_unitario": 89.99,
+      "cliente": "Ana López",
+      "region": "Valencia"
+    },
+    {
+      "id": 1002,
+      "fecha": "2026-10-03",
+      "producto": "Ratón inalámbrico",
+      "cantidad": 5,
+      "precio_unitario": 24.5,
+      "cliente": "Carlos Martínez",
+      "region": "Madrid"
+    },
+    {
+      "id": 1003,
+      "fecha": "2026-10-07",
+      "producto": "Monitor 27\"",
+      "cantidad": 1,
+      "precio_unitario": 219,
+      "cliente": "Lucía Pérez",
+      "region": "Barcelona"
+    },
+    {
+      "id": 1004,
+      "fecha": "2026-10-12",
+      "producto": "Auriculares USB",
+      "cantidad": 3,
+      "precio_unitario": 45,
+      "cliente": "Javier Ruiz",
+      "region": "Sevilla"
+    },
+    {
+      "id": 1005,
+      "fecha": "2026-10-18",
+      "producto": "Webcam HD",
+      "cantidad": 4,
+      "precio_unitario": 59.9,
+      "cliente": "Marta Sánchez",
+      "region": "Valencia"
+    },
+    {
+      "id": 1006,
+      "fecha": "2026-10-25",
+      "producto": "Hub USB-C",
+      "cantidad": 2,
+      "precio_unitario": 34.95,
+      "cliente": "Pablo Gómez",
+      "region": "Bilbao"
+    }
+  ]
+}
