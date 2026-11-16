@@ -1,0 +1,7 @@
+{
+  "ventas": [
+    {"producto": "Teclado", "cantidad": 2, "precio_unitario": 25},
+    {"producto": "Ratón", "cantidad": 3, "precio_unitario": 15},
+    {"producto": "Monitor", "cantidad": 1, "precio_unitario": 180}
+  ]
+}

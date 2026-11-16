@@ -1,0 +1,21 @@
+# Ejercicio 8: ejecución programada con cron
+name: "Ejercicio 8 - Programación semanal"
+
+on:
+  schedule:
+    # Los cinco campos son: minuto, hora, día del mes, mes y día de la semana.
+    # Con Europe/Madrid, las 09:00 se mantienen tanto en horario de verano como de invierno.
+    - cron: "0 9 * * 1"
+      timezone: "Europe/Madrid"
+  # El disparador manual permite probar el ejercicio sin esperar al lunes.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tarea-semanal:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ejecutar la tarea programada
+        run: echo "La tarea semanal se ha ejecutado correctamente."
