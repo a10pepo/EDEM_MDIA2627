@@ -608,7 +608,7 @@ Entregas Grupo MDIA A
 </tr>
 </table>
 
-Last Checked: 2026-11-16 15:44:23
+Last Checked: 2026-11-16 15:44:50
 
 Entregas Grupo MDIA B
 <table>
@@ -1134,7 +1134,7 @@ Entregas Grupo MDIA B
 </tr>
 </table>
 
-Last Checked: 2026-11-16 15:44:23
+Last Checked: 2026-11-16 15:44:50
 
 Entregas Grupo MDES
 <table>
@@ -1248,13 +1248,13 @@ Entregas Grupo MDES
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>❌</td>
 <td>✅</td>
 <td>✅</td>
+<td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>0.0</td>
+<td>2.0</td>
 <td>0.0</td>
 <td>0.0</td>
 </tr>
@@ -1340,4 +1340,4 @@ Entregas Grupo MDES
 </tr>
 </table>
 
-Last Checked: 2026-11-16 15:44:23
+Last Checked: 2026-11-16 15:44:50
