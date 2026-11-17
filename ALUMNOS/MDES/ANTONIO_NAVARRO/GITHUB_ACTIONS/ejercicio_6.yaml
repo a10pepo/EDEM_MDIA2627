@@ -1,0 +1,28 @@
+# Ejercicio 6: validación de JSON con una acción de la comunidad
+name: "Ejercicio 6 - Validar JSON"
+
+on:
+  workflow_dispatch:
+  push:
+    # Ejecutar automáticamente solo cuando cambie el dato o este workflow.
+    paths:
+      - "data.json"
+      - ".github/workflows/ejercicio_6.yaml"
+
+permissions:
+  contents: read
+
+jobs:
+  validar-json:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio en el runner
+        # La acción validadora necesita acceder físicamente a data.json.
+        uses: actions/checkout@v4
+
+      - name: Validar la sintaxis de data.json
+        # Esta acción de la comunidad falla el job si el archivo no es JSON válido.
+        # "files" limita el análisis a data.json y evita validar otros YAML/JSON del repo.
+        uses: GrantBirki/json-yaml-validate@v5
+        with:
+          files: data.json
