@@ -1,0 +1,84 @@
+name: Pipeline de ventas seguro
+
+# Nombre que tendrá cada ejecución en la pestaña Actions
+run-name: "Pipeline de ventas · tests de seguridad: ${{ inputs.tests_seguridad }}"
+
+# 1. ACTIVACIÓN: solo manual, con un formulario sí/no
+on:
+  workflow_dispatch:
+    inputs:
+      tests_seguridad:
+        description: "¿Ejecutar los Tests de Seguridad?"
+        required: true
+        type: choice
+        options:
+          - "sí"
+          - "no"
+        default: "sí"
+
+jobs:
+  # 2. JOB 1: CI & Seguridad
+  ci_seguridad:
+    name: "Job 1 · CI & Seguridad"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el código del repositorio
+        uses: actions/checkout@v4
+
+      - name: Validar que ventas.json es un JSON válido
+        run: |
+          python3 -m json.tool ventas.json > /dev/null
+          echo "✅ ventas.json es un JSON válido"
+
+      - name: Escaneo de seguridad (claves API expuestas)
+        if: ${{ inputs.tests_seguridad == 'sí' }}
+        run: python3 escaneo_seguridad.py
+
+  # 3. JOB 2: Procesamiento en staging y production
+  procesamiento:
+    name: "Job 2 · Procesamiento (${{ matrix.entorno }})"
+    needs: ci_seguridad
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        entorno: [staging, production]
+    steps:
+      - name: Descargar el código del repositorio
+        uses: actions/checkout@v4
+
+      - name: Generar el reporte de ${{ matrix.entorno }}
+        env:
+          ENTORNO: ${{ matrix.entorno }}
+        run: |
+          NUM_VENTAS=$(python3 -c "import json; print(len(json.load(open('ventas.json'))))")
+          {
+            echo "REPORTE DE VENTAS"
+            echo "Entorno: $ENTORNO"
+            echo "Fecha: $(date '+%Y-%m-%d %H:%M:%S')"
+            echo "Ventas procesadas: $NUM_VENTAS"
+          } > "reporte_${ENTORNO}.txt"
+          cat "reporte_${ENTORNO}.txt"
+
+      - name: Subir el reporte como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-${{ matrix.entorno }}
+          path: reporte_${{ matrix.entorno }}.txt
+
+  # 4. JOB 3: Notificación de éxito
+  notificacion:
+    name: "Job 3 · Notificación de éxito"
+    needs: [ci_seguridad, procesamiento]
+    if: ${{ success() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simular el envío de la notificación a Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          if [ -z "$DISCORD_WEBHOOK" ]; then
+            echo "::error::Falta el secreto DISCORD_WEBHOOK (Settings → Secrets and variables → Actions)"
+            exit 1
+          fi
+          echo "📣 Pipeline completado con éxito"
+          echo "Enviando notificación al webhook: $DISCORD_WEBHOOK"
