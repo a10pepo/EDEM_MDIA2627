@@ -4,51 +4,51 @@ on:
   workflow_dispatch:
     inputs:
       ejecutar_test_seguridad:
-        description: "¿Quieres ejecutar los tests de seguridad?"
+        description: Ejecutar los tests de seguridad
         required: true
         type: boolean
         default: false
 
 jobs:
   ci-seguridad:
+    name: Validar archivos
     runs-on: ubuntu-latest
     steps:
-      - name: Descargar el código
+      - name: Descargar codigo
         uses: actions/checkout@v4
 
-      - name: Validar que ventas.json es JSON válido
+      - name: Validar ventas.json
         run: python -m json.tool ventas.json > /dev/null
 
-      - name: Ejecutar Tests de Seguridad
+      - name: Ejecutar prueba de seguridad
         if: ${{ inputs.ejecutar_test_seguridad }}
         run: python security_scan.py
 
   procesamiento:
+    name: Crear reportes
     needs: ci-seguridad
     runs-on: ubuntu-latest
     strategy:
       matrix:
         entorno: [staging, production]
     steps:
-      - name: Descargar el código
-        uses: actions/checkout@v4
-
       - name: Crear reporte del entorno
         run: |
           echo "Reporte del entorno: ${{ matrix.entorno }}" > reporte-${{ matrix.entorno }}.txt
           echo "Procesamiento completado correctamente" >> reporte-${{ matrix.entorno }}.txt
 
-      - name: Subir reporte como artefacto
+      - name: Subir reporte
         uses: actions/upload-artifact@v4
         with:
           name: reporte-${{ matrix.entorno }}
           path: reporte-${{ matrix.entorno }}.txt
 
   notificacion-exito:
+    name: Notificacion simulada
     needs: procesamiento
     runs-on: ubuntu-latest
     steps:
-      - name: Simular notificación a Discord
+      - name: Comprobar secreto de Discord
         env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        run: echo "Notificación simulada. Webhook configurado: ${{ secrets.DISCORD_WEBHOOK != '' }}"
+          WEBHOOK_CONFIGURADO: ${{ secrets.DISCORD_WEBHOOK != '' }}
+        run: 'echo "Notificacion simulada. Webhook configurado: $WEBHOOK_CONFIGURADO"'

@@ -1,0 +1,10 @@
+{
+  "ventas": [
+    {
+      "id": 1,
+      "producto": "Producto de prueba",
+      "cantidad": 2,
+      "precio": 9.99
+    }
+  ]
+}
