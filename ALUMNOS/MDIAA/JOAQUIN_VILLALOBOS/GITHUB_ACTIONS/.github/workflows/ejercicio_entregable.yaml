@@ -1,0 +1,60 @@
+name: mi_primer_workflow        # Nombre del workflow que aparecerá en la pestaña Actions de GitHub
+
+on:                             # Bloque de eventos (triggers) que definen cuándo se activa el flujo de trabajo
+  workflow_dispatch:            # Permite disparar la ejecución de forma manual desde GitHub
+    inputs:                     # Parámetros que la interfaz le solicitará al usuario antes de ejecutar  
+      security_tests:           # Nombre interno de la variable (ID único del input)
+        description: "Tests de Seguridad"   # Etiqueta/pregunta visible en el formulario
+        required: true          # Obliga a que la variable tenga un valor antes de enviar
+        type: boolean           # Genera una casilla de verificación (checkbox) de verdadero/falso
+        default: false          # Define que la casilla arranca desmarcada por defecto
+
+jobs:                       # Define los trabajos que va a realizar el workflow
+  #Job 1: CI & Seguridad
+  seguridad:                # Es el identificador del job 1
+    name: "ci_seguridad"    # Es el nombre visible del job 1 en la interfaz de GitHub
+    runs-on: ubuntu-latest  # Determina dónde se va ejecutar el job. En este caso, en una máquina virtual con Ubuntu
+    steps:                  # Son los pasos que se ejecutarán dentro del job y en el orden definido.
+      - name: Descargar proyecto  # Acción 1 Job: Dar acceso al runner para que pueda acceder a los archivos del proyecto 
+        uses: actions/checkout@v4 # 'uses' ejecuta una Action reutilizable (clona tu repo en el runner)
+
+      - name: Validar ventas JSON # Acción 2: Cumplir con validación solicitada
+        run: jq . ventas.json     # 'run' ejecuta comandos de terminal/bash (valida la sintaxis del JSON)
+      
+      - name: Escaneo seguridad   # Acción 3: Simular busqueda de API Keys
+        if: inputs.security_tests == true
+        run: |                    # El pipe '|' permite escribir un bloque de comandos de varias líneas
+          echo "Simulando escaneo de seguridad en busca de API keys..."
+
+  #Job 2: Procesamiento
+  procesamiento:            # Es el identificador del job 2
+    name: "Procesamiento"   # Es el nombre visible del job 2 en la interfaz de GitHub
+    needs: seguridad   # Indica que debe ejecutarse después del job indicado (seguridad)
+    runs-on: ubuntu-latest  # Determina en que máquina virtual va ejecutarse el Job
+
+    strategy:               # Uso de Matrix Strategy para simular procesamiento en 2 entornos
+      matrix:
+        entorno: [staging, production]  # Valores definidos para iterar dentro del mismo Job. Es decir, se va a ejecutar 2 veces una en cada entorno
+    
+    steps:
+      - name: Descargar proyecto  # Acción 1 Job: Dar acceso al runner para que pueda acceder a los archivos del proyecto 
+        uses: actions/checkout@v4 # 'uses' ejecuta una Action reutilizable (clona tu repo en el runner)
+
+      - name: Generación archivo  # Acción 2: Generar archivo de reporte solicitado
+        run: echo "Reporte de ventas para el entorno ${{ matrix.entorno }}" > reporte_${{ matrix.entorno }}.txt   # Acción de generar un reporte de ventas para cada entorno definido en la Matrix Strategy
+
+      - name: Subir Artifact            # Acción 3 del Job: Subir el archivo.txt generado en el step previo
+        uses: actions/upload-artifact@v4   # Al querer cargar algo a GitHub necesitamos usar los artifacts
+        with:
+          name: reporte-${{ matrix.entorno }}       # Es la etiqueta/nombre con la que se guardará el paquete de dasta en el panel de GitHub.
+          path: reporte_${{ matrix.entorno }}.txt   # Es la ruta dentro de la máquina virtual donde la Action debe ir a buscar el archivo que quieres subir
+
+  # Job 3: Notificación
+  notificacion:                         # Es el identificador del job 3
+    name: notification                  # Es el nombre del job 3 dentro de GitHub
+    runs-on: ubuntu-latest              # Definimos máquina virtual en la que correrá 
+    needs: [seguridad, procesamiento]   # Dependencia de ejecución, es decir, debe esperar a que terminen otros jobs.
+
+    steps:
+      - name: Simular envío notificacion via Webhook
+        run: echo "Notificación enviada con éxito a Discord ${{ secrets.DISCORD_WEBHOOK }}"  # Acción que simula envio de notificación. Muestra la URL enmascarada (***) en los logs
