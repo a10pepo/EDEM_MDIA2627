@@ -1,0 +1,64 @@
+name: Ejercicio entregable - Pipeline de datos
+on:
+  workflow_dispatch:
+    inputs:
+      tests_seguridad:
+        description: "¿Ejecutar los Tests de Seguridad?"
+        required: true
+        type: choice
+        options:
+          - "si"
+          - "no"
+        default: "si"
+
+
+jobs:
+  ci_seguridad:
+    name: "Job 1 - CI & Seguridad"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repo
+        uses: actions/checkout@v4
+
+      - name: Validar que ventas.json es un JSON válido
+        run: python -m json.tool ventas.json > /dev/null && echo "ventas.json es válido"
+
+      - name: Escaneo de seguridad (solo si se eligió "si")
+        if: inputs.tests_seguridad == 'si'
+        run: python escaneo_seguridad.py
+
+  procesamiento:
+    name: "Job 2 - Procesar ${{ matrix.entorno }}"
+    runs-on: ubuntu-latest
+    needs: ci_seguridad
+    strategy:
+      matrix:
+        entorno: [staging, production]
+    steps:
+      - name: Descargar el repo
+        uses: actions/checkout@v4
+
+      - name: Generar reporte de ${{ matrix.entorno }}
+        run: |
+          echo "REPORTE DE VENTAS - ENTORNO: ${{ matrix.entorno }}" > reporte_${{ matrix.entorno }}.txt
+          echo "Fecha: $(date)" >> reporte_${{ matrix.entorno }}.txt
+          echo "Número de ventas: $(python -c "import json; print(len(json.load(open('ventas.json'))['ventas']))")" >> reporte_${{ matrix.entorno }}.txt
+          cat reporte_${{ matrix.entorno }}.txt
+
+      - name: Subir reporte como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-${{ matrix.entorno }}
+          path: reporte_${{ matrix.entorno }}.txt
+
+  
+  notificacion:
+    name: "Job 3 - Notificación de éxito"
+    runs-on: ubuntu-latest
+    needs: [ci_seguridad, procesamiento]
+    if: success()
+    steps:
+      - name: Enviar notificación (simulada)
+        env:
+          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: echo "Notificación enviada a $WEBHOOK"
