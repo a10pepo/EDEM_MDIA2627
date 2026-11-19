@@ -67,19 +67,20 @@ Durante este bloque, los alumnos se centrarán en adquirir conocimientos sobre l
 Entregas Grupo MDIA A
 <table>
 <tr><th>Alumno</th>
-<th>*GCP_ALMACENAMIENTO*</th>
-<th>TERRAFORM</th>
 <th>*APIS*</th>
-<th>*DBT*</th>
+<th>TERRAFORM</th>
+<th>*GCP_ALMACENAMIENTO*</th>
 <th>GCP_ESPECIFICOS</th>
-<th>*DOCKER*</th>
-<th>GITHUB_ACTIONS</th>
-<th>*LINUX*</th>
+<th>*DBT*</th>
 <th>AHORCADO</th>
-<th>DEMO</th>
-<th>*SQL*</th>
-<th>*PYTHON*</th>
 <th>TICTACTOE</th>
+<th>*SQL*</th>
+<th>*LINUX*</th>
+<th>DEMO</th>
+<th>GITHUB_ACTIONS</th>
+<th>RENFE</th>
+<th>*DOCKER*</th>
+<th>*PYTHON*</th>
 <th>NOTA COMUNES</th>
 <th>MDIA_M1</th>
 <th>MDIA_M2</th>
@@ -93,9 +94,10 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
 <td>✅</td>
-<td>❌</td>
-<td>❌</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
@@ -116,6 +118,7 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>✅</td>
+<td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
@@ -131,14 +134,15 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>✅</td>
+<td>✅</td>
+<td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>0.0</td>
+<td>2.0</td>
 <td>0.0</td>
 <td>0.0</td>
 </tr>
@@ -153,6 +157,7 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>✅</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
@@ -169,14 +174,15 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
+<td>❌</td>
 <td>✅</td>
 <td>✅</td>
-<td>❌</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
-<td>❌</td>
-<td>2.0</td>
+<td>✅</td>
+<td>4.0</td>
 <td>0.0</td>
 <td>0.0</td>
 </tr>
@@ -191,6 +197,7 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>✅</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
@@ -207,14 +214,15 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>✅</td>
+<td>✅</td>
+<td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>0.0</td>
+<td>2.0</td>
 <td>0.0</td>
 <td>0.0</td>
 </tr>
@@ -233,6 +241,7 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
 <td>0.0</td>
 <td>0.0</td>
 <td>0.0</td>
@@ -245,9 +254,10 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
 <td>✅</td>
-<td>❌</td>
-<td>❌</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
@@ -264,9 +274,10 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>✅</td>
-<td>✅</td>
 <td>❌</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
@@ -283,14 +294,15 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
 <td>✅</td>
 <td>✅</td>
 <td>❌</td>
 <td>✅</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>2.0</td>
+<td>4.0</td>
 <td>0.0</td>
 <td>0.0</td>
 </tr>
@@ -303,8 +315,9 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>✅</td>
 <td>❌</td>
+<td>✅</td>
+<td>✅</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
@@ -322,8 +335,9 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>✅</td>
 <td>❌</td>
+<td>✅</td>
+<td>✅</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
@@ -344,6 +358,7 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>✅</td>
+<td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
@@ -363,6 +378,7 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>✅</td>
+<td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
@@ -380,12 +396,13 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>❌</td>
+<td>✅</td>
+<td>✅</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>0.0</td>
+<td>2.0</td>
 <td>0.0</td>
 <td>0.0</td>
 </tr>
@@ -397,14 +414,15 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
 <td>✅</td>
 <td>✅</td>
 <td>❌</td>
 <td>✅</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>2.0</td>
+<td>4.0</td>
 <td>0.0</td>
 <td>0.0</td>
 </tr>
@@ -416,11 +434,12 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
 <td>✅</td>
-<td>❌</td>
-<td>❌</td>
 <td>✅</td>
-<td>❌</td>
+<td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>0.0</td>
@@ -436,8 +455,9 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>✅</td>
 <td>❌</td>
+<td>✅</td>
+<td>✅</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
@@ -458,6 +478,7 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
@@ -480,12 +501,14 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
 <td>0.0</td>
 <td>0.0</td>
 <td>0.0</td>
 </tr>
 <tr>
 <td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/MDIAA/Manolo_Tortajada'>MANOLO_TORTAJADA</a></td>
+<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
@@ -511,14 +534,15 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
+<td>❌</td>
 <td>✅</td>
 <td>✅</td>
-<td>❌</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
-<td>❌</td>
-<td>2.0</td>
+<td>✅</td>
+<td>4.0</td>
 <td>0.0</td>
 <td>0.0</td>
 </tr>
@@ -530,9 +554,10 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
 <td>✅</td>
-<td>❌</td>
-<td>❌</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
@@ -553,6 +578,7 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>✅</td>
+<td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
@@ -570,35 +596,37 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>❌</td>
+<td>✅</td>
+<td>✅</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>0.0</td>
+<td>2.0</td>
 <td>0.0</td>
 <td>0.0</td>
 </tr>
 </table>
 
-Last Checked: 2026-11-03 15:38:29
+Last Checked: 2026-11-19 14:33:41
 
 Entregas Grupo MDIA B
 <table>
 <tr><th>Alumno</th>
-<th>*GCP_ALMACENAMIENTO*</th>
-<th>TERRAFORM</th>
 <th>*APIS*</th>
-<th>*DBT*</th>
+<th>TERRAFORM</th>
+<th>*GCP_ALMACENAMIENTO*</th>
 <th>GCP_ESPECIFICOS</th>
-<th>*DOCKER*</th>
-<th>GITHUB_ACTIONS</th>
-<th>*LINUX*</th>
+<th>*DBT*</th>
 <th>AHORCADO</th>
-<th>DEMO</th>
-<th>*SQL*</th>
-<th>*PYTHON*</th>
 <th>TICTACTOE</th>
+<th>*SQL*</th>
+<th>*LINUX*</th>
+<th>DEMO</th>
+<th>GITHUB_ACTIONS</th>
+<th>RENFE</th>
+<th>*DOCKER*</th>
+<th>*PYTHON*</th>
 <th>NOTA COMUNES</th>
 <th>MDIA_M1</th>
 <th>MDIA_M2</th>
@@ -616,6 +644,7 @@ Entregas Grupo MDIA B
 <td>❌</td>
 <td>❌</td>
 <td>✅</td>
+<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
@@ -638,6 +667,7 @@ Entregas Grupo MDIA B
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
 <td>0.0</td>
 <td>0.0</td>
 <td>0.0</td>
@@ -654,6 +684,7 @@ Entregas Grupo MDIA B
 <td>❌</td>
 <td>❌</td>
 <td>✅</td>
+<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
@@ -676,6 +707,7 @@ Entregas Grupo MDIA B
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
 <td>0.0</td>
 <td>0.0</td>
 <td>0.0</td>
@@ -692,6 +724,7 @@ Entregas Grupo MDIA B
 <td>❌</td>
 <td>❌</td>
 <td>✅</td>
+<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
@@ -714,6 +747,7 @@ Entregas Grupo MDIA B
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
 <td>0.0</td>
 <td>0.0</td>
 <td>0.0</td>
@@ -730,6 +764,7 @@ Entregas Grupo MDIA B
 <td>❌</td>
 <td>❌</td>
 <td>✅</td>
+<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
@@ -752,6 +787,7 @@ Entregas Grupo MDIA B
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
 <td>0.0</td>
 <td>0.0</td>
 <td>0.0</td>
@@ -768,6 +804,7 @@ Entregas Grupo MDIA B
 <td>❌</td>
 <td>❌</td>
 <td>✅</td>
+<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
@@ -790,6 +827,7 @@ Entregas Grupo MDIA B
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
 <td>0.0</td>
 <td>0.0</td>
 <td>0.0</td>
@@ -809,12 +847,14 @@ Entregas Grupo MDIA B
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
 <td>0.0</td>
 <td>0.0</td>
 <td>0.0</td>
 </tr>
 <tr>
 <td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/MDIAB/JOAQUIN_CASELLES'>JOAQUIN_CASELLES</a></td>
+<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
@@ -847,6 +887,7 @@ Entregas Grupo MDIA B
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
 <td>0.0</td>
 <td>0.0</td>
 <td>0.0</td>
@@ -863,6 +904,7 @@ Entregas Grupo MDIA B
 <td>❌</td>
 <td>❌</td>
 <td>✅</td>
+<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
@@ -885,12 +927,14 @@ Entregas Grupo MDIA B
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
 <td>0.0</td>
 <td>0.0</td>
 <td>0.0</td>
 </tr>
 <tr>
 <td><a href='https://github.com/a10pepo/EDEM_MDIA2627/tree/main/ALUMNOS/MDIAB/MAKSIM_GONZALEZ'>MAKSIM_GONZALEZ</a></td>
+<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
@@ -923,6 +967,7 @@ Entregas Grupo MDIA B
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
 <td>0.0</td>
 <td>0.0</td>
 <td>0.0</td>
@@ -939,6 +984,7 @@ Entregas Grupo MDIA B
 <td>❌</td>
 <td>❌</td>
 <td>✅</td>
+<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
@@ -961,6 +1007,7 @@ Entregas Grupo MDIA B
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
 <td>0.0</td>
 <td>0.0</td>
 <td>0.0</td>
@@ -977,6 +1024,7 @@ Entregas Grupo MDIA B
 <td>❌</td>
 <td>❌</td>
 <td>✅</td>
+<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
@@ -999,6 +1047,7 @@ Entregas Grupo MDIA B
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
 <td>0.0</td>
 <td>0.0</td>
 <td>0.0</td>
@@ -1015,6 +1064,7 @@ Entregas Grupo MDIA B
 <td>❌</td>
 <td>❌</td>
 <td>✅</td>
+<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
@@ -1037,6 +1087,7 @@ Entregas Grupo MDIA B
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
 <td>0.0</td>
 <td>0.0</td>
 <td>0.0</td>
@@ -1053,6 +1104,7 @@ Entregas Grupo MDIA B
 <td>❌</td>
 <td>❌</td>
 <td>✅</td>
+<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
@@ -1075,30 +1127,32 @@ Entregas Grupo MDIA B
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
 <td>0.0</td>
 <td>0.0</td>
 <td>0.0</td>
 </tr>
 </table>
 
-Last Checked: 2026-11-03 15:38:29
+Last Checked: 2026-11-19 14:33:41
 
 Entregas Grupo MDES
 <table>
 <tr><th>Alumno</th>
-<th>*GCP_ALMACENAMIENTO*</th>
-<th>TERRAFORM</th>
 <th>*APIS*</th>
-<th>*DBT*</th>
+<th>TERRAFORM</th>
+<th>*GCP_ALMACENAMIENTO*</th>
 <th>GCP_ESPECIFICOS</th>
-<th>*DOCKER*</th>
-<th>GITHUB_ACTIONS</th>
-<th>*LINUX*</th>
+<th>*DBT*</th>
 <th>AHORCADO</th>
-<th>DEMO</th>
-<th>*SQL*</th>
-<th>*PYTHON*</th>
 <th>TICTACTOE</th>
+<th>*SQL*</th>
+<th>*LINUX*</th>
+<th>DEMO</th>
+<th>GITHUB_ACTIONS</th>
+<th>RENFE</th>
+<th>*DOCKER*</th>
+<th>*PYTHON*</th>
 <th>NOTA COMUNES</th>
 <th>MDIA_M1</th>
 <th>MDIA_M2</th>
@@ -1115,6 +1169,7 @@ Entregas Grupo MDES
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>✅</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
@@ -1135,6 +1190,7 @@ Entregas Grupo MDES
 <td>❌</td>
 <td>❌</td>
 <td>✅</td>
+<td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
@@ -1150,9 +1206,10 @@ Entregas Grupo MDES
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>✅</td>
-<td>✅</td>
 <td>❌</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
@@ -1169,14 +1226,15 @@ Entregas Grupo MDES
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
+<td>❌</td>
 <td>✅</td>
 <td>✅</td>
-<td>❌</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
-<td>❌</td>
-<td>2.0</td>
+<td>✅</td>
+<td>4.0</td>
 <td>0.0</td>
 <td>0.0</td>
 </tr>
@@ -1190,12 +1248,13 @@ Entregas Grupo MDES
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>❌</td>
+<td>✅</td>
+<td>✅</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>0.0</td>
+<td>2.0</td>
 <td>0.0</td>
 <td>0.0</td>
 </tr>
@@ -1207,9 +1266,10 @@ Entregas Grupo MDES
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
 <td>✅</td>
-<td>❌</td>
-<td>❌</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
@@ -1228,12 +1288,13 @@ Entregas Grupo MDES
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>❌</td>
+<td>✅</td>
+<td>✅</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
-<td>0.0</td>
+<td>2.0</td>
 <td>0.0</td>
 <td>0.0</td>
 </tr>
@@ -1252,6 +1313,7 @@ Entregas Grupo MDES
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
 <td>0.0</td>
 <td>0.0</td>
 <td>0.0</td>
@@ -1264,9 +1326,10 @@ Entregas Grupo MDES
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
 <td>✅</td>
-<td>❌</td>
-<td>❌</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
@@ -1277,4 +1340,4 @@ Entregas Grupo MDES
 </tr>
 </table>
 
-Last Checked: 2026-11-03 15:38:29
+Last Checked: 2026-11-19 14:33:41

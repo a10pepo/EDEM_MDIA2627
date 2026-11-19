@@ -1,0 +1,8 @@
+__pycache__/
+.pytest_cache/
+*.pyc
+vehicle_positions_LD.json
+test_renfe_collector.py
+README.md
+.env
+docker-compose.yml

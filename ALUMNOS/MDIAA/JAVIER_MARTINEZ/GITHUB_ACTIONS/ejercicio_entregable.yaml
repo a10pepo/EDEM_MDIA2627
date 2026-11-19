@@ -1,0 +1,73 @@
+name: Test de seguridad
+
+on:
+  workflow_dispatch: #para ejecutarlo manualmente
+    inputs:
+      run_security_tests:
+        description: '¿Ejecutar tests de seguridad? (escribe: si / no)'
+        required: true
+        type: string
+        default: 'si'
+jobs:
+  ci_seguridad:
+    name: CI & seguridad
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el codigo
+        uses: actions/checkout@v4
+
+      - name: Validar archivo ventas.json
+        run: |
+          echo "Validando formato JSON de ventas.json..."
+          python3 -m json.tool ventas.json > /dev/null
+          echo "Archivo ventas.json es un JSON válido."
+
+      - name: Escaneo de Seguridad (API Keys)
+        if: ${{ inputs.run_security_tests == true }}
+        run: |
+          echo "Ejecutando escaneo de seguridad en Python..."
+          python3 -c "
+          with open('ventas.json') as f:
+              content = f.read()
+              if 'api_key' in content.lower() or 'secret' in content.lower():
+                  print('Advertencia: Posible clave expuesta detectada.')
+              else:
+                  print('No se han detectado credenciales expuestas en ventas.json.')
+          "
+
+  procesamiento:
+    name: Procesamiento (${{ matrix.entorno }})
+    runs-on: ubuntu-latest
+    needs: ci_seguridad
+    strategy:
+      matrix:
+        entorno: [staging, production]
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Procesar datos y generar reporte
+        run: |
+          echo "Procesando datos en el entorno: ${{ matrix.entorno }}..."
+          mkdir -p reportes
+          echo "Reporte de ventas para el entorno: ${{ matrix.entorno }}" > reportes/reporte_${{ matrix.entorno }}.txt
+          echo "Fecha de ejecucion: $(date)" >> reportes/reporte_${{ matrix.entorno }}.txt
+          echo "Estado: Procesamiento completado con exito." >> reportes/reporte_${{ matrix.entorno }}.txt
+
+      - name: Subir reporte como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-${{ matrix.entorno }}
+          path: reportes/reporte_${{ matrix.entorno }}.txt
+
+  notificacion:
+    name: Notificación de Éxito
+    runs-on: ubuntu-latest
+    needs: procesamiento
+    steps:
+      - name: Simular envío de notificación a Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          echo "Todos los jobs anteriores han finalizado correctamente."
+          echo "Enviando alerta a Discord mediante Webhook: $DISCORD_WEBHOOK"
