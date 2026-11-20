@@ -37,8 +37,8 @@ def ultimoCaracter(palabra: str) -> str:
         return "Debo ser ejecutada con un string"
 
 # Pruebas de ejecución del Ejercicio 4
-print("Prueba con 'Python':", ultimoCaracter("Python"))
-print("Prueba con un número:", ultimoCaracter(123))
+print(f"Prueba con 'Python': {ultimoCaracter("Python")}")
+print(f"Prueba con un número: {ultimoCaracter(123)}")
 print()
 
 
