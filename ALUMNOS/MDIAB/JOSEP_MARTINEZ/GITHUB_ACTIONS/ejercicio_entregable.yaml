@@ -1,0 +1,96 @@
+name: Ejercicio Entregable
+
+on:
+  workflow_dispatch:
+    inputs:
+      security_tests:
+        description: '¿Ejecutar Tests de Seguridad?'
+        type: boolean
+        required: true
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  ci_seguridad:
+    name: CI y seguridad
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Validar ventas.json
+        run: |
+          python3 - <<'PY'
+          import json
+
+          def rechazar_constante(valor):
+              raise ValueError(f"Constante no admitida en JSON: {valor}")
+
+          with open("ventas.json", encoding="utf-8") as archivo:
+              json.load(archivo, parse_constant=rechazar_constante)
+          print("ventas.json es válido.")
+          PY
+
+      - name: Escaneo de seguridad
+        if: ${{ inputs.security_tests }}
+        run: python3 security_scan.py
+
+  procesamiento:
+    name: Procesamiento (${{ matrix.entorno }})
+    runs-on: ubuntu-latest
+    needs: ci_seguridad
+    strategy:
+      matrix:
+        entorno: [staging, production]
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Generar reporte
+        env:
+          ENTORNO: ${{ matrix.entorno }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          from decimal import Decimal
+
+          entorno = os.environ["ENTORNO"]
+          with open("ventas.json", encoding="utf-8") as archivo:
+              ventas = json.load(archivo, parse_float=Decimal)
+
+          transacciones = ventas["transacciones"]
+          unidades = sum(venta["unidades"] for venta in transacciones)
+          total = sum(venta["unidades"] * venta["precio_unitario"] for venta in transacciones)
+
+          with open(f"reporte_{entorno}.txt", "w", encoding="utf-8") as reporte:
+              print(f"Reporte de ventas ({entorno})", file=reporte)
+              print(f"Tienda: {ventas['tienda']}", file=reporte)
+              print(f"Fecha de cierre: {ventas['fecha_cierre']}", file=reporte)
+              print(f"Transacciones: {len(transacciones)}", file=reporte)
+              print(f"Unidades vendidas: {unidades}", file=reporte)
+              print(f"Importe total: {total:.2f} EUR", file=reporte)
+          PY
+
+      - name: Subir artefacto
+        uses: actions/upload-artifact@v7
+        with:
+          name: reporte-${{ matrix.entorno }}
+          path: reporte_${{ matrix.entorno }}.txt
+          if-no-files-found: error
+
+  notificacion:
+    name: Notificación de éxito
+    runs-on: ubuntu-latest
+    needs: [ci_seguridad, procesamiento]
+    if: ${{ success() }}
+    steps:
+      - name: Simular notificación a Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          if [ -z "$DISCORD_WEBHOOK" ]; then
+            echo "Falta configurar el secreto DISCORD_WEBHOOK en GitHub Actions."
+            exit 1
+          fi
+          echo "Notificación a Discord simulada. Webhook: ***"
