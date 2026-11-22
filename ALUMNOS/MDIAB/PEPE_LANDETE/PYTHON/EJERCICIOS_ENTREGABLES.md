@@ -23,13 +23,13 @@ festivo: bool = True
 if festivo == True:
     print("Hoy es fiesta voy a echarme una siesta!!")
 else:
-    print("No es fiesta pero no pasa nada porque tengo que hacer el entragable de Python")
+    print("No es fiesta pero no pasa nada porque tengo que hacer el entragable de Python :) ")
 
 ## Ejercicio 4
 1. Crea la función ultimoCaracter debe recibir un tipo string y devolver un string con el último carácter. 
 
 def ultimoCaracter(texto):
-    if type(texto) = str:
+    if type(texto) == str:
         return texto[-1]
 
 2. Si la función no recibe un dato tipo string debe devolver el string 'Debo ser ejecutada con un string'. 
@@ -97,3 +97,29 @@ capullo
 ##### Entrada: saludo → Salida: CORRECTA
 
 ##### Entrada: hola mundo → Salida: Introduce una sola palabra (sin espacios).
+
+### SOLUCIÓN:
+
+def norm(s: str) -> str:
+    return s.strip().lower()
+
+bad = set()
+with open("bad_words.txt", encoding="utf-8") as f:
+    for line in f:
+        w = line.strip()
+        if w:
+            bad.add(norm(w))
+
+
+palabra_usuario: str = input("Escriba su palabra: ")
+
+
+if palabra_usuario == "" or " " in palabra_usuario:
+    print("Introduce una sola palabra (sin espacios).")
+else:
+    palabra_normalizada: str = norm(palabra_usuario)
+    
+    if palabra_normalizada in bad:
+        print("NO CORRECTA")
+    else:
+        print("CORRECTA")
