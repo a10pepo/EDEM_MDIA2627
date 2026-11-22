@@ -217,3 +217,9 @@ RENFE:
   - any-glob-to-any-file:
     - 'ALUMNOS/{MDIAA,MDIAB,MDES}/*/RENFE/**'
     - 'ALUMNOS/MIA/*/RENFE/**'
+
+GITHUB_ACTIONS:
+- changed-files:
+  - any-glob-to-any-file:
+    - 'ALUMNOS/{MDIAA,MDIAB,MDES}/*/GITHUB_ACTIONS/**'
+    - 'ALUMNOS/MIA/*/GITHUB_ACTIONS/**'
