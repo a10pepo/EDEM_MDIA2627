@@ -19,13 +19,7 @@ Antes de comenzar, asegúrate de tener lo siguiente:
     gcloud init
     ```
 
-3. **Terraform**: Instala Terraform siguiendo las instrucciones de la [guía de instalación de Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli).
-    1. MAC: 
-    ```bash
-    brew install terraform
-    ```
-    2. Windows: Descarga e instala Terraform desde el [sitio oficial](https://developer.hashicorp.com/terraform/install).
-
+3. **Terraform**: Sigue las instrucciones de instalación para [macOS y Windows](../README.md#instalar-terraform-en-macos-y-windows).
 
 4. **Proyecto y facturación**: Asegúrate de tener un proyecto en GCP y la facturación habilitada.
 
