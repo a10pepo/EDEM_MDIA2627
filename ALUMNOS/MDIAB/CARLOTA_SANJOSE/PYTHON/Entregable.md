@@ -47,12 +47,8 @@ Escribe un programa que pida **una palabra** por teclado y diga si está en la l
 ##### Material proporcionado (NO modificar)
 Se guarda el bloque que **carga** `bad_words.txt` en un `set` llamado `bad` (una palabra por línea):
 
-#Normalización
 def norm(s: str) -> str:
     return s.strip().lower()
-
-#Cargar bad_words.txt (una palabra por línea; # = comentario)
-
 bad = set()
 with open("bad_words.txt", encoding="utf-8") as f:
     for line in f:
