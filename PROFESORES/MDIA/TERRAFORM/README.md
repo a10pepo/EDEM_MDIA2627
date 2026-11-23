@@ -1,5 +1,44 @@
 # Creating a GitHub Repository Using `gh` CLI on macOS
 
+## Instalar Terraform en macOS y Windows
+
+Consulta la [guía oficial de instalación de Terraform](https://developer.hashicorp.com/terraform/install) para ver las versiones compatibles y las descargas más recientes.
+
+### macOS
+
+Si tienes [Homebrew](https://brew.sh/) instalado, abre Terminal y ejecuta:
+
+```sh
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
+```
+
+Comprueba la instalación con:
+
+```sh
+terraform -version
+```
+
+### Windows
+
+1. Descarga el archivo ZIP de Terraform para Windows desde la [página oficial de instalación](https://developer.hashicorp.com/terraform/install). Elige la arquitectura de tu equipo (normalmente **AMD64**).
+2. Crea una carpeta para el ejecutable, por ejemplo `C:\terraform`.
+3. Extrae `terraform.exe` del ZIP y guárdalo directamente en `C:\terraform`.
+4. Añade esa carpeta a la variable de entorno `Path`:
+   - Abre el menú Inicio, busca **Editar las variables de entorno del sistema** y abre la ventana.
+   - Selecciona **Variables de entorno…**.
+   - En **Variables de usuario** (solo para tu cuenta) o **Variables del sistema** (para todos los usuarios), selecciona `Path` y pulsa **Editar**.
+   - Pulsa **Nuevo**, escribe `C:\terraform` y confirma con **Aceptar** en todas las ventanas.
+   - Si `Path` no existe, créala como variable nueva llamada `Path` y añade `C:\terraform` como valor.
+5. Cierra y vuelve a abrir PowerShell o Símbolo del sistema para que cargue el `Path` actualizado.
+6. Comprueba la instalación en una nueva terminal:
+
+```powershell
+terraform -version
+```
+
+Si Windows indica que no reconoce el comando, confirma que `terraform.exe` está dentro de `C:\terraform`, que esa carpeta aparece en `Path` y que abriste una terminal nueva.
+
 This guide walks you through installing the GitHub CLI (`gh`), authenticating, creating a new repository, **and** generating a Personal Access Token (PAT) for use with Terraform or other CLI tools.
 
 ---
