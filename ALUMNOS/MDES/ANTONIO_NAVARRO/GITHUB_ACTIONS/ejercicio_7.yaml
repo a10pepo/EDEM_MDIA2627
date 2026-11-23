@@ -1,0 +1,33 @@
+# Ejercicio 7: outputs entre jobs
+name: "Ejercicio 7 - Outputs entre jobs"
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  generar:
+    runs-on: ubuntu-latest
+    # Se publica el output del step para que pueda leerlo otro job.
+    outputs:
+      numero_aleatorio: ${{ steps.numero.outputs.valor }}
+    steps:
+      - name: Generar un número aleatorio
+        id: numero
+        run: |
+          numero=$((RANDOM + 1))
+          echo "Se ha generado el número $numero."
+          # GITHUB_OUTPUT es el mecanismo recomendado para crear outputs de un step.
+          echo "valor=$numero" >> "$GITHUB_OUTPUT"
+
+  mostrar:
+    needs: generar
+    runs-on: ubuntu-latest
+    steps:
+      - name: Leer el output producido por el job anterior
+        # Se pasa mediante env para mantener separadas la expresión de Actions y el shell.
+        env:
+          NUMERO_RECIBIDO: ${{ needs.generar.outputs.numero_aleatorio }}
+        run: echo "El segundo job ha recibido el número $NUMERO_RECIBIDO."
