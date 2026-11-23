@@ -1,0 +1,39 @@
+{
+  "fechaActualizacion": "2026-11-12T17:49:20",
+  "trenes": [
+    {"codComercial": "10001", "codEstAnt": "71801", "codEstSig": "60000", "codOrigen": "71801", "codDestino": "60000",
+     "latitud": 41.6000, "longitud": 0.3700, "time": 1794502153, "ultRetraso": "5",
+     "horaLlegadaSigEst": "2026-11-12T19:58:00", "mat": "100001", "codProduct": 2, "p": "1", "accesible": true},
+    {"codComercial": "10002", "codEstAnt": "71801", "codEstSig": "60000", "codOrigen": "71801", "codDestino": "60000",
+     "latitud": 41.6200, "longitud": 0.3800, "time": 1794502150, "ultRetraso": "-380",
+     "horaLlegadaSigEst": "2026-11-12T19:40:00", "mat": "100002", "codProduct": 2, "p": "1", "accesible": true},
+
+    {"codComercial": "20001", "codEstAnt": "11014", "codEstSig": "14100", "codOrigen": "11511", "codDestino": "10000",
+     "latitud": 42.2156, "longitud": -3.9997, "time": 1794502153, "ultRetraso": "12",
+     "horaLlegadaSigEst": "2026-11-12T18:29:20", "mat": "200001,200002", "codProduct": 16, "p": "2", "accesible": false},
+    {"codComercial": "20002", "codEstAnt": "11014", "codEstSig": "14100", "codOrigen": "11511", "codDestino": "10000",
+     "latitud": 42.2156, "longitud": -3.9997, "time": 1794502153, "ultRetraso": "12",
+     "horaLlegadaSigEst": "2026-11-12T18:35:00", "mat": "200002", "codProduct": 16, "p": "2", "accesible": false},
+
+    {"codComercial": "30001", "codEstAnt": "50000", "codEstSig": "50000", "codOrigen": "50000", "codDestino": "51000",
+     "latitud": 39.4700, "longitud": -0.3770, "time": 1794502140, "ultRetraso": "0",
+     "horaLlegadaSigEst": "2026-11-12T17:30:00", "mat": "300001", "codProduct": 2, "p": "1", "accesible": true},
+
+    {"codComercial": "40001", "codEstAnt": "60000", "codEstSig": "61000", "codOrigen": "60000", "codDestino": "61000",
+     "latitud": 123.0, "longitud": 0.5, "time": 1794502140, "ultRetraso": "3",
+     "horaLlegadaSigEst": "2026-11-12T18:00:00", "mat": "400001", "codProduct": 2, "p": "1", "accesible": true},
+
+    {"codComercial": "50001", "codEstAnt": "10000", "codEstSig": "20000", "codOrigen": "10000", "codDestino": "20000",
+     "latitud": 37.3900, "longitud": -5.9900, "time": 1794502130, "ultRetraso": "x",
+     "horaLlegadaSigEst": "2026-11-12T20:00:00", "mat": "500001", "codProduct": 2, "p": "1", "accesible": true},
+    {"codComercial": "50002", "codEstAnt": "20000", "codEstSig": "30000", "codOrigen": "20000", "codDestino": "30000",
+     "latitud": 43.3600, "longitud": -5.8500, "time": 1794502135, "ultRetraso": "8",
+     "horaLlegadaSigEst": "2026-11-12T19:00:00", "mat": "500002", "codProduct": 2, "p": "1", "accesible": false},
+    {"codComercial": "50003", "codEstAnt": "30000", "codEstSig": "40000", "codOrigen": "30000", "codDestino": "40000",
+     "latitud": 40.4000, "longitud": -3.7000, "time": 1794502145, "ultRetraso": "0",
+     "horaLlegadaSigEst": "2026-11-12T18:10:00", "mat": "500003", "codProduct": 2, "p": "1", "accesible": true},
+    {"codComercial": "50004", "codEstAnt": "40000", "codEstSig": "50000", "codOrigen": "40000", "codDestino": "50000",
+     "latitud": 38.0000, "longitud": -1.1300, "time": 1794502148, "ultRetraso": "2",
+     "horaLlegadaSigEst": "2026-11-12T18:20:00", "mat": "500004", "codProduct": 2, "p": "1", "accesible": true}
+  ]
+}
