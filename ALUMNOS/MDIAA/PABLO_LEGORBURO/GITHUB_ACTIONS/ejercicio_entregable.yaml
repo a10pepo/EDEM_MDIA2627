@@ -1,0 +1,92 @@
+name: Ejercicio Entregable - Pipeline de Datos Seguro
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_security_tests:
+        type: boolean
+        description: '¿Ejecutar Tests de Seguridad?'
+        required: true
+        default: true
+
+# Forzar a que todos los comandos 'run' se ejecuten en la carpeta de tu trabajo
+defaults:
+  run:
+    working-directory: ALUMNOS/MDIAA/PABLO_LEGORBURO
+
+jobs:
+  ci_and_security:
+    name: CI & Seguridad
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Validar sintaxis de ventas.json
+        run: |
+          if [ -f "ventas.json" ]; then
+            python3 -m json.tool ventas.json > /dev/null
+            echo "ventas.json es un JSON válido."
+          else
+            echo "Error: El archivo ventas.json no existe en ALUMNOS/MDIAA/PABLO_LEGORBURO/"
+            exit 1
+          fi
+
+      - name: Escaneo de seguridad (Simulación)
+        if: ${{ inputs.run_security_tests }}
+        run: |
+          python3 -c '
+          import re, sys
+
+          with open("ventas.json", "r") as f:
+              content = f.read()
+
+          pattern = r"(api[_-]?key|secret|token)\s*[:=]\s*[\"\'][A-Za-z0-9_\-]{16,}[\"\']"
+          matches = re.findall(pattern, content, re.IGNORECASE)
+
+          if matches:
+              print("ALERTA DE SEGURIDAD: Se han detectado posibles claves API expuestas.")
+              sys.exit(1)
+          else:
+              print("Escaneo de seguridad completado: No se detectaron claves expuestas.")
+          '
+
+  processing:
+    name: Procesamiento
+    needs: ci_and_security
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment: [staging, production]
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Generar reporte de procesamiento
+        run: |
+          mkdir -p output
+          echo "Reporte de Procesamiento de Ventas" > output/reporte_${{ matrix.environment }}.txt
+          echo "Entorno: ${{ matrix.environment }}" >> output/reporte_${{ matrix.environment }}.txt
+          echo "Fecha de ejecución: $(date -u)" >> output/reporte_${{ matrix.environment }}.txt
+          echo "Estado: Procesado correctamente" >> output/reporte_${{ matrix.environment }}.txt
+
+      - name: Subir artefacto de reporte
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-ventas-${{ matrix.environment }}
+          path: ALUMNOS/MDIAA/PABLO_LEGORBURO/output/reporte_${{ matrix.environment }}.txt
+
+  notify_success:
+    name: Notificación de Éxito
+    needs: [ci_and_security, processing]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simular envío de notificación a Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          if [ -z "$DISCORD_WEBHOOK" ]; then
+            echo "Warning: El secreto DISCORD_WEBHOOK no está configurado."
+          else
+            echo "Notificación enviada con éxito al webhook: $DISCORD_WEBHOOK"
+          fi

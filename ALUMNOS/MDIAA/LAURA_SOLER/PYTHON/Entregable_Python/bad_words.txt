@@ -1,0 +1,4 @@
+#LISTA DE PALABRAS PROHIBIDAS:
+tonto
+idiota
+capullo
