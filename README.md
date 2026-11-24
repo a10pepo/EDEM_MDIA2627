@@ -134,15 +134,15 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>✅</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>✅</td>
+<td>✅</td>
 <td>❌</td>
-<td>2.0</td>
+<td>✅</td>
+<td>❌</td>
+<td>6.0</td>
 <td>0.0</td>
 <td>0.0</td>
 </tr>
@@ -154,15 +154,15 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>✅</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
+<td>✅</td>
+<td>✅</td>
 <td>❌</td>
+<td>✅</td>
 <td>❌</td>
-<td>0.0</td>
+<td>6.0</td>
 <td>0.0</td>
 <td>0.0</td>
 </tr>
@@ -334,15 +334,15 @@ Entregas Grupo MDIA A
 <td>❌</td>
 <td>❌</td>
 <td>✅</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
 <td>✅</td>
+<td>✅</td>
 <td>❌</td>
-<td>2.0</td>
+<td>✅</td>
+<td>❌</td>
+<td>6.0</td>
 <td>0.0</td>
 <td>0.0</td>
 </tr>
@@ -440,9 +440,9 @@ Entregas Grupo MDIA A
 <td>✅</td>
 <td>❌</td>
 <td>❌</td>
+<td>✅</td>
 <td>❌</td>
-<td>❌</td>
-<td>0.0</td>
+<td>2.0</td>
 <td>0.0</td>
 <td>0.0</td>
 </tr>
@@ -608,7 +608,7 @@ Entregas Grupo MDIA A
 </tr>
 </table>
 
-Last Checked: 2026-11-24 09:40:58
+Last Checked: 2026-11-24 16:34:21
 
 Entregas Grupo MDIA B
 <table>
@@ -1134,7 +1134,7 @@ Entregas Grupo MDIA B
 </tr>
 </table>
 
-Last Checked: 2026-11-24 09:40:58
+Last Checked: 2026-11-24 16:34:21
 
 Entregas Grupo MDES
 <table>
@@ -1340,4 +1340,4 @@ Entregas Grupo MDES
 </tr>
 </table>
 
-Last Checked: 2026-11-24 09:40:58
+Last Checked: 2026-11-24 16:34:21
