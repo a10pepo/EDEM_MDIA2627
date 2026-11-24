@@ -1,0 +1,59 @@
+name: Pipeline de Datos Seguro y Automatizado
+
+on:
+  workflow_dispatch:
+    inputs:
+      ejecutar_tests:
+        description: '¿Ejecutar tests de seguridad?'
+        required: true
+        type: choice
+        options:
+          - 'si'
+          - 'no'
+
+jobs:
+  ci_seguridad:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v3
+
+      - name: Validar JSON
+        run: python -m json.tool ventas.json
+
+      - name: Ejecutar tests de seguridad
+        if: ${{ inputs.ejecutar_tests == 'si' }}
+        run: python escaneo_seguridad.py
+
+  procesamiento:
+    needs: ci_seguridad
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        entorno: [staging, production]
+
+    steps:
+      - name: Generar reporte
+        run: |
+          echo "Reporte del entorno ${{ matrix.entorno }}" > reporte-${{ matrix.entorno }}.txt
+          echo "Ventas procesadas correctamente" >> reporte-${{ matrix.entorno }}.txt
+
+      - name: Subir artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-${{ matrix.entorno }}
+          path: reporte-${{ matrix.entorno }}.txt
+
+  notificacion:
+    needs: procesamiento
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Notificacion Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          echo "Pipeline completado correctamente"
+          echo "Webhook: $DISCORD_WEBHOOK"
