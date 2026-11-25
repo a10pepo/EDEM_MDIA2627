@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS empleados (
     id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     nombre VARCHAR(50),
     email TEXT UNIQUE NOT NULL,
-    salario NUMERIC(8,2),
+    salario NUMERIC(12,2),
     departamento_id INTEGER REFERENCES departamentos(id)
 )
 
