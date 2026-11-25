@@ -1,0 +1,5 @@
+# Sustituye este valor por el ID de tu proyecto GCP individual.
+project_id = "TU_PROJECT_ID"
+
+# Si el profesor indica otra región permitida, cámbiala aquí.
+region = "europe-west1"
