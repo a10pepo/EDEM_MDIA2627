@@ -1,0 +1,47 @@
+[
+  {
+    "name": "order_id",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "order_date",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "province",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "product_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "category",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "origin_province",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "quantity",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "unit_price_cents",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "line_net_cents",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+  }
+]

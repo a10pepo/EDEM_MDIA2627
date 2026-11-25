@@ -1,0 +1,981 @@
+order_id,order_date,province,product_name,category,origin_province,quantity,unit_price_cents,line_net_cents
+1,2023-12-29,Málaga,Naranja de Carcaixent,Cítricos,Valencia,1,582,541
+1,2023-12-29,Málaga,Arroz bomba de Sueca,Despensa,Valencia,1,662,619
+2,2024-04-13,Málaga,Miel de la Marina,Aceites y miel,Alicante,1,922,922
+2,2024-04-13,Málaga,Almendra tostada de Xixona,Despensa,Alicante,2,753,1506
+2,2024-04-13,Málaga,Zumo de naranja de Carcaixent,Bebidas,Valencia,2,370,740
+3,2024-03-31,Sevilla,Naranja de Carcaixent,Cítricos,Valencia,2,568,1136
+3,2024-03-31,Sevilla,Miel de la Marina,Aceites y miel,Alicante,1,911,911
+3,2024-03-31,Sevilla,Almendra tostada de Xixona,Despensa,Alicante,1,694,694
+4,2025-09-12,Madrid,Pimiento asado de Guardamar,Conservas vegetales,Alicante,1,610,473
+4,2025-09-12,Madrid,Mandarina de Nules,Cítricos,Castellón,1,686,593
+5,2025-09-28,Madrid,Pimiento asado de Guardamar,Conservas vegetales,Alicante,2,562,442
+5,2025-09-28,Madrid,Limón de Orihuela,Cítricos,Alicante,4,451,1539
+5,2025-09-28,Madrid,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1225,1084
+5,2025-09-28,Madrid,Salmorreta de El Campello,Conservas vegetales,Alicante,1,585,403
+6,2025-10-10,Madrid,Pimiento asado de Guardamar,Conservas vegetales,Alicante,1,566,566
+6,2025-10-10,Madrid,Limón de Orihuela,Cítricos,Alicante,2,445,890
+6,2025-10-10,Madrid,Rosquilletas de València,Despensa,Valencia,2,401,802
+6,2025-10-10,Madrid,Mandarina de Nules,Cítricos,Castellón,1,658,658
+6,2025-10-10,Madrid,Zumo de granada de Elche,Bebidas,Alicante,3,447,1341
+7,2025-10-26,Madrid,Pimiento asado de Guardamar,Conservas vegetales,Alicante,3,613,1389
+7,2025-10-26,Madrid,Zumo de granada de Elche,Bebidas,Alicante,3,460,1209
+7,2025-10-26,Madrid,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1292,1100
+7,2025-10-26,Madrid,Salmorreta de El Campello,Conservas vegetales,Alicante,2,595,859
+8,2025-11-10,Madrid,Pimiento asado de Guardamar,Conservas vegetales,Alicante,1,617,617
+8,2025-11-10,Madrid,Limón de Orihuela,Cítricos,Alicante,2,462,924
+9,2025-11-23,Madrid,Pimiento asado de Guardamar,Conservas vegetales,Alicante,1,635,482
+9,2025-11-23,Madrid,Limón de Orihuela,Cítricos,Alicante,2,479,896
+9,2025-11-23,Madrid,Horchata de Alboraya,Bebidas,Valencia,4,636,2225
+10,2025-12-05,Madrid,Pimiento asado de Guardamar,Conservas vegetales,Alicante,2,625,1004
+10,2025-12-05,Madrid,Limón de Orihuela,Cítricos,Alicante,1,488,418
+10,2025-12-05,Madrid,Mermelada de naranja de Gandia,Dulces artesanos,Valencia,1,560,501
+11,2025-12-20,Madrid,Pimiento asado de Guardamar,Conservas vegetales,Alicante,2,636,1272
+11,2025-12-20,Madrid,Limón de Orihuela,Cítricos,Alicante,1,449,449
+12,2025-11-07,Girona,Arroz bomba de Sueca,Despensa,Valencia,8,587,4415
+12,2025-11-07,Girona,Zumo de granada de Elche,Bebidas,Alicante,6,450,2590
+12,2025-11-07,Girona,Pimiento asado de Guardamar,Conservas vegetales,Alicante,6,624,3061
+13,2024-08-26,Valencia,Horchata de Alboraya,Bebidas,Valencia,2,627,1254
+13,2024-08-26,Valencia,Miel de la Marina,Aceites y miel,Alicante,1,860,860
+14,2024-09-22,Valencia,Horchata de Alboraya,Bebidas,Valencia,3,601,1803
+14,2024-09-22,Valencia,Miel de la Marina,Aceites y miel,Alicante,2,845,1690
+14,2024-09-22,Valencia,Naranja de Carcaixent,Cítricos,Valencia,3,583,1749
+15,2024-10-20,Valencia,Horchata de Alboraya,Bebidas,Valencia,1,634,0
+15,2024-10-20,Valencia,Naranja de Carcaixent,Cítricos,Valencia,1,589,589
+16,2024-11-15,Valencia,Horchata de Alboraya,Bebidas,Valencia,1,593,593
+16,2024-11-15,Valencia,Miel de la Marina,Aceites y miel,Alicante,4,925,3700
+16,2024-11-15,Valencia,Naranja de Carcaixent,Cítricos,Valencia,1,572,572
+17,2024-12-13,Valencia,Horchata de Alboraya,Bebidas,Valencia,1,596,529
+17,2024-12-13,Valencia,Miel de la Marina,Aceites y miel,Alicante,1,951,871
+17,2024-12-13,Valencia,Naranja de Carcaixent,Cítricos,Valencia,2,561,1004
+18,2025-01-12,Valencia,Miel de la Marina,Aceites y miel,Alicante,3,847,2541
+18,2025-01-12,Valencia,Naranja de Carcaixent,Cítricos,Valencia,1,518,518
+18,2025-01-12,Valencia,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1327,1327
+19,2025-02-07,Valencia,Horchata de Alboraya,Bebidas,Valencia,2,595,1190
+19,2025-02-07,Valencia,Naranja de Carcaixent,Cítricos,Valencia,1,547,547
+20,2025-03-07,Valencia,Horchata de Alboraya,Bebidas,Valencia,2,557,1114
+20,2025-03-07,Valencia,Miel de la Marina,Aceites y miel,Alicante,1,901,901
+21,2024-07-30,Madrid,Naranja de Carcaixent,Cítricos,Valencia,1,573,573
+21,2024-07-30,Madrid,Horchata de Alboraya,Bebidas,Valencia,4,582,2328
+21,2024-07-30,Madrid,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1387,2774
+22,2024-08-27,Madrid,Naranja de Carcaixent,Cítricos,Valencia,4,574,2296
+22,2024-08-27,Madrid,Rosquilletas de València,Despensa,Valencia,1,390,390
+23,2025-04-09,Girona,Rosquilletas de València,Despensa,Valencia,1,382,382
+23,2025-04-09,Girona,Alcachofa en conserva de Benicarló,Conservas vegetales,Castellón,2,711,711
+23,2025-04-09,Girona,Miel de la Marina,Aceites y miel,Alicante,1,939,939
+24,2025-06-20,Girona,Arroz bomba de Sueca,Despensa,Valencia,1,637,637
+24,2025-06-20,Girona,Mandarina de Nules,Cítricos,Castellón,1,646,646
+24,2025-06-20,Girona,Horchata de Alboraya,Bebidas,Valencia,1,558,558
+24,2025-06-20,Girona,Limón de Orihuela,Cítricos,Alicante,3,441,1323
+25,2025-06-30,Pontevedra,Pimiento asado de Guardamar,Conservas vegetales,Alicante,1,613,474
+25,2025-06-30,Pontevedra,Limón de Orihuela,Cítricos,Alicante,2,443,822
+25,2025-06-30,Pontevedra,Garrofón de Cullera,Despensa,Valencia,2,519,946
+26,2024-07-04,Alicante,Limón de Orihuela,Cítricos,Alicante,1,476,476
+26,2024-07-04,Alicante,Rosquilletas de València,Despensa,Valencia,2,380,760
+27,2024-12-08,Valencia,Miel de la Marina,Aceites y miel,Alicante,1,944,904
+27,2024-12-08,Valencia,Naranja de Carcaixent,Cítricos,Valencia,2,569,1071
+27,2024-12-08,Valencia,Zumo de naranja de Carcaixent,Bebidas,Valencia,1,370,354
+28,2025-03-31,Valencia,Horchata de Alboraya,Bebidas,Valencia,2,566,1085
+28,2025-03-31,Valencia,Naranja de Carcaixent,Cítricos,Valencia,1,528,483
+28,2025-03-31,Valencia,Caja de cítricos de la Ribera,Cítricos,Valencia,1,1457,1407
+28,2025-03-31,Valencia,Mandarina de Nules,Cítricos,Castellón,1,623,541
+29,2023-02-06,Valencia,Almendra tostada de Xixona,Despensa,Alicante,2,746,1300
+29,2023-02-06,Valencia,Miel de la Vall d'Alba,Aceites y miel,Castellón,1,824,760
+29,2023-02-06,Valencia,Limón de Orihuela,Cítricos,Alicante,3,462,884
+30,2025-11-02,Madrid,Mermelada de naranja de Gandia,Dulces artesanos,Valencia,2,575,1150
+30,2025-11-02,Madrid,Turrón blando de Xixona,Dulces artesanos,Alicante,1,1130,1130
+30,2025-11-02,Madrid,Rosquilletas de València,Despensa,Valencia,1,401,401
+30,2025-11-02,Madrid,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1312,2624
+31,2023-04-06,Sevilla,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1387,2774
+31,2023-04-06,Sevilla,Almendra tostada de Xixona,Despensa,Alicante,2,760,1520
+31,2023-04-06,Sevilla,Zumo de naranja de Carcaixent,Bebidas,Valencia,1,414,0
+32,2023-04-19,Sevilla,Miel de la Marina,Aceites y miel,Alicante,1,849,849
+32,2023-04-19,Sevilla,Aceite de oliva de Viver,Aceites y miel,Castellón,3,1289,3867
+32,2023-04-19,Sevilla,Garrofón de Cullera,Despensa,Valencia,2,499,998
+33,2023-05-05,Sevilla,Miel de la Marina,Aceites y miel,Alicante,1,928,928
+33,2023-05-05,Sevilla,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1365,1365
+33,2023-05-05,Sevilla,Horchata de Alboraya,Bebidas,Valencia,3,557,1671
+34,2023-05-21,Sevilla,Miel de la Marina,Aceites y miel,Alicante,2,910,1820
+34,2023-05-21,Sevilla,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1379,2758
+34,2023-05-21,Sevilla,Caja de cítricos de la Ribera,Cítricos,Valencia,2,1558,3116
+35,2023-06-03,Sevilla,Miel de la Marina,Aceites y miel,Alicante,1,838,838
+35,2023-06-03,Sevilla,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1274,1274
+35,2023-06-03,Sevilla,Zumo de naranja de Carcaixent,Bebidas,Valencia,1,392,392
+35,2023-06-03,Sevilla,Arroz bomba de Sueca,Despensa,Valencia,2,645,1290
+36,2023-06-16,Sevilla,Miel de la Marina,Aceites y miel,Alicante,3,837,2511
+36,2023-06-16,Sevilla,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1291,0
+36,2023-06-16,Sevilla,Arroz bomba de Sueca,Despensa,Valencia,1,657,657
+37,2023-06-28,Sevilla,Miel de la Marina,Aceites y miel,Alicante,3,943,2829
+37,2023-06-28,Sevilla,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1343,1343
+38,2023-07-10,Sevilla,Miel de la Marina,Aceites y miel,Alicante,3,940,2820
+38,2023-07-10,Sevilla,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1264,1264
+38,2023-07-10,Sevilla,Zumo de naranja de Carcaixent,Bebidas,Valencia,1,414,414
+39,2023-07-24,Sevilla,Miel de la Marina,Aceites y miel,Alicante,2,865,1730
+39,2023-07-24,Sevilla,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1283,2566
+39,2023-07-24,Sevilla,Zumo de naranja de Carcaixent,Bebidas,Valencia,1,379,379
+40,2023-08-07,Sevilla,Miel de la Marina,Aceites y miel,Alicante,1,903,903
+40,2023-08-07,Sevilla,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1246,1246
+40,2023-08-07,Sevilla,Almendra tostada de Xixona,Despensa,Alicante,1,741,741
+40,2023-08-07,Sevilla,Garrofón de Cullera,Despensa,Valencia,1,481,481
+41,2023-12-09,Valencia,Naranja de Carcaixent,Cítricos,Valencia,4,568,2072
+41,2023-12-09,Valencia,Horchata de Alboraya,Bebidas,Valencia,7,611,3959
+41,2023-12-09,Valencia,Zumo de granada de Elche,Bebidas,Alicante,2,483,935
+42,2023-12-23,Valencia,Arroz bomba de Sueca,Despensa,Valencia,8,658,4830
+42,2023-12-23,Valencia,Naranja de Carcaixent,Cítricos,Valencia,6,574,3277
+42,2023-12-23,Valencia,Zumo de naranja de Carcaixent,Bebidas,Valencia,7,400,2603
+43,2024-01-06,Valencia,Arroz bomba de Sueca,Despensa,Valencia,6,650,3625
+43,2024-01-06,Valencia,Naranja de Carcaixent,Cítricos,Valencia,8,574,4102
+43,2024-01-06,Valencia,Garrofón de Cullera,Despensa,Valencia,5,494,2244
+44,2024-01-22,Valencia,Arroz bomba de Sueca,Despensa,Valencia,5,587,2764
+44,2024-01-22,Valencia,Naranja de Carcaixent,Cítricos,Valencia,4,583,2079
+44,2024-01-22,Valencia,Mandarina de Nules,Cítricos,Castellón,4,629,2353
+44,2024-01-22,Valencia,Miel de la Vall d'Alba,Aceites y miel,Castellón,3,823,2313
+45,2024-02-06,Valencia,Naranja de Carcaixent,Cítricos,Valencia,8,548,4039
+45,2024-02-06,Valencia,Arroz bomba de Sueca,Despensa,Valencia,6,622,3599
+46,2024-02-18,Valencia,Arroz bomba de Sueca,Despensa,Valencia,6,612,3372
+46,2024-02-18,Valencia,Naranja de Carcaixent,Cítricos,Valencia,5,537,2567
+46,2024-02-18,Valencia,Zumo de naranja de Carcaixent,Bebidas,Valencia,7,379,2542
+47,2024-11-21,Murcia,Naranja de Carcaixent,Cítricos,Valencia,1,531,531
+47,2024-11-21,Murcia,Mandarina de Nules,Cítricos,Castellón,1,614,614
+47,2024-11-21,Murcia,Almendra tostada de Xixona,Despensa,Alicante,1,696,696
+48,2025-02-24,Murcia,Mandarina de Nules,Cítricos,Castellón,2,681,1362
+48,2025-02-24,Murcia,Limón de Orihuela,Cítricos,Alicante,1,492,492
+48,2025-02-24,Murcia,Naranja de Carcaixent,Cítricos,Valencia,2,552,1104
+48,2025-02-24,Murcia,Horchata de Alboraya,Bebidas,Valencia,1,600,600
+49,2025-08-04,Girona,Mandarina de Nules,Cítricos,Castellón,31,633,12576
+49,2025-08-04,Girona,Almendra tostada de Xixona,Despensa,Alicante,29,692,12896
+49,2025-08-04,Girona,Limón de Orihuela,Cítricos,Alicante,12,483,3893
+49,2025-08-04,Girona,Rosquilletas de València,Despensa,Valencia,36,388,9820
+50,2025-04-12,Pontevedra,Naranja de Carcaixent,Cítricos,Valencia,2,583,1099
+50,2025-04-12,Pontevedra,Miel de la Vall d'Alba,Aceites y miel,Castellón,1,826,704
+50,2025-04-12,Pontevedra,Mandarina de Nules,Cítricos,Castellón,2,683,1289
+50,2025-04-12,Pontevedra,Almendra tostada de Xixona,Despensa,Alicante,2,771,1314
+51,2025-04-27,Pontevedra,Naranja de Carcaixent,Cítricos,Valencia,1,547,547
+51,2025-04-27,Pontevedra,Miel de la Vall d'Alba,Aceites y miel,Castellón,1,850,850
+52,2025-05-09,Pontevedra,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1227,2454
+52,2025-05-09,Pontevedra,Horchata de Alboraya,Bebidas,Valencia,2,561,1122
+52,2025-05-09,Pontevedra,Garrofón de Cullera,Despensa,Valencia,1,488,488
+53,2025-05-22,Pontevedra,Miel de la Vall d'Alba,Aceites y miel,Castellón,1,838,0
+53,2025-05-22,Pontevedra,Horchata de Alboraya,Bebidas,Valencia,3,597,1791
+53,2025-05-22,Pontevedra,Zumo de naranja de Carcaixent,Bebidas,Valencia,2,374,748
+54,2024-06-14,Barcelona,Naranja de Carcaixent,Cítricos,Valencia,1,582,551
+54,2024-06-14,Barcelona,Limón de Orihuela,Cítricos,Alicante,2,453,839
+55,2024-09-25,Barcelona,Garrofón de Cullera,Despensa,Valencia,1,504,485
+55,2024-09-25,Barcelona,Miel de la Marina,Aceites y miel,Alicante,1,921,0
+55,2024-09-25,Barcelona,Miel de la Vall d'Alba,Aceites y miel,Castellón,1,826,757
+55,2024-09-25,Barcelona,Horchata de Alboraya,Bebidas,Valencia,1,591,559
+56,2025-01-09,Barcelona,Limón de Orihuela,Cítricos,Alicante,1,481,481
+56,2025-01-09,Barcelona,Naranja de Carcaixent,Cítricos,Valencia,1,583,583
+56,2025-01-09,Barcelona,Almendra tostada de Xixona,Despensa,Alicante,1,726,726
+57,2025-04-15,Barcelona,Pimiento asado de Guardamar,Conservas vegetales,Alicante,1,633,441
+57,2025-04-15,Barcelona,Naranja de Carcaixent,Cítricos,Valencia,1,583,505
+57,2025-04-15,Barcelona,Almendra tostada de Xixona,Despensa,Alicante,1,736,658
+58,2025-06-03,Bizkaia,Salmorreta de El Campello,Conservas vegetales,Alicante,2,524,813
+58,2025-06-03,Bizkaia,Horchata de Alboraya,Bebidas,Valencia,1,576,534
+58,2025-06-03,Bizkaia,Miel de la Vall d'Alba,Aceites y miel,Castellón,2,827,1496
+59,2025-03-05,Bizkaia,Miel de la Vall d'Alba,Aceites y miel,Castellón,2,851,1489
+59,2025-03-05,Bizkaia,Naranja de Carcaixent,Cítricos,Valencia,4,571,2029
+59,2025-03-05,Bizkaia,Arroz bomba de Sueca,Despensa,Valencia,2,623,1140
+60,2025-06-22,Santa Cruz de Tenerife,Garrofón de Cullera,Despensa,Valencia,7,496,3169
+60,2025-06-22,Santa Cruz de Tenerife,Salmorreta de El Campello,Conservas vegetales,Alicante,6,562,3175
+61,2025-10-12,Santa Cruz de Tenerife,Arroz bomba de Sueca,Despensa,Valencia,6,654,3674
+61,2025-10-12,Santa Cruz de Tenerife,Aceite de oliva de Viver,Aceites y miel,Castellón,5,1331,5927
+61,2025-10-12,Santa Cruz de Tenerife,Miel de la Vall d'Alba,Aceites y miel,Castellón,4,838,3057
+61,2025-10-12,Santa Cruz de Tenerife,Naranja de Carcaixent,Cítricos,Valencia,8,578,3112
+62,2025-10-27,Santa Cruz de Tenerife,Almendra tostada de Xixona,Despensa,Alicante,7,776,5068
+62,2025-10-27,Santa Cruz de Tenerife,Salmorreta de El Campello,Conservas vegetales,Alicante,8,590,4482
+62,2025-10-27,Santa Cruz de Tenerife,Mandarina de Nules,Cítricos,Castellón,7,663,4461
+62,2025-10-27,Santa Cruz de Tenerife,Miel de la Vall d'Alba,Aceites y miel,Castellón,7,817,5307
+63,2023-12-16,Valencia,Horchata de Alboraya,Bebidas,Valencia,1,595,552
+63,2023-12-16,Valencia,Arroz bomba de Sueca,Despensa,Valencia,1,606,587
+64,2024-01-11,Valencia,Rosquilletas de València,Despensa,Valencia,1,385,385
+64,2024-01-11,Valencia,Horchata de Alboraya,Bebidas,Valencia,2,621,1242
+65,2024-02-09,Valencia,Horchata de Alboraya,Bebidas,Valencia,2,632,1264
+65,2024-02-09,Valencia,Naranja de Carcaixent,Cítricos,Valencia,1,519,519
+65,2024-02-09,Valencia,Caja de cítricos de la Ribera,Cítricos,Valencia,2,1418,2836
+66,2024-03-09,Valencia,Rosquilletas de València,Despensa,Valencia,1,358,358
+66,2024-03-09,Valencia,Horchata de Alboraya,Bebidas,Valencia,1,555,555
+66,2024-03-09,Valencia,Arroz bomba de Sueca,Despensa,Valencia,1,618,618
+67,2024-04-07,Valencia,Rosquilletas de València,Despensa,Valencia,1,396,350
+67,2024-04-07,Valencia,Horchata de Alboraya,Bebidas,Valencia,2,591,1114
+68,2025-11-14,Valencia,Zumo de granada de Elche,Bebidas,Alicante,1,449,421
+68,2025-11-14,Valencia,Mandarina de Nules,Cítricos,Castellón,1,668,614
+68,2025-11-14,Valencia,Coca dulce de la Vall d’Uixó,Dulces artesanos,Castellón,2,682,1296
+69,2025-12-13,Valencia,Zumo de granada de Elche,Bebidas,Alicante,1,453,411
+69,2025-12-13,Valencia,Mandarina de Nules,Cítricos,Castellón,1,679,616
+69,2025-12-13,Valencia,Mermelada de naranja de Gandia,Dulces artesanos,Valencia,2,575,1064
+70,2025-06-30,Valladolid,Naranja de Carcaixent,Cítricos,Valencia,6,538,2904
+70,2025-06-30,Valladolid,Arroz bomba de Sueca,Despensa,Valencia,6,663,3819
+70,2025-06-30,Valladolid,Caja de cítricos de la Ribera,Cítricos,Valencia,8,1589,11352
+71,2025-07-15,Valladolid,Naranja de Carcaixent,Cítricos,Valencia,6,531,2981
+71,2025-07-15,Valladolid,Garrofón de Cullera,Despensa,Valencia,7,533,3520
+72,2025-07-28,Valladolid,Naranja de Carcaixent,Cítricos,Valencia,4,579,2064
+72,2025-07-28,Valladolid,Garrofón de Cullera,Despensa,Valencia,6,491,2721
+73,2025-08-11,Valladolid,Naranja de Carcaixent,Cítricos,Valencia,8,569,4109
+73,2025-08-11,Valladolid,Garrofón de Cullera,Despensa,Valencia,7,546,3571
+73,2025-08-11,Valladolid,Mandarina de Nules,Cítricos,Castellón,2,620,1114
+73,2025-08-11,Valladolid,Caja de cítricos de la Ribera,Cítricos,Valencia,7,1471,9680
+74,2025-08-24,Valladolid,Naranja de Carcaixent,Cítricos,Valencia,2,521,971
+74,2025-08-24,Valladolid,Garrofón de Cullera,Despensa,Valencia,7,492,3285
+74,2025-08-24,Valladolid,Salmorreta de El Campello,Conservas vegetales,Alicante,7,566,2056
+74,2025-08-24,Valladolid,Arroz bomba de Sueca,Despensa,Valencia,6,642,3711
+75,2024-06-08,Zaragoza,Horchata de Alboraya,Bebidas,Valencia,1,630,558
+75,2024-06-08,Zaragoza,Naranja de Carcaixent,Cítricos,Valencia,3,557,1566
+75,2024-06-08,Zaragoza,Zumo de naranja de Carcaixent,Bebidas,Valencia,2,372,716
+75,2024-06-08,Zaragoza,Garrofón de Cullera,Despensa,Valencia,2,486,869
+76,2024-09-14,Zaragoza,Garrofón de Cullera,Despensa,Valencia,2,484,968
+76,2024-09-14,Zaragoza,Horchata de Alboraya,Bebidas,Valencia,1,629,629
+77,2025-01-12,Zaragoza,Zumo de naranja de Carcaixent,Bebidas,Valencia,1,368,0
+77,2025-01-12,Zaragoza,Arroz bomba de Sueca,Despensa,Valencia,3,598,1794
+77,2025-01-12,Zaragoza,Caja de cítricos de la Ribera,Cítricos,Valencia,1,1551,1551
+78,2025-04-02,Zaragoza,Horchata de Alboraya,Bebidas,Valencia,1,558,494
+78,2025-04-02,Zaragoza,Alcachofa en conserva de Benicarló,Conservas vegetales,Castellón,2,658,1127
+79,2025-05-01,Zaragoza,Arroz bomba de Sueca,Despensa,Valencia,2,590,1124
+79,2025-05-01,Zaragoza,Aceite de oliva de Viver,Aceites y miel,Castellón,4,1240,4273
+79,2025-05-01,Zaragoza,Salmorreta de El Campello,Conservas vegetales,Alicante,1,595,475
+79,2025-05-01,Zaragoza,Horchata de Alboraya,Bebidas,Valencia,2,599,1085
+80,2025-05-29,Zaragoza,Arroz bomba de Sueca,Despensa,Valencia,3,607,1821
+80,2025-05-29,Zaragoza,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1230,1230
+80,2025-05-29,Zaragoza,Horchata de Alboraya,Bebidas,Valencia,2,583,1166
+80,2025-05-29,Zaragoza,Almendra tostada de Xixona,Despensa,Alicante,2,773,1546
+81,2025-06-26,Zaragoza,Arroz bomba de Sueca,Despensa,Valencia,3,596,1644
+81,2025-06-26,Zaragoza,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1393,1232
+81,2025-06-26,Zaragoza,Miel de la Marina,Aceites y miel,Alicante,2,839,1612
+81,2025-06-26,Zaragoza,Horchata de Alboraya,Bebidas,Valencia,2,573,1068
+82,2025-07-22,Zaragoza,Arroz bomba de Sueca,Despensa,Valencia,1,616,616
+82,2025-07-22,Zaragoza,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1276,2552
+82,2025-07-22,Zaragoza,Garrofón de Cullera,Despensa,Valencia,3,523,1569
+83,2025-08-19,Zaragoza,Arroz bomba de Sueca,Despensa,Valencia,1,644,585
+83,2025-08-19,Zaragoza,Aceite de oliva de Viver,Aceites y miel,Castellón,4,1323,5122
+83,2025-08-19,Zaragoza,Horchata de Alboraya,Bebidas,Valencia,1,611,527
+84,2025-09-15,Zaragoza,Arroz bomba de Sueca,Despensa,Valencia,2,625,1083
+84,2025-09-15,Zaragoza,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1345,1244
+85,2025-10-11,Zaragoza,Arroz bomba de Sueca,Despensa,Valencia,3,592,1776
+85,2025-10-11,Zaragoza,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1361,2722
+86,2025-11-07,Zaragoza,Arroz bomba de Sueca,Despensa,Valencia,2,611,1068
+86,2025-11-07,Zaragoza,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1331,1256
+86,2025-11-07,Zaragoza,Garrofón de Cullera,Despensa,Valencia,2,520,953
+87,2025-12-06,Zaragoza,Arroz bomba de Sueca,Despensa,Valencia,2,650,1300
+87,2025-12-06,Zaragoza,Aceite de oliva de Viver,Aceites y miel,Castellón,3,1322,3966
+87,2025-12-06,Zaragoza,Caja de cítricos de la Ribera,Cítricos,Valencia,3,1478,4434
+88,2024-09-26,Alicante,Arroz bomba de Sueca,Despensa,Valencia,3,611,1724
+88,2024-09-26,Alicante,Rosquilletas de València,Despensa,Valencia,4,368,1355
+89,2024-10-12,Alicante,Arroz bomba de Sueca,Despensa,Valencia,4,625,2237
+89,2024-10-12,Alicante,Rosquilletas de València,Despensa,Valencia,6,394,2187
+89,2024-10-12,Alicante,Almendra tostada de Xixona,Despensa,Alicante,4,770,2822
+90,2024-10-26,Alicante,Arroz bomba de Sueca,Despensa,Valencia,5,590,2843
+90,2024-10-26,Alicante,Rosquilletas de València,Despensa,Valencia,7,366,2311
+91,2024-11-08,Alicante,Arroz bomba de Sueca,Despensa,Valencia,7,590,3745
+91,2024-11-08,Alicante,Rosquilletas de València,Despensa,Valencia,7,396,2597
+91,2024-11-08,Alicante,Almendra tostada de Xixona,Despensa,Alicante,3,680,1966
+91,2024-11-08,Alicante,Caja de cítricos de la Ribera,Cítricos,Valencia,5,1537,6944
+91,2024-11-08,Alicante,Garrofón de Cullera,Despensa,Valencia,8,548,4052
+92,2024-11-20,Alicante,Arroz bomba de Sueca,Despensa,Valencia,8,633,2431
+92,2024-11-20,Alicante,Rosquilletas de València,Despensa,Valencia,5,380,1820
+92,2024-11-20,Alicante,Limón de Orihuela,Cítricos,Alicante,5,471,2198
+93,2025-07-19,Santa Cruz de Tenerife,Miel de la Marina,Aceites y miel,Alicante,1,889,802
+93,2025-07-19,Santa Cruz de Tenerife,Arroz bomba de Sueca,Despensa,Valencia,1,604,550
+93,2025-07-19,Santa Cruz de Tenerife,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1289,2319
+93,2025-07-19,Santa Cruz de Tenerife,Pimiento asado de Guardamar,Conservas vegetales,Alicante,1,637,0
+93,2025-07-19,Santa Cruz de Tenerife,Mandarina de Nules,Cítricos,Castellón,2,602,1097
+94,2023-10-07,Alicante,Zumo de naranja de Carcaixent,Bebidas,Valencia,3,398,1194
+94,2023-10-07,Alicante,Miel de la Vall d'Alba,Aceites y miel,Castellón,3,773,2319
+95,2023-08-02,Valencia,Arroz bomba de Sueca,Despensa,Valencia,1,620,620
+95,2023-08-02,Valencia,Horchata de Alboraya,Bebidas,Valencia,2,619,1238
+96,2023-09-12,Valencia,Zumo de granada de Elche,Bebidas,Alicante,1,481,481
+96,2023-09-12,Valencia,Almendra tostada de Xixona,Despensa,Alicante,1,715,715
+96,2023-09-12,Valencia,Zumo de naranja de Carcaixent,Bebidas,Valencia,1,376,376
+96,2023-09-12,Valencia,Arroz bomba de Sueca,Despensa,Valencia,2,603,1206
+96,2023-09-12,Valencia,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1393,2786
+97,2023-11-30,Barcelona,Caja de cítricos de la Ribera,Cítricos,Valencia,2,1475,2840
+97,2023-11-30,Barcelona,Mandarina de Nules,Cítricos,Castellón,1,663,641
+98,2023-12-07,Madrid,Caja de cítricos de la Ribera,Cítricos,Valencia,2,1516,2734
+98,2023-12-07,Madrid,Naranja de Carcaixent,Cítricos,Valencia,3,571,1523
+98,2023-12-07,Madrid,Horchata de Alboraya,Bebidas,Valencia,1,615,584
+99,2024-03-10,Madrid,Naranja de Carcaixent,Cítricos,Valencia,3,570,1710
+99,2024-03-10,Madrid,Zumo de granada de Elche,Bebidas,Alicante,1,441,441
+100,2024-08-07,Murcia,Horchata de Alboraya,Bebidas,Valencia,1,567,515
+100,2024-08-07,Murcia,Caja de cítricos de la Ribera,Cítricos,Valencia,1,1565,1468
+101,2024-09-03,Murcia,Horchata de Alboraya,Bebidas,Valencia,3,624,1683
+101,2024-09-03,Murcia,Mandarina de Nules,Cítricos,Castellón,3,662,1805
+102,2024-09-30,Murcia,Horchata de Alboraya,Bebidas,Valencia,2,591,1182
+102,2024-09-30,Murcia,Mandarina de Nules,Cítricos,Castellón,2,681,1362
+103,2024-10-30,Murcia,Horchata de Alboraya,Bebidas,Valencia,1,634,634
+103,2024-10-30,Murcia,Garrofón de Cullera,Despensa,Valencia,1,517,517
+103,2024-10-30,Murcia,Mandarina de Nules,Cítricos,Castellón,1,657,657
+104,2024-11-25,Murcia,Horchata de Alboraya,Bebidas,Valencia,2,632,1264
+104,2024-11-25,Murcia,Mandarina de Nules,Cítricos,Castellón,2,630,1260
+104,2024-11-25,Murcia,Arroz bomba de Sueca,Despensa,Valencia,1,636,636
+104,2024-11-25,Murcia,Miel de la Vall d'Alba,Aceites y miel,Castellón,1,803,803
+105,2024-12-23,Murcia,Horchata de Alboraya,Bebidas,Valencia,3,579,1598
+105,2024-12-23,Murcia,Mandarina de Nules,Cítricos,Castellón,1,652,632
+105,2024-12-23,Murcia,Rosquilletas de València,Despensa,Valencia,1,373,327
+106,2025-01-20,Murcia,Horchata de Alboraya,Bebidas,Valencia,2,615,1230
+106,2025-01-20,Murcia,Mandarina de Nules,Cítricos,Castellón,3,625,1875
+106,2025-01-20,Murcia,Caja de cítricos de la Ribera,Cítricos,Valencia,3,1471,4413
+107,2025-02-16,Murcia,Mandarina de Nules,Cítricos,Castellón,3,614,1842
+107,2025-02-16,Murcia,Zumo de naranja de Carcaixent,Bebidas,Valencia,1,368,368
+107,2025-02-16,Murcia,Miel de la Marina,Aceites y miel,Alicante,1,940,940
+107,2025-02-16,Murcia,Limón de Orihuela,Cítricos,Alicante,4,492,1968
+108,2025-03-16,Murcia,Horchata de Alboraya,Bebidas,Valencia,1,630,630
+108,2025-03-16,Murcia,Limón de Orihuela,Cítricos,Alicante,2,476,952
+108,2025-03-16,Murcia,Naranja de Carcaixent,Cítricos,Valencia,2,564,1128
+109,2023-01-15,Alicante,Caja de cítricos de la Ribera,Cítricos,Valencia,1,1582,1582
+109,2023-01-15,Alicante,Zumo de naranja de Carcaixent,Bebidas,Valencia,2,371,742
+109,2023-01-15,Alicante,Rosquilletas de València,Despensa,Valencia,2,401,802
+109,2023-01-15,Alicante,Mandarina de Nules,Cítricos,Castellón,2,683,1366
+109,2023-01-15,Alicante,Horchata de Alboraya,Bebidas,Valencia,3,585,1755
+110,2023-04-18,Alicante,Zumo de naranja de Carcaixent,Bebidas,Valencia,1,387,387
+110,2023-04-18,Alicante,Miel de la Marina,Aceites y miel,Alicante,2,933,1866
+110,2023-04-18,Alicante,Limón de Orihuela,Cítricos,Alicante,2,432,864
+111,2023-10-07,Sevilla,Naranja de Carcaixent,Cítricos,Valencia,2,590,1180
+111,2023-10-07,Sevilla,Mandarina de Nules,Cítricos,Castellón,1,602,602
+111,2023-10-07,Sevilla,Limón de Orihuela,Cítricos,Alicante,2,441,882
+111,2023-10-07,Sevilla,Miel de la Vall d'Alba,Aceites y miel,Castellón,2,765,1530
+112,2023-11-04,Sevilla,Naranja de Carcaixent,Cítricos,Valencia,2,530,936
+112,2023-11-04,Sevilla,Mandarina de Nules,Cítricos,Castellón,3,683,1947
+112,2023-11-04,Sevilla,Limón de Orihuela,Cítricos,Alicante,2,443,836
+112,2023-11-04,Sevilla,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1283,2443
+113,2023-12-01,Sevilla,Naranja de Carcaixent,Cítricos,Valencia,1,586,586
+113,2023-12-01,Sevilla,Mandarina de Nules,Cítricos,Castellón,1,664,664
+113,2023-12-01,Sevilla,Limón de Orihuela,Cítricos,Alicante,1,486,486
+114,2023-12-27,Sevilla,Naranja de Carcaixent,Cítricos,Valencia,1,544,494
+114,2023-12-27,Sevilla,Mandarina de Nules,Cítricos,Castellón,2,644,589
+115,2024-01-25,Sevilla,Naranja de Carcaixent,Cítricos,Valencia,1,583,583
+115,2024-01-25,Sevilla,Mandarina de Nules,Cítricos,Castellón,1,631,631
+115,2024-01-25,Sevilla,Limón de Orihuela,Cítricos,Alicante,1,467,467
+116,2024-11-03,Murcia,Mandarina de Nules,Cítricos,Castellón,2,685,1370
+116,2024-11-03,Murcia,Miel de la Vall d'Alba,Aceites y miel,Castellón,1,797,797
+117,2024-04-22,Bizkaia,Garrofón de Cullera,Despensa,Valencia,1,536,536
+117,2024-04-22,Bizkaia,Limón de Orihuela,Cítricos,Alicante,1,469,469
+117,2024-04-22,Bizkaia,Almendra tostada de Xixona,Despensa,Alicante,4,702,2808
+118,2024-05-31,Bizkaia,Rosquilletas de València,Despensa,Valencia,1,361,361
+118,2024-05-31,Bizkaia,Horchata de Alboraya,Bebidas,Valencia,2,611,1222
+119,2024-09-14,Valencia,Zumo de granada de Elche,Bebidas,Alicante,3,445,1191
+119,2024-09-14,Valencia,Arroz bomba de Sueca,Despensa,Valencia,3,618,1579
+119,2024-09-14,Valencia,Almendra tostada de Xixona,Despensa,Alicante,4,702,2398
+119,2024-09-14,Valencia,Naranja de Carcaixent,Cítricos,Valencia,4,545,1866
+119,2024-09-14,Valencia,Horchata de Alboraya,Bebidas,Valencia,1,583,534
+120,2025-02-19,A Coruña,Arroz bomba de Sueca,Despensa,Valencia,3,587,1560
+120,2025-02-19,A Coruña,Naranja de Carcaixent,Cítricos,Valencia,1,586,499
+120,2025-02-19,A Coruña,Mandarina de Nules,Cítricos,Castellón,2,654,1247
+120,2025-02-19,A Coruña,Limón de Orihuela,Cítricos,Alicante,1,480,412
+121,2025-06-11,A Coruña,Salmorreta de El Campello,Conservas vegetales,Alicante,2,566,1132
+121,2025-06-11,A Coruña,Caja de cítricos de la Ribera,Cítricos,Valencia,1,1574,1574
+121,2025-06-11,A Coruña,Arroz bomba de Sueca,Despensa,Valencia,3,599,1797
+121,2025-06-11,A Coruña,Horchata de Alboraya,Bebidas,Valencia,1,586,586
+122,2023-11-29,Bizkaia,Naranja de Carcaixent,Cítricos,Valencia,8,520,3718
+122,2023-11-29,Bizkaia,Caja de cítricos de la Ribera,Cítricos,Valencia,2,1522,2716
+123,2023-12-25,Bizkaia,Aceite de oliva de Viver,Aceites y miel,Castellón,4,1261,4824
+123,2023-12-25,Bizkaia,Arroz bomba de Sueca,Despensa,Valencia,7,631,4113
+123,2023-12-25,Bizkaia,Naranja de Carcaixent,Cítricos,Valencia,2,547,1028
+124,2024-03-08,Bizkaia,Garrofón de Cullera,Despensa,Valencia,2,507,907
+124,2024-03-08,Bizkaia,Miel de la Vall d'Alba,Aceites y miel,Castellón,2,798,1532
+124,2024-03-08,Bizkaia,Limón de Orihuela,Cítricos,Alicante,4,465,1722
+125,2024-05-31,Bizkaia,Miel de la Vall d'Alba,Aceites y miel,Castellón,8,788,5907
+125,2024-05-31,Bizkaia,Arroz bomba de Sueca,Despensa,Valencia,2,620,1109
+125,2024-05-31,Bizkaia,Miel de la Marina,Aceites y miel,Alicante,5,870,3953
+125,2024-05-31,Bizkaia,Horchata de Alboraya,Bebidas,Valencia,8,637,2994
+126,2024-06-21,Bizkaia,Mandarina de Nules,Cítricos,Castellón,5,630,2983
+126,2024-06-21,Bizkaia,Arroz bomba de Sueca,Despensa,Valencia,8,659,4825
+126,2024-06-21,Bizkaia,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1286,2326
+126,2024-06-21,Bizkaia,Rosquilletas de València,Despensa,Valencia,3,377,1020
+127,2024-08-24,Bizkaia,Arroz bomba de Sueca,Despensa,Valencia,8,613,4470
+127,2024-08-24,Bizkaia,Zumo de naranja de Carcaixent,Bebidas,Valencia,8,380,2791
+127,2024-08-24,Bizkaia,Limón de Orihuela,Cítricos,Alicante,3,461,1276
+127,2024-08-24,Bizkaia,Almendra tostada de Xixona,Despensa,Alicante,2,747,1390
+128,2024-10-08,Bizkaia,Mandarina de Nules,Cítricos,Castellón,4,671,2442
+128,2024-10-08,Bizkaia,Caja de cítricos de la Ribera,Cítricos,Valencia,2,1562,3029
+128,2024-10-08,Bizkaia,Naranja de Carcaixent,Cítricos,Valencia,7,588,3678
+129,2025-12-12,A Coruña,Arroz bomba de Sueca,Despensa,Valencia,1,596,559
+129,2025-12-12,A Coruña,Alcachofa en conserva de Benicarló,Conservas vegetales,Castellón,1,651,499
+129,2025-12-12,A Coruña,Zumo de granada de Elche,Bebidas,Alicante,1,493,453
+130,2023-05-23,Murcia,Horchata de Alboraya,Bebidas,Valencia,2,593,1094
+130,2023-05-23,Murcia,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1375,2492
+130,2023-05-23,Murcia,Mandarina de Nules,Cítricos,Castellón,2,686,1259
+131,2023-06-28,Murcia,Horchata de Alboraya,Bebidas,Valencia,1,569,569
+131,2023-06-28,Murcia,Mandarina de Nules,Cítricos,Castellón,1,609,0
+131,2023-06-28,Murcia,Arroz bomba de Sueca,Despensa,Valencia,2,618,1236
+132,2025-09-01,Sevilla,Horchata de Alboraya,Bebidas,Valencia,1,583,583
+132,2025-09-01,Sevilla,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1376,1376
+133,2023-04-01,Málaga,Miel de la Marina,Aceites y miel,Alicante,2,954,1837
+133,2023-04-01,Málaga,Horchata de Alboraya,Bebidas,Valencia,1,628,580
+134,2025-09-06,Lugo,Garrofón de Cullera,Despensa,Valencia,1,536,536
+134,2025-09-06,Lugo,Naranja de Carcaixent,Cítricos,Valencia,2,570,1140
+134,2025-09-06,Lugo,Almendra tostada de Xixona,Despensa,Alicante,1,772,772
+135,2025-10-02,Lugo,Almendra tostada de Xixona,Despensa,Alicante,3,758,2274
+135,2025-10-02,Lugo,Alcachofa en conserva de Benicarló,Conservas vegetales,Castellón,4,649,2596
+136,2025-10-28,Lugo,Garrofón de Cullera,Despensa,Valencia,1,509,509
+136,2025-10-28,Lugo,Naranja de Carcaixent,Cítricos,Valencia,1,537,537
+137,2025-11-25,Lugo,Naranja de Carcaixent,Cítricos,Valencia,2,553,953
+137,2025-11-25,Lugo,Almendra tostada de Xixona,Despensa,Alicante,2,689,1217
+137,2025-11-25,Lugo,Turrón blando de Xixona,Dulces artesanos,Alicante,2,1118,2145
+138,2025-12-22,Lugo,Naranja de Carcaixent,Cítricos,Valencia,2,553,1106
+138,2025-12-22,Lugo,Almendra tostada de Xixona,Despensa,Alicante,1,754,754
+138,2025-12-22,Lugo,Zumo de naranja de Carcaixent,Bebidas,Valencia,2,376,752
+139,2025-09-22,Valencia,Garrofón de Cullera,Despensa,Valencia,2,494,988
+139,2025-09-22,Valencia,Miel de la Vall d'Alba,Aceites y miel,Castellón,1,760,760
+139,2025-09-22,Valencia,Alcachofa en conserva de Benicarló,Conservas vegetales,Castellón,1,655,655
+140,2025-10-07,Valencia,Garrofón de Cullera,Despensa,Valencia,1,532,532
+140,2025-10-07,Valencia,Miel de la Vall d'Alba,Aceites y miel,Castellón,3,773,2319
+140,2025-10-07,Valencia,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1219,1219
+141,2025-10-19,Valencia,Garrofón de Cullera,Despensa,Valencia,2,533,1066
+141,2025-10-19,Valencia,Zumo de granada de Elche,Bebidas,Alicante,1,456,456
+141,2025-10-19,Valencia,Arroz bomba de Sueca,Despensa,Valencia,1,639,639
+142,2025-11-04,Valencia,Miel de la Vall d'Alba,Aceites y miel,Castellón,1,792,675
+142,2025-11-04,Valencia,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1383,1223
+143,2025-11-17,Valencia,Garrofón de Cullera,Despensa,Valencia,1,531,531
+143,2025-11-17,Valencia,Caja de cítricos de la Ribera,Cítricos,Valencia,3,1516,4548
+143,2025-11-17,Valencia,Mermelada de naranja de Gandia,Dulces artesanos,Valencia,2,550,1100
+144,2025-11-30,Valencia,Garrofón de Cullera,Despensa,Valencia,1,539,539
+144,2025-11-30,Valencia,Miel de la Vall d'Alba,Aceites y miel,Castellón,1,831,831
+145,2025-12-16,Valencia,Garrofón de Cullera,Despensa,Valencia,1,543,513
+145,2025-12-16,Valencia,Miel de la Vall d'Alba,Aceites y miel,Castellón,3,749,1964
+145,2025-12-16,Valencia,Zumo de naranja de Carcaixent,Bebidas,Valencia,2,406,723
+145,2025-12-16,Valencia,Naranja de Carcaixent,Cítricos,Valencia,2,541,974
+146,2025-12-30,Valencia,Garrofón de Cullera,Despensa,Valencia,1,501,501
+146,2025-12-30,Valencia,Miel de la Vall d'Alba,Aceites y miel,Castellón,2,845,1690
+147,2025-08-25,Ourense,Horchata de Alboraya,Bebidas,Valencia,3,588,1764
+147,2025-08-25,Ourense,Naranja de Carcaixent,Cítricos,Valencia,1,556,556
+147,2025-08-25,Ourense,Alcachofa en conserva de Benicarló,Conservas vegetales,Castellón,1,721,721
+148,2023-02-02,Barcelona,Arroz bomba de Sueca,Despensa,Valencia,2,614,1228
+148,2023-02-02,Barcelona,Naranja de Carcaixent,Cítricos,Valencia,1,585,585
+148,2023-02-02,Barcelona,Mandarina de Nules,Cítricos,Castellón,2,638,1276
+149,2023-04-01,Barcelona,Rosquilletas de València,Despensa,Valencia,1,394,394
+149,2023-04-01,Barcelona,Almendra tostada de Xixona,Despensa,Alicante,1,749,749
+149,2023-04-01,Barcelona,Zumo de naranja de Carcaixent,Bebidas,Valencia,3,369,1107
+150,2025-12-18,Lugo,Naranja de Carcaixent,Cítricos,Valencia,3,548,1644
+150,2025-12-18,Lugo,Arroz bomba de Sueca,Despensa,Valencia,2,656,1312
+150,2025-12-18,Lugo,Zumo de naranja de Carcaixent,Bebidas,Valencia,4,392,1568
+151,2025-12-30,Lugo,Pimiento asado de Guardamar,Conservas vegetales,Alicante,2,588,1176
+151,2025-12-30,Lugo,Naranja de Carcaixent,Cítricos,Valencia,4,585,2340
+151,2025-12-30,Lugo,Garrofón de Cullera,Despensa,Valencia,1,528,528
+151,2025-12-30,Lugo,Mandarina de Nules,Cítricos,Castellón,1,664,664
+152,2025-06-05,Madrid,Pimiento asado de Guardamar,Conservas vegetales,Alicante,3,568,1371
+152,2025-06-05,Madrid,Zumo de granada de Elche,Bebidas,Alicante,2,461,788
+153,2025-09-29,Madrid,Arroz bomba de Sueca,Despensa,Valencia,1,629,629
+153,2025-09-29,Madrid,Mermelada de naranja de Gandia,Dulces artesanos,Valencia,1,513,513
+154,2024-11-21,Valencia,Zumo de naranja de Carcaixent,Bebidas,Valencia,3,369,941
+154,2024-11-21,Valencia,Naranja de Carcaixent,Cítricos,Valencia,4,520,1925
+154,2024-11-21,Valencia,Arroz bomba de Sueca,Despensa,Valencia,1,582,515
+155,2024-12-04,Valencia,Mandarina de Nules,Cítricos,Castellón,1,625,576
+155,2024-12-04,Valencia,Naranja de Carcaixent,Cítricos,Valencia,1,572,505
+155,2024-12-04,Valencia,Almendra tostada de Xixona,Despensa,Alicante,3,746,1947
+155,2024-12-04,Valencia,Miel de la Vall d'Alba,Aceites y miel,Castellón,2,821,1422
+156,2024-12-18,Valencia,Zumo de naranja de Carcaixent,Bebidas,Valencia,1,413,382
+156,2024-12-18,Valencia,Mandarina de Nules,Cítricos,Castellón,3,686,1810
+156,2024-12-18,Valencia,Arroz bomba de Sueca,Despensa,Valencia,1,662,593
+156,2024-12-18,Valencia,Garrofón de Cullera,Despensa,Valencia,2,517,928
+156,2024-12-18,Valencia,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1367,1248
+157,2025-01-03,Valencia,Zumo de naranja de Carcaixent,Bebidas,Valencia,3,400,1200
+157,2025-01-03,Valencia,Mandarina de Nules,Cítricos,Castellón,1,613,613
+157,2025-01-03,Valencia,Aceite de oliva de Viver,Aceites y miel,Castellón,4,1276,5104
+157,2025-01-03,Valencia,Naranja de Carcaixent,Cítricos,Valencia,1,558,558
+158,2025-11-21,Alicante,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1265,2530
+158,2025-11-21,Alicante,Pimiento asado de Guardamar,Conservas vegetales,Alicante,2,560,1120
+158,2025-11-21,Alicante,Rosquilletas de València,Despensa,Valencia,3,399,1197
+159,2025-12-06,Alicante,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1348,1237
+159,2025-12-06,Alicante,Pimiento asado de Guardamar,Conservas vegetales,Alicante,1,578,425
+159,2025-12-06,Alicante,Miel de la Marina,Aceites y miel,Alicante,2,840,1499
+159,2025-12-06,Alicante,Rosquilletas de València,Despensa,Valencia,1,363,311
+160,2025-12-21,Alicante,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1244,2488
+160,2025-12-21,Alicante,Pimiento asado de Guardamar,Conservas vegetales,Alicante,2,623,1246
+160,2025-12-21,Alicante,Horchata de Alboraya,Bebidas,Valencia,2,605,1210
+161,2025-09-20,Granada,Miel de la Vall d'Alba,Aceites y miel,Castellón,1,753,753
+161,2025-09-20,Granada,Garrofón de Cullera,Despensa,Valencia,1,482,482
+161,2025-09-20,Granada,Mandarina de Nules,Cítricos,Castellón,1,635,635
+161,2025-09-20,Granada,Turrón blando de Xixona,Dulces artesanos,Alicante,1,1089,1089
+162,2025-09-24,Granada,Miel de la Vall d'Alba,Aceites y miel,Castellón,2,746,1492
+162,2025-09-24,Granada,Horchata de Alboraya,Bebidas,Valencia,3,587,1174
+162,2025-09-24,Granada,Zumo de granada de Elche,Bebidas,Alicante,1,452,452
+162,2025-09-24,Granada,Limón de Orihuela,Cítricos,Alicante,1,446,446
+163,2025-12-03,Alicante,Naranja de Carcaixent,Cítricos,Valencia,3,582,1543
+163,2025-12-03,Alicante,Zumo de granada de Elche,Bebidas,Alicante,1,494,453
+163,2025-12-03,Alicante,Miel de la Marina,Aceites y miel,Alicante,2,892,1590
+163,2025-12-03,Alicante,Arroz bomba de Sueca,Despensa,Valencia,1,643,598
+164,2024-08-20,Valencia,Zumo de granada de Elche,Bebidas,Alicante,2,462,894
+164,2024-08-20,Valencia,Arroz bomba de Sueca,Despensa,Valencia,3,657,1738
+164,2024-08-20,Valencia,Mandarina de Nules,Cítricos,Castellón,2,674,1151
+164,2024-08-20,Valencia,Zumo de naranja de Carcaixent,Bebidas,Valencia,3,421,1084
+165,2024-11-30,Valencia,Caja de cítricos de la Ribera,Cítricos,Valencia,2,1451,2810
+165,2024-11-30,Valencia,Zumo de naranja de Carcaixent,Bebidas,Valencia,1,376,358
+165,2024-11-30,Valencia,Mandarina de Nules,Cítricos,Castellón,2,688,1216
+165,2024-11-30,Valencia,Zumo de granada de Elche,Bebidas,Alicante,2,496,960
+166,2025-01-02,Valladolid,Garrofón de Cullera,Despensa,Valencia,1,497,457
+166,2025-01-02,Valladolid,Almendra tostada de Xixona,Despensa,Alicante,1,751,709
+166,2025-01-02,Valladolid,Zumo de naranja de Carcaixent,Bebidas,Valencia,4,421,1519
+167,2025-02-16,Valladolid,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1366,2732
+167,2025-02-16,Valladolid,Rosquilletas de València,Despensa,Valencia,2,376,752
+167,2025-02-16,Valladolid,Arroz bomba de Sueca,Despensa,Valencia,1,626,626
+167,2025-02-16,Valladolid,Mandarina de Nules,Cítricos,Castellón,1,638,638
+167,2025-02-16,Valladolid,Garrofón de Cullera,Despensa,Valencia,2,503,1006
+168,2025-04-16,Valladolid,Arroz bomba de Sueca,Despensa,Valencia,3,659,1977
+168,2025-04-16,Valladolid,Miel de la Vall d'Alba,Aceites y miel,Castellón,1,748,748
+168,2025-04-16,Valladolid,Naranja de Carcaixent,Cítricos,Valencia,1,549,549
+168,2025-04-16,Valladolid,Salmorreta de El Campello,Conservas vegetales,Alicante,3,559,1677
+169,2023-06-25,Castellón,Mandarina de Nules,Cítricos,Castellón,2,648,1149
+169,2023-06-25,Castellón,Rosquilletas de València,Despensa,Valencia,2,398,707
+169,2023-06-25,Castellón,Limón de Orihuela,Cítricos,Alicante,1,481,463
+170,2023-07-08,Castellón,Horchata de Alboraya,Bebidas,Valencia,1,585,585
+170,2023-07-08,Castellón,Mandarina de Nules,Cítricos,Castellón,1,656,656
+170,2023-07-08,Castellón,Rosquilletas de València,Despensa,Valencia,2,387,774
+171,2023-07-24,Castellón,Horchata de Alboraya,Bebidas,Valencia,2,572,1054
+171,2023-07-24,Castellón,Mandarina de Nules,Cítricos,Castellón,2,636,1232
+171,2023-07-24,Castellón,Rosquilletas de València,Despensa,Valencia,3,359,958
+171,2023-07-24,Castellón,Zumo de granada de Elche,Bebidas,Alicante,3,492,1430
+172,2023-08-07,Castellón,Horchata de Alboraya,Bebidas,Valencia,1,636,636
+172,2023-08-07,Castellón,Mandarina de Nules,Cítricos,Castellón,1,618,618
+172,2023-08-07,Castellón,Rosquilletas de València,Despensa,Valencia,1,359,359
+173,2023-08-21,Castellón,Horchata de Alboraya,Bebidas,Valencia,2,592,1184
+173,2023-08-21,Castellón,Mandarina de Nules,Cítricos,Castellón,2,670,1340
+173,2023-08-21,Castellón,Rosquilletas de València,Despensa,Valencia,2,381,762
+174,2023-09-05,Castellón,Mandarina de Nules,Cítricos,Castellón,1,633,633
+174,2023-09-05,Castellón,Rosquilletas de València,Despensa,Valencia,1,389,389
+174,2023-09-05,Castellón,Naranja de Carcaixent,Cítricos,Valencia,2,585,1170
+174,2023-09-05,Castellón,Horchata de Alboraya,Bebidas,Valencia,1,601,601
+175,2023-09-19,Castellón,Mandarina de Nules,Cítricos,Castellón,1,627,627
+175,2023-09-19,Castellón,Rosquilletas de València,Despensa,Valencia,1,356,356
+175,2023-09-19,Castellón,Garrofón de Cullera,Despensa,Valencia,2,490,980
+176,2023-10-02,Castellón,Horchata de Alboraya,Bebidas,Valencia,3,622,1866
+176,2023-10-02,Castellón,Mandarina de Nules,Cítricos,Castellón,2,665,1330
+177,2023-10-18,Castellón,Mandarina de Nules,Cítricos,Castellón,4,669,2676
+177,2023-10-18,Castellón,Rosquilletas de València,Despensa,Valencia,1,364,364
+177,2023-10-18,Castellón,Arroz bomba de Sueca,Despensa,Valencia,3,623,1869
+177,2023-10-18,Castellón,Miel de la Marina,Aceites y miel,Alicante,2,872,1744
+178,2023-11-01,Castellón,Mandarina de Nules,Cítricos,Castellón,1,677,677
+178,2023-11-01,Castellón,Rosquilletas de València,Despensa,Valencia,2,401,802
+178,2023-11-01,Castellón,Naranja de Carcaixent,Cítricos,Valencia,1,572,572
+179,2024-09-09,Alicante,Mandarina de Nules,Cítricos,Castellón,2,639,1183
+179,2024-09-09,Alicante,Aceite de oliva de Viver,Aceites y miel,Castellón,6,1359,7501
+179,2024-09-09,Alicante,Horchata de Alboraya,Bebidas,Valencia,7,575,3840
+180,2025-01-07,Alicante,Caja de cítricos de la Ribera,Cítricos,Valencia,2,1478,2865
+180,2025-01-07,Alicante,Almendra tostada de Xixona,Despensa,Alicante,7,741,4757
+181,2025-02-28,Alicante,Caja de cítricos de la Ribera,Cítricos,Valencia,7,1503,9871
+181,2025-02-28,Alicante,Aceite de oliva de Viver,Aceites y miel,Castellón,7,1287,8153
+181,2025-02-28,Alicante,Garrofón de Cullera,Despensa,Valencia,2,544,1030
+181,2025-02-28,Alicante,Naranja de Carcaixent,Cítricos,Valencia,3,534,1437
+182,2025-04-10,Alicante,Limón de Orihuela,Cítricos,Alicante,2,476,849
+182,2025-04-10,Alicante,Rosquilletas de València,Despensa,Valencia,5,376,1734
+182,2025-04-10,Alicante,Salmorreta de El Campello,Conservas vegetales,Alicante,5,526,2534
+182,2025-04-10,Alicante,Zumo de granada de Elche,Bebidas,Alicante,7,465,3060
+183,2025-07-04,Alicante,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1362,2588
+183,2025-07-04,Alicante,Caja de cítricos de la Ribera,Cítricos,Valencia,3,1534,4235
+184,2025-08-19,Alicante,Salmorreta de El Campello,Conservas vegetales,Alicante,6,565,3059
+184,2025-08-19,Alicante,Arroz bomba de Sueca,Despensa,Valencia,8,602,4345
+184,2025-08-19,Alicante,Miel de la Vall d'Alba,Aceites y miel,Castellón,3,769,2114
+184,2025-08-19,Alicante,Alcachofa en conserva de Benicarló,Conservas vegetales,Castellón,4,683,2642
+184,2025-08-19,Alicante,Almendra tostada de Xixona,Despensa,Alicante,4,767,2889
+185,2025-11-27,Alicante,Garrofón de Cullera,Despensa,Valencia,5,526,2494
+185,2025-11-27,Alicante,Mermelada de naranja de Gandia,Dulces artesanos,Valencia,2,579,1055
+185,2025-11-27,Alicante,Horchata de Alboraya,Bebidas,Valencia,2,563,1084
+186,2024-08-21,Castellón,Naranja de Carcaixent,Cítricos,Valencia,1,579,579
+186,2024-08-21,Castellón,Rosquilletas de València,Despensa,Valencia,1,370,370
+186,2024-08-21,Castellón,Caja de cítricos de la Ribera,Cítricos,Valencia,1,1570,1570
+187,2024-09-25,Castellón,Caja de cítricos de la Ribera,Cítricos,Valencia,4,1595,6380
+187,2024-09-25,Castellón,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1375,1375
+188,2024-10-26,Castellón,Horchata de Alboraya,Bebidas,Valencia,2,621,1242
+188,2024-10-26,Castellón,Naranja de Carcaixent,Cítricos,Valencia,1,584,584
+189,2025-05-24,Madrid,Mandarina de Nules,Cítricos,Castellón,3,669,2007
+189,2025-05-24,Madrid,Miel de la Vall d'Alba,Aceites y miel,Castellón,1,776,776
+189,2025-05-24,Madrid,Salmorreta de El Campello,Conservas vegetales,Alicante,1,548,548
+189,2025-05-24,Madrid,Naranja de Carcaixent,Cítricos,Valencia,2,556,1112
+190,2025-07-22,Madrid,Horchata de Alboraya,Bebidas,Valencia,2,607,1214
+190,2025-07-22,Madrid,Rosquilletas de València,Despensa,Valencia,1,390,390
+190,2025-07-22,Madrid,Alcachofa en conserva de Benicarló,Conservas vegetales,Castellón,1,742,742
+191,2024-12-08,Madrid,Naranja de Carcaixent,Cítricos,Valencia,2,575,1150
+191,2024-12-08,Madrid,Almendra tostada de Xixona,Despensa,Alicante,2,708,1416
+191,2024-12-08,Madrid,Miel de la Marina,Aceites y miel,Alicante,4,878,3512
+192,2024-12-23,Madrid,Naranja de Carcaixent,Cítricos,Valencia,2,524,1048
+192,2024-12-23,Madrid,Zumo de naranja de Carcaixent,Bebidas,Valencia,1,394,394
+192,2024-12-23,Madrid,Mandarina de Nules,Cítricos,Castellón,2,642,1284
+192,2024-12-23,Madrid,Caja de cítricos de la Ribera,Cítricos,Valencia,1,1567,1567
+193,2025-01-07,Madrid,Naranja de Carcaixent,Cítricos,Valencia,2,540,1080
+193,2025-01-07,Madrid,Almendra tostada de Xixona,Despensa,Alicante,1,704,704
+193,2025-01-07,Madrid,Mandarina de Nules,Cítricos,Castellón,1,609,609
+194,2025-01-23,Madrid,Naranja de Carcaixent,Cítricos,Valencia,3,570,1710
+194,2025-01-23,Madrid,Garrofón de Cullera,Despensa,Valencia,1,489,489
+194,2025-01-23,Madrid,Limón de Orihuela,Cítricos,Alicante,2,463,926
+195,2023-10-08,Valencia,Naranja de Carcaixent,Cítricos,Valencia,2,571,1066
+195,2023-10-08,Valencia,Almendra tostada de Xixona,Despensa,Alicante,3,718,1926
+195,2023-10-08,Valencia,Mandarina de Nules,Cítricos,Castellón,7,654,4401
+196,2023-11-03,Valencia,Zumo de naranja de Carcaixent,Bebidas,Valencia,3,406,1172
+196,2023-11-03,Valencia,Arroz bomba de Sueca,Despensa,Valencia,7,654,4429
+196,2023-11-03,Valencia,Naranja de Carcaixent,Cítricos,Valencia,3,520,1411
+197,2024-02-20,Valencia,Mandarina de Nules,Cítricos,Castellón,3,622,1773
+197,2024-02-20,Valencia,Horchata de Alboraya,Bebidas,Valencia,6,587,3150
+197,2024-02-20,Valencia,Arroz bomba de Sueca,Despensa,Valencia,2,628,1156
+197,2024-02-20,Valencia,Zumo de naranja de Carcaixent,Bebidas,Valencia,2,421,785
+197,2024-02-20,Valencia,Limón de Orihuela,Cítricos,Alicante,6,471,2537
+198,2024-03-29,Valencia,Naranja de Carcaixent,Cítricos,Valencia,2,594,1095
+198,2024-03-29,Valencia,Arroz bomba de Sueca,Despensa,Valencia,7,621,4077
+199,2024-05-01,Valencia,Rosquilletas de València,Despensa,Valencia,2,369,670
+199,2024-05-01,Valencia,Arroz bomba de Sueca,Despensa,Valencia,3,642,1835
+199,2024-05-01,Valencia,Horchata de Alboraya,Bebidas,Valencia,6,608,3273
+200,2024-07-11,Valencia,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1215,2290
+200,2024-07-11,Valencia,Mandarina de Nules,Cítricos,Castellón,3,684,1944
+200,2024-07-11,Valencia,Arroz bomba de Sueca,Despensa,Valencia,7,649,4155
+200,2024-07-11,Valencia,Almendra tostada de Xixona,Despensa,Alicante,3,682,1843
+201,2024-09-01,Valencia,Rosquilletas de València,Despensa,Valencia,6,404,2314
+201,2024-09-01,Valencia,Naranja de Carcaixent,Cítricos,Valencia,2,520,996
+201,2024-09-01,Valencia,Almendra tostada de Xixona,Despensa,Alicante,2,754,1351
+202,2024-11-19,Valencia,Rosquilletas de València,Despensa,Valencia,8,398,2901
+202,2024-11-19,Valencia,Almendra tostada de Xixona,Despensa,Alicante,8,720,5438
+202,2024-11-19,Valencia,Naranja de Carcaixent,Cítricos,Valencia,3,529,1419
+202,2024-11-19,Valencia,Caja de cítricos de la Ribera,Cítricos,Valencia,8,1470,8368
+202,2024-11-19,Valencia,Horchata de Alboraya,Bebidas,Valencia,5,625,2898
+203,2024-12-13,Valencia,Naranja de Carcaixent,Cítricos,Valencia,8,559,3985
+203,2024-12-13,Valencia,Zumo de naranja de Carcaixent,Bebidas,Valencia,8,402,3037
+203,2024-12-13,Valencia,Mandarina de Nules,Cítricos,Castellón,5,668,3195
+204,2025-01-02,Valencia,Horchata de Alboraya,Bebidas,Valencia,6,592,3405
+204,2025-01-02,Valencia,Zumo de granada de Elche,Bebidas,Alicante,3,476,1369
+204,2025-01-02,Valencia,Limón de Orihuela,Cítricos,Alicante,7,454,3081
+205,2025-09-11,A Coruña,Pimiento asado de Guardamar,Conservas vegetales,Alicante,1,576,408
+205,2025-09-11,A Coruña,Horchata de Alboraya,Bebidas,Valencia,1,594,571
+206,2025-12-29,A Coruña,Mandarina de Nules,Cítricos,Castellón,2,671,1342
+206,2025-12-29,A Coruña,Garrofón de Cullera,Despensa,Valencia,1,530,530
+206,2025-12-29,A Coruña,Alcachofa en conserva de Benicarló,Conservas vegetales,Castellón,1,699,699
+206,2025-12-29,A Coruña,Caja de cítricos de la Ribera,Cítricos,Valencia,3,1568,4704
+207,2025-02-24,Barcelona,Naranja de Carcaixent,Cítricos,Valencia,1,547,547
+207,2025-02-24,Barcelona,Miel de la Vall d'Alba,Aceites y miel,Castellón,1,813,813
+207,2025-02-24,Barcelona,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1249,2498
+208,2025-04-29,Barcelona,Aceite de oliva de Viver,Aceites y miel,Castellón,3,1319,3957
+208,2025-04-29,Barcelona,Mandarina de Nules,Cítricos,Castellón,2,620,1240
+208,2025-04-29,Barcelona,Naranja de Carcaixent,Cítricos,Valencia,1,536,536
+209,2025-07-10,Barcelona,Arroz bomba de Sueca,Despensa,Valencia,1,587,545
+209,2025-07-10,Barcelona,Naranja de Carcaixent,Cítricos,Valencia,2,588,1078
+209,2025-07-10,Barcelona,Zumo de naranja de Carcaixent,Bebidas,Valencia,2,389,705
+210,2023-10-12,Valencia,Zumo de granada de Elche,Bebidas,Alicante,1,464,408
+210,2023-10-12,Valencia,Almendra tostada de Xixona,Despensa,Alicante,1,702,0
+210,2023-10-12,Valencia,Mandarina de Nules,Cítricos,Castellón,4,654,2360
+211,2023-11-07,Valencia,Zumo de granada de Elche,Bebidas,Alicante,4,444,1776
+211,2023-11-07,Valencia,Almendra tostada de Xixona,Despensa,Alicante,2,764,1528
+212,2023-12-07,Valencia,Almendra tostada de Xixona,Despensa,Alicante,1,745,745
+212,2023-12-07,Valencia,Miel de la Vall d'Alba,Aceites y miel,Castellón,1,743,743
+213,2024-01-05,Valencia,Zumo de granada de Elche,Bebidas,Alicante,2,475,950
+213,2024-01-05,Valencia,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1324,1324
+213,2024-01-05,Valencia,Arroz bomba de Sueca,Despensa,Valencia,4,630,2520
+213,2024-01-05,Valencia,Horchata de Alboraya,Bebidas,Valencia,1,561,561
+214,2024-02-01,Valencia,Zumo de granada de Elche,Bebidas,Alicante,1,479,479
+214,2024-02-01,Valencia,Almendra tostada de Xixona,Despensa,Alicante,2,688,1376
+214,2024-02-01,Valencia,Naranja de Carcaixent,Cítricos,Valencia,2,562,1124
+215,2024-03-02,Valencia,Zumo de granada de Elche,Bebidas,Alicante,1,460,460
+215,2024-03-02,Valencia,Almendra tostada de Xixona,Despensa,Alicante,1,752,752
+216,2024-03-28,Valencia,Zumo de granada de Elche,Bebidas,Alicante,2,444,888
+216,2024-03-28,Valencia,Almendra tostada de Xixona,Despensa,Alicante,1,712,712
+216,2024-03-28,Valencia,Garrofón de Cullera,Despensa,Valencia,1,527,527
+217,2024-04-25,Valencia,Zumo de granada de Elche,Bebidas,Alicante,1,481,481
+217,2024-04-25,Valencia,Almendra tostada de Xixona,Despensa,Alicante,1,678,678
+218,2024-05-25,Valencia,Almendra tostada de Xixona,Despensa,Alicante,2,705,1410
+218,2024-05-25,Valencia,Naranja de Carcaixent,Cítricos,Valencia,2,558,1116
+218,2024-05-25,Valencia,Horchata de Alboraya,Bebidas,Valencia,3,632,1896
+218,2024-05-25,Valencia,Zumo de naranja de Carcaixent,Bebidas,Valencia,1,411,411
+219,2024-06-20,Valencia,Almendra tostada de Xixona,Despensa,Alicante,1,720,720
+219,2024-06-20,Valencia,Zumo de naranja de Carcaixent,Bebidas,Valencia,2,386,772
+219,2024-06-20,Valencia,Caja de cítricos de la Ribera,Cítricos,Valencia,3,1541,4623
+220,2023-08-29,Valencia,Horchata de Alboraya,Bebidas,Valencia,1,597,597
+220,2023-08-29,Valencia,Arroz bomba de Sueca,Despensa,Valencia,1,634,634
+220,2023-08-29,Valencia,Zumo de naranja de Carcaixent,Bebidas,Valencia,1,418,418
+221,2025-08-12,A Coruña,Pimiento asado de Guardamar,Conservas vegetales,Alicante,2,605,913
+221,2025-08-12,A Coruña,Naranja de Carcaixent,Cítricos,Valencia,8,561,4325
+222,2025-08-27,A Coruña,Pimiento asado de Guardamar,Conservas vegetales,Alicante,6,578,3324
+222,2025-08-27,A Coruña,Horchata de Alboraya,Bebidas,Valencia,4,633,2456
+222,2025-08-27,A Coruña,Zumo de naranja de Carcaixent,Bebidas,Valencia,7,392,2562
+223,2025-09-12,A Coruña,Pimiento asado de Guardamar,Conservas vegetales,Alicante,4,589,1681
+223,2025-09-12,A Coruña,Horchata de Alboraya,Bebidas,Valencia,8,637,4699
+224,2025-09-24,A Coruña,Pimiento asado de Guardamar,Conservas vegetales,Alicante,7,625,4237
+224,2025-09-24,A Coruña,Horchata de Alboraya,Bebidas,Valencia,3,637,1792
+224,2025-09-24,A Coruña,Zumo de granada de Elche,Bebidas,Alicante,6,495,2803
+224,2025-09-24,A Coruña,Almendra tostada de Xixona,Despensa,Alicante,2,763,1413
+225,2025-10-10,A Coruña,Pimiento asado de Guardamar,Conservas vegetales,Alicante,8,623,4041
+225,2025-10-10,A Coruña,Horchata de Alboraya,Bebidas,Valencia,6,588,3198
+225,2025-10-10,A Coruña,Aceite de oliva de Viver,Aceites y miel,Castellón,5,1340,6121
+225,2025-10-10,A Coruña,Alcachofa en conserva de Benicarló,Conservas vegetales,Castellón,2,738,1155
+226,2025-10-22,A Coruña,Horchata de Alboraya,Bebidas,Valencia,5,616,2819
+226,2025-10-22,A Coruña,Arroz bomba de Sueca,Despensa,Valencia,4,650,2428
+226,2025-10-22,A Coruña,Pimiento asado de Guardamar,Conservas vegetales,Alicante,5,580,2503
+227,2025-08-27,Valencia,Naranja de Carcaixent,Cítricos,Valencia,1,529,529
+227,2025-08-27,Valencia,Almendra tostada de Xixona,Despensa,Alicante,1,729,729
+227,2025-08-27,Valencia,Pimiento asado de Guardamar,Conservas vegetales,Alicante,1,585,585
+228,2025-09-06,Valencia,Pimiento asado de Guardamar,Conservas vegetales,Alicante,1,579,449
+228,2025-09-06,Valencia,Arroz bomba de Sueca,Despensa,Valencia,2,659,1271
+228,2025-09-06,Valencia,Horchata de Alboraya,Bebidas,Valencia,1,563,537
+229,2025-04-06,Valencia,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1354,2708
+229,2025-04-06,Valencia,Pimiento asado de Guardamar,Conservas vegetales,Alicante,3,614,1842
+229,2025-04-06,Valencia,Naranja de Carcaixent,Cítricos,Valencia,2,544,1088
+229,2025-04-06,Valencia,Miel de la Marina,Aceites y miel,Alicante,2,876,1752
+230,2025-04-20,Valencia,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1237,1068
+230,2025-04-20,Valencia,Pimiento asado de Guardamar,Conservas vegetales,Alicante,1,616,474
+230,2025-04-20,Valencia,Horchata de Alboraya,Bebidas,Valencia,1,634,562
+231,2025-05-03,Valencia,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1387,1387
+231,2025-05-03,Valencia,Pimiento asado de Guardamar,Conservas vegetales,Alicante,1,568,568
+231,2025-05-03,Valencia,Salmorreta de El Campello,Conservas vegetales,Alicante,1,597,597
+231,2025-05-03,Valencia,Horchata de Alboraya,Bebidas,Valencia,1,592,592
+232,2025-05-16,Valencia,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1379,2758
+232,2025-05-16,Valencia,Pimiento asado de Guardamar,Conservas vegetales,Alicante,3,610,1830
+233,2025-06-01,Valencia,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1278,1278
+233,2025-06-01,Valencia,Pimiento asado de Guardamar,Conservas vegetales,Alicante,3,588,1764
+234,2025-06-14,Valencia,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1228,1183
+234,2025-06-14,Valencia,Pimiento asado de Guardamar,Conservas vegetales,Alicante,2,582,873
+234,2025-06-14,Valencia,Salmorreta de El Campello,Conservas vegetales,Alicante,1,532,396
+235,2023-10-26,Sevilla,Mandarina de Nules,Cítricos,Castellón,2,657,1314
+235,2023-10-26,Sevilla,Zumo de naranja de Carcaixent,Bebidas,Valencia,2,397,794
+235,2023-10-26,Sevilla,Horchata de Alboraya,Bebidas,Valencia,1,585,585
+235,2023-10-26,Sevilla,Garrofón de Cullera,Despensa,Valencia,2,507,1014
+236,2024-09-03,Albacete,Horchata de Alboraya,Bebidas,Valencia,1,555,479
+236,2024-09-03,Albacete,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1318,2344
+236,2024-09-03,Albacete,Arroz bomba de Sueca,Despensa,Valencia,2,581,1048
+236,2024-09-03,Albacete,Miel de la Marina,Aceites y miel,Alicante,1,932,829
+237,2024-11-29,Albacete,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1318,1195
+237,2024-11-29,Albacete,Zumo de naranja de Carcaixent,Bebidas,Valencia,2,418,790
+238,2023-11-11,Castellón,Horchata de Alboraya,Bebidas,Valencia,3,596,1788
+238,2023-11-11,Castellón,Almendra tostada de Xixona,Despensa,Alicante,1,744,744
+238,2023-11-11,Castellón,Miel de la Vall d'Alba,Aceites y miel,Castellón,2,771,1542
+239,2023-12-08,Castellón,Horchata de Alboraya,Bebidas,Valencia,1,603,542
+239,2023-12-08,Castellón,Almendra tostada de Xixona,Despensa,Alicante,2,740,1411
+239,2023-12-08,Castellón,Naranja de Carcaixent,Cítricos,Valencia,1,593,0
+239,2023-12-08,Castellón,Zumo de granada de Elche,Bebidas,Alicante,2,479,862
+240,2024-01-06,Castellón,Horchata de Alboraya,Bebidas,Valencia,1,615,615
+240,2024-01-06,Castellón,Almendra tostada de Xixona,Despensa,Alicante,2,756,1512
+240,2024-01-06,Castellón,Naranja de Carcaixent,Cítricos,Valencia,2,560,1120
+240,2024-01-06,Castellón,Mandarina de Nules,Cítricos,Castellón,3,665,1995
+240,2024-01-06,Castellón,Miel de la Marina,Aceites y miel,Alicante,1,886,886
+241,2024-02-02,Castellón,Horchata de Alboraya,Bebidas,Valencia,1,557,0
+241,2024-02-02,Castellón,Almendra tostada de Xixona,Despensa,Alicante,1,740,740
+241,2024-02-02,Castellón,Caja de cítricos de la Ribera,Cítricos,Valencia,1,1401,0
+242,2025-12-08,Valladolid,Naranja de Carcaixent,Cítricos,Valencia,1,555,555
+242,2025-12-08,Valladolid,Mandarina de Nules,Cítricos,Castellón,1,629,629
+243,2025-12-20,Valladolid,Naranja de Carcaixent,Cítricos,Valencia,2,553,995
+243,2025-12-20,Valladolid,Alcachofa en conserva de Benicarló,Conservas vegetales,Castellón,1,696,543
+243,2025-12-20,Valladolid,Almendra tostada de Xixona,Despensa,Alicante,4,737,2621
+244,2025-04-12,Valladolid,Pimiento asado de Guardamar,Conservas vegetales,Alicante,1,598,485
+244,2025-04-12,Valladolid,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1230,2095
+245,2025-03-02,Pontevedra,Caja de cítricos de la Ribera,Cítricos,Valencia,1,1496,1496
+245,2025-03-02,Pontevedra,Naranja de Carcaixent,Cítricos,Valencia,1,551,551
+246,2025-05-02,Pontevedra,Pimiento asado de Guardamar,Conservas vegetales,Alicante,1,584,414
+246,2025-05-02,Pontevedra,Mandarina de Nules,Cítricos,Castellón,2,603,1033
+247,2025-02-16,Valencia,Naranja de Carcaixent,Cítricos,Valencia,2,526,1015
+247,2025-02-16,Valencia,Limón de Orihuela,Cítricos,Alicante,8,480,3697
+247,2025-02-16,Valencia,Arroz bomba de Sueca,Despensa,Valencia,7,641,4052
+247,2025-02-16,Valencia,Caja de cítricos de la Ribera,Cítricos,Valencia,4,1564,5668
+248,2025-05-10,Valencia,Salmorreta de El Campello,Conservas vegetales,Alicante,2,589,1136
+248,2025-05-10,Valencia,Horchata de Alboraya,Bebidas,Valencia,3,560,1508
+249,2025-06-17,Valencia,Rosquilletas de València,Despensa,Valencia,3,388,1086
+249,2025-06-17,Valencia,Miel de la Marina,Aceites y miel,Alicante,4,841,3141
+249,2025-06-17,Valencia,Almendra tostada de Xixona,Despensa,Alicante,2,706,1346
+250,2025-09-30,Valencia,Garrofón de Cullera,Despensa,Valencia,3,485,1326
+250,2025-09-30,Valencia,Arroz bomba de Sueca,Despensa,Valencia,2,581,1103
+251,2025-10-19,Valencia,Alcachofa en conserva de Benicarló,Conservas vegetales,Castellón,4,683,2439
+251,2025-10-19,Valencia,Naranja de Carcaixent,Cítricos,Valencia,3,583,1647
+251,2025-10-19,Valencia,Zumo de naranja de Carcaixent,Bebidas,Valencia,3,400,1138
+252,2025-10-28,Valencia,Almendra tostada de Xixona,Despensa,Alicante,4,744,2664
+252,2025-10-28,Valencia,Turrón blando de Xixona,Dulces artesanos,Alicante,5,1033,4920
+253,2025-11-04,Valencia,Naranja de Carcaixent,Cítricos,Valencia,8,560,4342
+253,2025-11-04,Valencia,Salmorreta de El Campello,Conservas vegetales,Alicante,8,598,3769
+254,2025-05-20,Valencia,Limón de Orihuela,Cítricos,Alicante,2,440,832
+254,2025-05-20,Valencia,Alcachofa en conserva de Benicarló,Conservas vegetales,Castellón,2,659,1089
+254,2025-05-20,Valencia,Salmorreta de El Campello,Conservas vegetales,Alicante,1,555,421
+255,2024-11-22,Valencia,Caja de cítricos de la Ribera,Cítricos,Valencia,8,1428,10816
+255,2024-11-22,Valencia,Miel de la Marina,Aceites y miel,Alicante,2,903,1625
+255,2024-11-22,Valencia,Garrofón de Cullera,Despensa,Valencia,2,520,965
+255,2024-11-22,Valencia,Zumo de granada de Elche,Bebidas,Alicante,2,494,887
+256,2024-11-28,Valencia,Caja de cítricos de la Ribera,Cítricos,Valencia,3,1581,4487
+256,2024-11-28,Valencia,Miel de la Marina,Aceites y miel,Alicante,2,859,1620
+257,2024-12-04,Valencia,Caja de cítricos de la Ribera,Cítricos,Valencia,5,1468,6640
+257,2024-12-04,Valencia,Miel de la Marina,Aceites y miel,Alicante,8,910,6979
+258,2024-12-12,Valencia,Caja de cítricos de la Ribera,Cítricos,Valencia,3,1489,4291
+258,2024-12-12,Valencia,Zumo de granada de Elche,Bebidas,Alicante,5,481,2280
+258,2024-12-12,Valencia,Mandarina de Nules,Cítricos,Castellón,8,647,4845
+258,2024-12-12,Valencia,Naranja de Carcaixent,Cítricos,Valencia,3,585,1578
+259,2024-12-18,Valencia,Caja de cítricos de la Ribera,Cítricos,Valencia,3,1595,4583
+259,2024-12-18,Valencia,Miel de la Marina,Aceites y miel,Alicante,6,925,5128
+259,2024-12-18,Valencia,Naranja de Carcaixent,Cítricos,Valencia,3,586,1652
+259,2024-12-18,Valencia,Arroz bomba de Sueca,Despensa,Valencia,8,603,4468
+260,2024-12-27,Valencia,Caja de cítricos de la Ribera,Cítricos,Valencia,4,1461,5336
+260,2024-12-27,Valencia,Miel de la Marina,Aceites y miel,Alicante,8,916,6623
+260,2024-12-27,Valencia,Rosquilletas de València,Despensa,Valencia,3,389,1110
+261,2025-01-05,Valencia,Caja de cítricos de la Ribera,Cítricos,Valencia,5,1420,6673
+261,2025-01-05,Valencia,Miel de la Marina,Aceites y miel,Alicante,5,923,4125
+261,2025-01-05,Valencia,Limón de Orihuela,Cítricos,Alicante,7,460,2892
+262,2025-01-11,Valencia,Caja de cítricos de la Ribera,Cítricos,Valencia,8,1563,11192
+262,2025-01-11,Valencia,Miel de la Marina,Aceites y miel,Alicante,4,956,3657
+262,2025-01-11,Valencia,Mandarina de Nules,Cítricos,Castellón,5,646,3009
+263,2025-01-18,Valencia,Miel de la Marina,Aceites y miel,Alicante,2,931,1789
+263,2025-01-18,Valencia,Garrofón de Cullera,Despensa,Valencia,2,539,1030
+263,2025-01-18,Valencia,Caja de cítricos de la Ribera,Cítricos,Valencia,6,1432,7677
+263,2025-01-18,Valencia,Zumo de naranja de Carcaixent,Bebidas,Valencia,4,410,1554
+264,2023-12-25,Castellón,Mandarina de Nules,Cítricos,Castellón,2,622,1103
+264,2023-12-25,Castellón,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1316,2476
+264,2023-12-25,Castellón,Naranja de Carcaixent,Cítricos,Valencia,1,575,536
+265,2024-01-22,Castellón,Caja de cítricos de la Ribera,Cítricos,Valencia,2,1445,2557
+265,2024-01-22,Castellón,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1370,2526
+265,2024-01-22,Castellón,Zumo de naranja de Carcaixent,Bebidas,Valencia,1,369,328
+266,2024-02-18,Castellón,Caja de cítricos de la Ribera,Cítricos,Valencia,1,1599,1599
+266,2024-02-18,Castellón,Mandarina de Nules,Cítricos,Castellón,1,625,625
+266,2024-02-18,Castellón,Aceite de oliva de Viver,Aceites y miel,Castellón,1,1292,1292
+266,2024-02-18,Castellón,Garrofón de Cullera,Despensa,Valencia,3,480,1440
+267,2024-03-17,Castellón,Caja de cítricos de la Ribera,Cítricos,Valencia,1,1570,1520
+267,2024-03-17,Castellón,Mandarina de Nules,Cítricos,Castellón,1,614,566
+268,2024-04-14,Castellón,Caja de cítricos de la Ribera,Cítricos,Valencia,2,1593,3186
+268,2024-04-14,Castellón,Mandarina de Nules,Cítricos,Castellón,2,683,1366
+269,2025-08-19,Madrid,Salmorreta de El Campello,Conservas vegetales,Alicante,1,531,531
+269,2025-08-19,Madrid,Rosquilletas de València,Despensa,Valencia,1,374,374
+270,2025-12-03,Cantabria,Miel de la Vall d'Alba,Aceites y miel,Castellón,2,792,1353
+270,2025-12-03,Cantabria,Caja de cítricos de la Ribera,Cítricos,Valencia,3,1561,4254
+270,2025-12-03,Cantabria,Naranja de Carcaixent,Cítricos,Valencia,1,530,467
+270,2025-12-03,Cantabria,Miel de la Marina,Aceites y miel,Alicante,4,950,3352
+271,2025-09-03,Santa Cruz de Tenerife,Turrón blando de Xixona,Dulces artesanos,Alicante,3,1007,3021
+271,2025-09-03,Santa Cruz de Tenerife,Coca dulce de la Vall d’Uixó,Dulces artesanos,Castellón,2,740,1480
+271,2025-09-03,Santa Cruz de Tenerife,Zumo de naranja de Carcaixent,Bebidas,Valencia,2,413,826
+272,2025-09-19,Santa Cruz de Tenerife,Turrón blando de Xixona,Dulces artesanos,Alicante,1,1009,1009
+272,2025-09-19,Santa Cruz de Tenerife,Arroz bomba de Sueca,Despensa,Valencia,4,589,2356
+272,2025-09-19,Santa Cruz de Tenerife,Zumo de granada de Elche,Bebidas,Alicante,3,476,1428
+272,2025-09-19,Santa Cruz de Tenerife,Pimiento asado de Guardamar,Conservas vegetales,Alicante,1,617,617
+273,2025-10-03,Santa Cruz de Tenerife,Turrón blando de Xixona,Dulces artesanos,Alicante,1,996,996
+273,2025-10-03,Santa Cruz de Tenerife,Coca dulce de la Vall d’Uixó,Dulces artesanos,Castellón,3,680,2040
+273,2025-10-03,Santa Cruz de Tenerife,Zumo de granada de Elche,Bebidas,Alicante,2,461,922
+274,2025-10-17,Santa Cruz de Tenerife,Turrón blando de Xixona,Dulces artesanos,Alicante,2,1063,2126
+274,2025-10-17,Santa Cruz de Tenerife,Coca dulce de la Vall d’Uixó,Dulces artesanos,Castellón,1,692,692
+275,2025-11-01,Santa Cruz de Tenerife,Turrón blando de Xixona,Dulces artesanos,Alicante,1,1063,1015
+275,2025-11-01,Santa Cruz de Tenerife,Coca dulce de la Vall d’Uixó,Dulces artesanos,Castellón,2,754,1444
+275,2025-11-01,Santa Cruz de Tenerife,Pimiento asado de Guardamar,Conservas vegetales,Alicante,3,627,1434
+275,2025-11-01,Santa Cruz de Tenerife,Miel de la Marina,Aceites y miel,Alicante,1,912,856
+276,2025-11-16,Santa Cruz de Tenerife,Turrón blando de Xixona,Dulces artesanos,Alicante,2,1053,2013
+276,2025-11-16,Santa Cruz de Tenerife,Coca dulce de la Vall d’Uixó,Dulces artesanos,Castellón,2,774,1340
+277,2025-11-28,Santa Cruz de Tenerife,Turrón blando de Xixona,Dulces artesanos,Alicante,3,1129,2922
+277,2025-11-28,Santa Cruz de Tenerife,Coca dulce de la Vall d’Uixó,Dulces artesanos,Castellón,2,740,1330
+278,2025-12-10,Santa Cruz de Tenerife,Turrón blando de Xixona,Dulces artesanos,Alicante,1,1089,969
+278,2025-12-10,Santa Cruz de Tenerife,Coca dulce de la Vall d’Uixó,Dulces artesanos,Castellón,1,752,692
+278,2025-12-10,Santa Cruz de Tenerife,Limón de Orihuela,Cítricos,Alicante,1,472,432
+279,2024-11-09,Málaga,Arroz bomba de Sueca,Despensa,Valencia,2,654,1161
+279,2024-11-09,Málaga,Garrofón de Cullera,Despensa,Valencia,1,493,430
+279,2024-11-09,Málaga,Mandarina de Nules,Cítricos,Castellón,1,636,559
+280,2025-08-30,Ourense,Rosquilletas de València,Despensa,Valencia,1,372,372
+280,2025-08-30,Ourense,Mandarina de Nules,Cítricos,Castellón,2,642,1284
+280,2025-08-30,Ourense,Horchata de Alboraya,Bebidas,Valencia,4,604,2416
+280,2025-08-30,Ourense,Arroz bomba de Sueca,Despensa,Valencia,1,632,632
+280,2025-08-30,Ourense,Miel de la Vall d'Alba,Aceites y miel,Castellón,2,814,1628
+281,2025-10-06,Ourense,Naranja de Carcaixent,Cítricos,Valencia,1,542,467
+281,2025-10-06,Ourense,Arroz bomba de Sueca,Despensa,Valencia,1,628,586
+282,2025-10-24,Ourense,Limón de Orihuela,Cítricos,Alicante,2,448,834
+282,2025-10-24,Ourense,Arroz bomba de Sueca,Despensa,Valencia,1,588,523
+282,2025-10-24,Ourense,Pimiento asado de Guardamar,Conservas vegetales,Alicante,2,567,881
+283,2024-07-25,Barcelona,Garrofón de Cullera,Despensa,Valencia,1,518,462
+283,2024-07-25,Barcelona,Horchata de Alboraya,Bebidas,Valencia,2,574,1102
+283,2024-07-25,Barcelona,Mandarina de Nules,Cítricos,Castellón,4,609,2303
+284,2025-07-20,Alicante,Mandarina de Nules,Cítricos,Castellón,2,656,1122
+284,2025-07-20,Alicante,Garrofón de Cullera,Despensa,Valencia,2,491,848
+284,2025-07-20,Alicante,Miel de la Marina,Aceites y miel,Alicante,1,950,849
+284,2025-07-20,Alicante,Limón de Orihuela,Cítricos,Alicante,3,495,1392
+285,2025-08-16,Alicante,Mandarina de Nules,Cítricos,Castellón,2,656,1312
+285,2025-08-16,Alicante,Garrofón de Cullera,Despensa,Valencia,1,504,504
+285,2025-08-16,Alicante,Naranja de Carcaixent,Cítricos,Valencia,2,561,1122
+285,2025-08-16,Alicante,Pimiento asado de Guardamar,Conservas vegetales,Alicante,1,614,614
+285,2025-08-16,Alicante,Almendra tostada de Xixona,Despensa,Alicante,1,701,701
+286,2025-09-11,Alicante,Garrofón de Cullera,Despensa,Valencia,2,551,1102
+286,2025-09-11,Alicante,Miel de la Vall d'Alba,Aceites y miel,Castellón,1,781,781
+286,2025-09-11,Alicante,Naranja de Carcaixent,Cítricos,Valencia,2,535,1070
+287,2025-10-11,Alicante,Mandarina de Nules,Cítricos,Castellón,2,649,1298
+287,2025-10-11,Alicante,Garrofón de Cullera,Despensa,Valencia,2,506,1012
+287,2025-10-11,Alicante,Arroz bomba de Sueca,Despensa,Valencia,2,582,1164
+288,2025-11-06,Alicante,Mandarina de Nules,Cítricos,Castellón,2,606,1212
+288,2025-11-06,Alicante,Garrofón de Cullera,Despensa,Valencia,1,526,526
+288,2025-11-06,Alicante,Pimiento asado de Guardamar,Conservas vegetales,Alicante,2,635,1270
+289,2025-12-03,Alicante,Mandarina de Nules,Cítricos,Castellón,3,682,2046
+289,2025-12-03,Alicante,Garrofón de Cullera,Despensa,Valencia,2,535,1070
+290,2025-03-15,Madrid,Almendra tostada de Xixona,Despensa,Alicante,2,758,1516
+290,2025-03-15,Madrid,Rosquilletas de València,Despensa,Valencia,1,403,403
+290,2025-03-15,Madrid,Aceite de oliva de Viver,Aceites y miel,Castellón,3,1350,4050
+291,2025-03-29,Madrid,Almendra tostada de Xixona,Despensa,Alicante,3,775,2325
+291,2025-03-29,Madrid,Rosquilletas de València,Despensa,Valencia,2,393,786
+291,2025-03-29,Madrid,Naranja de Carcaixent,Cítricos,Valencia,1,543,543
+292,2025-04-14,Madrid,Almendra tostada de Xixona,Despensa,Alicante,2,737,1311
+292,2025-04-14,Madrid,Horchata de Alboraya,Bebidas,Valencia,2,633,1180
+292,2025-04-14,Madrid,Rosquilletas de València,Despensa,Valencia,3,382,1089
+292,2025-04-14,Madrid,Caja de cítricos de la Ribera,Cítricos,Valencia,2,1538,2875
+293,2025-04-26,Madrid,Almendra tostada de Xixona,Despensa,Alicante,4,717,2868
+293,2025-04-26,Madrid,Horchata de Alboraya,Bebidas,Valencia,1,558,558
+293,2025-04-26,Madrid,Rosquilletas de València,Despensa,Valencia,1,388,388
+294,2025-05-11,Madrid,Almendra tostada de Xixona,Despensa,Alicante,2,693,1386
+294,2025-05-11,Madrid,Rosquilletas de València,Despensa,Valencia,1,364,364
+295,2025-05-25,Madrid,Almendra tostada de Xixona,Despensa,Alicante,1,714,714
+295,2025-05-25,Madrid,Horchata de Alboraya,Bebidas,Valencia,2,579,1158
+296,2025-06-06,Madrid,Almendra tostada de Xixona,Despensa,Alicante,2,699,1323
+296,2025-06-06,Madrid,Horchata de Alboraya,Bebidas,Valencia,1,614,526
+296,2025-06-06,Madrid,Rosquilletas de València,Despensa,Valencia,1,376,340
+297,2023-11-27,Albacete,Zumo de granada de Elche,Bebidas,Alicante,4,460,1840
+297,2023-11-27,Albacete,Mandarina de Nules,Cítricos,Castellón,1,657,657
+297,2023-11-27,Albacete,Arroz bomba de Sueca,Despensa,Valencia,1,613,613
+298,2023-03-09,Madrid,Arroz bomba de Sueca,Despensa,Valencia,1,623,623
+298,2023-03-09,Madrid,Mandarina de Nules,Cítricos,Castellón,2,641,1282
+298,2023-03-09,Madrid,Aceite de oliva de Viver,Aceites y miel,Castellón,2,1363,2726
+298,2023-03-09,Madrid,Limón de Orihuela,Cítricos,Alicante,2,483,966
+299,2023-05-31,Madrid,Arroz bomba de Sueca,Despensa,Valencia,1,610,610
+299,2023-05-31,Madrid,Horchata de Alboraya,Bebidas,Valencia,2,606,1212
+299,2023-05-31,Madrid,Naranja de Carcaixent,Cítricos,Valencia,1,570,570
+299,2023-05-31,Madrid,Limón de Orihuela,Cítricos,Alicante,1,473,473
+300,2025-02-21,Albacete,Rosquilletas de València,Despensa,Valencia,1,377,377
+300,2025-02-21,Albacete,Caja de cítricos de la Ribera,Cítricos,Valencia,3,1414,4242
+301,2025-08-02,Valencia,Horchata de Alboraya,Bebidas,Valencia,3,576,1630
+301,2025-08-02,Valencia,Pimiento asado de Guardamar,Conservas vegetales,Alicante,1,572,0
+301,2025-08-02,Valencia,Arroz bomba de Sueca,Despensa,Valencia,1,651,612
+301,2025-08-02,Valencia,Naranja de Carcaixent,Cítricos,Valencia,1,536,471
+302,2025-09-14,Madrid,Mermelada de naranja de Gandia,Dulces artesanos,Valencia,3,577,1619
+302,2025-09-14,Madrid,Mandarina de Nules,Cítricos,Castellón,3,648,1757
+302,2025-09-14,Madrid,Horchata de Alboraya,Bebidas,Valencia,1,603,527
+303,2025-12-25,Madrid,Mermelada de naranja de Gandia,Dulces artesanos,Valencia,1,561,506
+303,2025-12-25,Madrid,Alcachofa en conserva de Benicarló,Conservas vegetales,Castellón,2,705,1041
+303,2025-12-25,Madrid,Zumo de naranja de Carcaixent,Bebidas,Valencia,1,379,344
+303,2025-12-25,Madrid,Miel de la Marina,Aceites y miel,Alicante,1,923,845
+304,2025-03-16,Las Palmas,Zumo de naranja de Carcaixent,Bebidas,Valencia,3,371,983
+304,2025-03-16,Las Palmas,Miel de la Vall d'Alba,Aceites y miel,Castellón,1,818,765
+305,2025-06-08,Las Palmas,Zumo de naranja de Carcaixent,Bebidas,Valencia,1,402,343
+305,2025-06-08,Las Palmas,Horchata de Alboraya,Bebidas,Valencia,1,567,508
+305,2025-06-08,Las Palmas,Naranja de Carcaixent,Cítricos,Valencia,1,589,553
+306,2025-12-25,A Coruña,Pimiento asado de Guardamar,Conservas vegetales,Alicante,1,596,465
+306,2025-12-25,A Coruña,Rosquilletas de València,Despensa,Valencia,1,381,332
+306,2025-12-25,A Coruña,Mermelada de naranja de Gandia,Dulces artesanos,Valencia,1,541,511
+307,2025-02-04,Pontevedra,Arroz bomba de Sueca,Despensa,Valencia,7,615,4156
+307,2025-02-04,Pontevedra,Almendra tostada de Xixona,Despensa,Alicante,6,679,1851
+307,2025-02-04,Pontevedra,Caja de cítricos de la Ribera,Cítricos,Valencia,3,1567,4526
+308,2025-02-27,Pontevedra,Arroz bomba de Sueca,Despensa,Valencia,4,611,2368
+308,2025-02-27,Pontevedra,Almendra tostada de Xixona,Despensa,Alicante,2,765,1409
+308,2025-02-27,Pontevedra,Zumo de naranja de Carcaixent,Bebidas,Valencia,4,371,1417
+308,2025-02-27,Pontevedra,Miel de la Vall d'Alba,Aceites y miel,Castellón,7,760,4900
+308,2025-02-27,Pontevedra,Garrofón de Cullera,Despensa,Valencia,3,514,1485
+309,2025-03-21,Pontevedra,Arroz bomba de Sueca,Despensa,Valencia,7,649,4257
+309,2025-03-21,Pontevedra,Almendra tostada de Xixona,Despensa,Alicante,4,748,2737
+310,2025-04-10,Pontevedra,Almendra tostada de Xixona,Despensa,Alicante,4,756,2903
+310,2025-04-10,Pontevedra,Caja de cítricos de la Ribera,Cítricos,Valencia,8,1447,10904
+310,2025-04-10,Pontevedra,Mandarina de Nules,Cítricos,Castellón,3,688,1882
+311,2025-05-03,Pontevedra,Arroz bomba de Sueca,Despensa,Valencia,3,650,1743
+311,2025-05-03,Pontevedra,Almendra tostada de Xixona,Despensa,Alicante,7,701,4509
+311,2025-05-03,Pontevedra,Rosquilletas de València,Despensa,Valencia,2,380,721
+311,2025-05-03,Pontevedra,Mandarina de Nules,Cítricos,Castellón,5,624,2946
+312,2025-02-25,Cantabria,Naranja de Carcaixent,Cítricos,Valencia,2,568,1031
+312,2025-02-25,Cantabria,Rosquilletas de València,Despensa,Valencia,1,363,315
+312,2025-02-25,Cantabria,Caja de cítricos de la Ribera,Cítricos,Valencia,2,1413,2616
+312,2025-02-25,Cantabria,Almendra tostada de Xixona,Despensa,Alicante,1,729,639
+313,2025-04-19,Madrid,Zumo de naranja de Carcaixent,Bebidas,Valencia,2,385,770
+313,2025-04-19,Madrid,Limón de Orihuela,Cítricos,Alicante,1,490,490
+313,2025-04-19,Madrid,Caja de cítricos de la Ribera,Cítricos,Valencia,3,1408,4224
+314,2025-08-17,Madrid,Mandarina de Nules,Cítricos,Castellón,2,684,1368
+314,2025-08-17,Madrid,Pimiento asado de Guardamar,Conservas vegetales,Alicante,1,580,580
+314,2025-08-17,Madrid,Almendra tostada de Xixona,Despensa,Alicante,1,756,756
+314,2025-08-17,Madrid,Horchata de Alboraya,Bebidas,Valencia,1,623,623
+315,2024-11-21,Albacete,Zumo de naranja de Carcaixent,Bebidas,Valencia,1,375,375
+315,2024-11-21,Albacete,Rosquilletas de València,Despensa,Valencia,2,384,768
+315,2024-11-21,Albacete,Miel de la Marina,Aceites y miel,Alicante,2,890,1780
+316,2025-01-29,Albacete,Rosquilletas de València,Despensa,Valencia,3,395,1020
+316,2025-01-29,Albacete,Caja de cítricos de la Ribera,Cítricos,Valencia,1,1584,1403
+317,2025-10-01,Girona,Miel de la Vall d'Alba,Aceites y miel,Castellón,13,783,6660
+317,2025-10-01,Girona,Mandarina de Nules,Cítricos,Castellón,9,636,4071
+317,2025-10-01,Girona,Zumo de granada de Elche,Bebidas,Alicante,43,439,14888
+318,2023-01-07,Castellón,Zumo de granada de Elche,Bebidas,Alicante,3,484,1314
+318,2023-01-07,Castellón,Zumo de naranja de Carcaixent,Bebidas,Valencia,2,411,387
+318,2023-01-07,Castellón,Limón de Orihuela,Cítricos,Alicante,4,438,1561
+319,2023-04-10,Castellón,Arroz bomba de Sueca,Despensa,Valencia,1,655,655
+319,2023-04-10,Castellón,Zumo de naranja de Carcaixent,Bebidas,Valencia,2,403,806
+319,2023-04-10,Castellón,Miel de la Vall d'Alba,Aceites y miel,Castellón,2,835,1670
+319,2023-04-10,Castellón,Garrofón de Cullera,Despensa,Valencia,1,516,516
+320,2025-07-17,Valencia,Pimiento asado de Guardamar,Conservas vegetales,Alicante,1,611,474
+320,2025-07-17,Valencia,Caja de cítricos de la Ribera,Cítricos,Valencia,1,1525,1351
