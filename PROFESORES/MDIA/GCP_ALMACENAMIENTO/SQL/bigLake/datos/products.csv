@@ -1,0 +1,21 @@
+product_id,product_name,category,origin_region,origin_province,origin_locality,list_price_cents,catalog_since,sales_unit
+1,Naranja de Carcaixent,Cítricos,Comunitat Valenciana,Valencia,Carcaixent,550,2023-01-01,bolsa de 1 kg
+2,Mandarina de Nules,Cítricos,Comunitat Valenciana,Castellón,Nules,640,2023-01-01,bolsa de 1 kg
+3,Limón de Orihuela,Cítricos,Comunitat Valenciana,Alicante,Orihuela,460,2023-01-01,bolsa de 1 kg
+4,Caja de cítricos de la Ribera,Cítricos,Comunitat Valenciana,Valencia,Alzira,1490,2023-01-01,caja de 3 kg
+5,Arroz bomba de Sueca,Despensa,Comunitat Valenciana,Valencia,Sueca,615,2023-01-01,paquete de 1 kg
+6,Almendra tostada de Xixona,Despensa,Comunitat Valenciana,Alicante,Xixona,720,2023-01-01,bolsa de 250 g
+7,Rosquilletas de València,Despensa,Comunitat Valenciana,Valencia,València,375,2023-01-01,paquete de 200 g
+8,Garrofón de Cullera,Despensa,Comunitat Valenciana,Valencia,Cullera,510,2023-01-01,bolsa de 500 g
+9,Horchata de Alboraya,Bebidas,Comunitat Valenciana,Valencia,Alboraia,590,2023-01-01,botella de 1 L
+10,Zumo de naranja de Carcaixent,Bebidas,Comunitat Valenciana,Valencia,Carcaixent,390,2023-01-01,botella de 1 L
+11,Zumo de granada de Elche,Bebidas,Comunitat Valenciana,Alicante,Elche,465,2023-01-01,botella de 750 mL
+12,Aceite de oliva de Viver,Aceites y miel,Comunitat Valenciana,Castellón,Viver,1290,2023-01-01,botella de 750 mL
+13,Miel de la Vall d'Alba,Aceites y miel,Comunitat Valenciana,Castellón,la Vall d’Alba,790,2023-01-01,tarro de 350 g
+14,Miel de la Marina,Aceites y miel,Comunitat Valenciana,Alicante,Teulada,890,2023-01-01,tarro de 350 g
+15,Alcachofa en conserva de Benicarló,Conservas vegetales,Comunitat Valenciana,Castellón,Benicarló,690,2025-04-01,tarro de 300 g
+16,Pimiento asado de Guardamar,Conservas vegetales,Comunitat Valenciana,Alicante,Guardamar del Segura,590,2025-04-01,tarro de 250 g
+17,Salmorreta de El Campello,Conservas vegetales,Comunitat Valenciana,Alicante,El Campello,555,2025-04-01,tarro de 180 g
+18,Turrón blando de Xixona,Dulces artesanos,Comunitat Valenciana,Alicante,Xixona,1050,2025-09-01,tableta de 300 g
+19,Mermelada de naranja de Gandia,Dulces artesanos,Comunitat Valenciana,Valencia,Gandia,545,2025-09-01,tarro de 240 g
+20,Coca dulce de la Vall d’Uixó,Dulces artesanos,Comunitat Valenciana,Castellón,la Vall d’Uixó,720,2025-09-01,caja de 6 piezas
