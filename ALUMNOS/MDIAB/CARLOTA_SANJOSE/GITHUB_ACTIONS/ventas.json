@@ -1,0 +1,22 @@
+{
+  "ventas": [
+    {
+      "id": 1,
+      "producto": "Tabla de surf",
+      "cantidad": 2,
+      "precio": 420.00
+    },
+    {
+      "id": 2,
+      "producto": "Cafetera espresso italiana",
+      "cantidad": 5,
+      "precio": 89.95
+    },
+    {
+      "id": 3,
+      "producto": "Zapatillas running",
+      "cantidad": 3,
+      "precio": 135.50
+    }
+  ]
+}

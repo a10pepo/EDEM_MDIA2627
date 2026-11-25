@@ -1,0 +1,89 @@
+name: Pipeline de Datos Seguro y Automatizado
+# Definimos como se ejecuta el workflow
+on:
+  workflow_dispatch:
+    inputs: 
+      test_seguridad: 
+      # Preguntamos al usuario si quiere ejecutar lso tests de seguridad, se muestras en pantalla
+        description: '¿Quieres ejecutar los tests de seguridad?'
+        required: true # Que diga q si 
+        default: 'si' 
+        type: choice 
+        options: 
+          - 'si'
+          - 'no'
+        # Por defecto se ejecutaran 
+
+jobs:
+  # =========================
+  # 1. CI & Seguridad
+  # =========================
+  ci_seguridad:
+    # EL nombre del job en cuestión 
+    name: CI y Seguridad
+    runs-on: ubuntu-latest
+    steps: # Pequeños pasos en los que se divide el job
+      - name: Descargar código del respositorio
+        uses: actions/checkout@v4
+      - name: Validar el formato del archivo ventas.json
+        run: |
+          python3 -m json.tool ventas.json > /dev/null
+          echo " El archivo ventas.json tiene un formato JSON válido."
+      - name: Test de seguridad (Solo si se ha marcado sí) 
+        if: ${{ inputs.test_seguridad == 'si' }}
+        run: python security_scan.py
+  
+  # =========================
+  # 2. PROCESAMIENTO
+  # =========================
+  procesamiento:
+    name: Procesamiento
+    # Dado que depende del job anterior, no empieza hasta que acabe el otro
+    needs: ci_seguridad 
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+      # Los dos entornos en los que se ejecutará el job
+        entorno: [staging, production]
+    
+    steps:
+      - name: Descargar código del repositorio
+        uses: actions/checkout@v4
+        # Generar reporte en ambos entornos de la matriz
+      - name: Generar reporte para ${{ matrix.entorno }}
+        run: |
+          echo "REPORTE DE VENTAS - ENTORNO: ${{ matrix.entorno }} " > reporte_${{ matrix.entorno }}.txt
+          echo "Fecha de ejecución: $(date)" >> reporte_${{ matrix.entorno }}.txt
+          echo "Estado: Datos procesados correctamente." >> reporte_${{ matrix.entorno }}.txt
+          cat reporte_${{ matrix.entorno }}.txt
+      # Subir los reportes como artefactos para facilitar su posteriro descarga
+      - name: Subir reporte de ${{ matrix.entorno }} como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          # Nombres del los artefactos creados en Github
+          name: reporte-${{ matrix.entorno }}
+          # Archivo que queremos guardar
+          path: reporte_${{ matrix.entorno }}.txt
+
+  # =========================
+  # 3. NOTIFICACIÓN DE ÉXITO
+  # =========================
+  notificacion:
+    name: Notificación de éxito
+    # Dado que depende de los dos jobs anteriroes. 
+    needs: [ci_seguridad, procesamiento]
+    if: ${{ success() }}
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Enviar notificación a Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |                    
+          if [ -n "$DISCORD_WEBHOOK" ]; then
+            echo "Pipeline completado correctamente"
+            echo "Webhook de Discord: $DISCORD_WEBHOOK"
+          else
+            echo "ERROR: No se ha configurado DISCORD_WEBHOOK"
+            exit 1
+          fi
+
