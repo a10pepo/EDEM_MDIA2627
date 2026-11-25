@@ -1,0 +1,72 @@
+name: Ejercicio entregable
+
+on:
+  workflow_dispatch:
+    inputs:
+      tests_seguridad:
+        description: "¿Quieres ejecutar los tests de seguridad?"
+        required: true
+        type: choice
+        options:
+          - "yes"
+          - "no"
+        default: "no"
+
+jobs:
+  ci-security:
+    name: CI y Seguridad
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Validar ventas.json
+        run: python -m json.tool ventas.json > /dev/null
+
+      - name: Ejecutar tests de seguridad
+        if: ${{ inputs.tests_seguridad == 'yes' }}
+        run: python scan_security.py
+
+  processing:
+    name: Procesamiento
+    needs: ci-security
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        environment:
+          - staging
+          - production
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Generar informe
+        run: |
+          echo "Informe del entorno: ${{ matrix.environment }}" > informe-${{ matrix.environment }}.txt
+          echo "Procesamiento completado." >> informe-${{ matrix.environment }}.txt
+
+      - name: Subir informe como artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: informe-${{ matrix.environment }}
+          path: informe-${{ matrix.environment }}.txt
+
+  notification:
+    name: Notificación de éxito
+    needs:
+      - ci-security
+      - processing
+    if: ${{ success() }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Simular notificación a Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          echo "Proceso completado correctamente."
+          echo "Webhook de Discord: $DISCORD_WEBHOOK"
+          
