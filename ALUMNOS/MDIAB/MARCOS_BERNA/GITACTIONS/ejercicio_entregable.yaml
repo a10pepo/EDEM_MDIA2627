@@ -95,7 +95,7 @@ jobs:
     steps:
       - name: Simular envío de notificación a Discord
         env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_WEBHOOK: ${{ secrets.SECRET_MARCOS }}
         run: |
           if [ -z "$DISCORD_WEBHOOK" ]; then
             echo "⚠️ El secreto DISCORD_WEBHOOK no está configurado."
