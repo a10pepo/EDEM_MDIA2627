@@ -1,0 +1,49 @@
+name: ejercicio_entregable
+
+on:
+  workflow_dispatch:
+    inputs:
+      sec_tests:
+        description: "Activar tests de seguridad?"
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+  ci_sec:
+    name: CI & Seguridad
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validar JSON
+        run: jq . ventas.json
+
+      - name: Escaneo de seguridad
+        if: ${{ inputs.sec_tests == true }}
+        run: python3 sec_scan.py
+
+  processing:
+    name: Procesamiento
+    needs: ci_sec
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        entornos: [staging, production]
+    steps:
+      - name: Crear reportes
+        run: echo "Reporte de ${{ matrix.entorno }} creado" > ${{ matrix.entorno }}_report.txt
+
+      - name: Subir reportes
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.entorno }}_report
+          path: ${{ matrix.entorno }}_report.txt
+
+  notification:
+    name: Notificacion de Exito
+    needs: [ci_sec, processing]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simular Notificacion
+        run: echo "Notificacion - ${{ secrets.DISCORD_WEBHOOK }}"

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trenes Renfe - proximidad</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1>Trenes Renfe · alertas de proximidad</h1>
+      <p class="sub">Ejercicio universitario. Datos orientativos: las alertas no constituyen un sistema de seguridad ferroviaria.</p>
+    </div>
+    <div class="status" id="status" role="status" aria-live="polite">
+      <span class="led" id="led"></span><span id="status-text">Conectando…</span>
+    </div>
+  </header>
+
+  <!-- Banner de estado: se muestra cuando no hay datos recientes o el servicio no responde -->
+  <div class="banner" id="banner" hidden></div>
+
+  <section class="tiles" id="tiles" aria-label="Resumen"></section>
+
+  <main class="grid">
+    <section class="card">
+      <div class="card-head">
+        <h2>Posiciones recientes</h2>
+        <input id="filter" type="search" placeholder="Filtrar por nº de tren o matrícula" aria-label="Filtrar trenes">
+      </div>
+      <div class="posbody">
+      <div class="mapcol">
+      <div class="legend">
+        <span><i class="dot blue"></i> Último dato de un tren</span>
+        <span><i class="dot red"></i> Tren en alguna alerta mostrada</span>
+        <span><i class="line"></i> Estela (últimos <b id="trail-min">15</b> min)</span>
+        <button id="reset-zoom" type="button">Restablecer zoom</button>
+      </div>
+      <div class="mapbox"><svg id="map" role="img" aria-label="Mapa con la posición y la estela de cada tren"></svg></div>
+      <p class="hint">Rueda para acercar, arrastra para mover. Haz clic en un tren para resaltar su estela, o en una alerta para ver los dos trenes unidos.</p>
+      </div>
+      <div class="tablecol tablewrap">
+        <table id="trains">
+          <thead><tr>
+            <th>Tren</th><th>Matrícula</th><th class="n">Latitud</th><th class="n">Longitud</th>
+            <th>Tramo (A → B)</th><th class="n">Retraso</th><th class="n">Hace</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <h2>Alertas recientes</h2>
+        <label>Mostrar
+          <select id="alert-limit" aria-label="Número de alertas">
+            <option>10</option><option selected>25</option><option>50</option><option>100</option>
+          </select>
+        </label>
+      </div>
+      <div class="tablewrap">
+        <table id="alerts">
+          <thead><tr>
+            <th>Hora (Madrid)</th><th>Entre qué trenes</th><th class="n">Distancia / umbral</th><th>Por qué hay alerta</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    Los datos llegan de la API del proyecto (<code>/api/getPosiciones</code>, <code>/api/getEstelas</code> y <code>/api/getAlertas</code>) y se
+    actualizan solos cada <span id="poll-s">15</span> s. El navegador no se conecta a la base de datos.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
