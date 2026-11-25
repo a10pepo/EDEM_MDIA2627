@@ -1,0 +1,18 @@
+# Copia esta plantilla a cleanup_override.tf solo durante la limpieza final.
+resource "google_storage_bucket" "restricted" {
+  lifecycle {
+    prevent_destroy = false
+  }
+}
+
+resource "google_storage_bucket_object" "proveedor_b" {
+  lifecycle {
+    prevent_destroy = false
+  }
+}
+
+resource "google_bigquery_connection" "restricted" {
+  lifecycle {
+    prevent_destroy = false
+  }
+}
