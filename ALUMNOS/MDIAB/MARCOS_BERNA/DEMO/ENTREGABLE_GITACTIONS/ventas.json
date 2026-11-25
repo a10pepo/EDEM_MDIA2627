@@ -1,0 +1,15 @@
+{
+  "empresa": "Mi Empresa S.L.",
+  "periodo": "2026-11",
+  "moneda": "EUR",
+  "ventas": [
+    { "id": 1, "fecha": "2026-11-02", "producto": "Portátil",  "cantidad": 2, "precio_unitario": 899.99, "region": "Madrid" },
+    { "id": 2, "fecha": "2026-11-03", "producto": "Ratón",     "cantidad": 10, "precio_unitario": 19.50, "region": "Barcelona" },
+    { "id": 3, "fecha": "2026-11-05", "producto": "Monitor",   "cantidad": 4, "precio_unitario": 229.00, "region": "Valencia" },
+    { "id": 4, "fecha": "2026-11-08", "producto": "Teclado",   "cantidad": 6, "precio_unitario": 49.90, "region": "Madrid" },
+    { "id": 5, "fecha": "2026-11-12", "producto": "Portátil",  "cantidad": 1, "precio_unitario": 899.99, "region": "Sevilla" },
+    { "id": 6, "fecha": "2026-11-15", "producto": "Auriculares","cantidad": 8, "precio_unitario": 59.00, "region": "Barcelona" },
+    { "id": 7, "fecha": "2026-11-19", "producto": "Monitor",   "cantidad": 2, "precio_unitario": 229.00, "region": "Madrid" },
+    { "id": 8, "fecha": "2026-11-22", "producto": "Ratón",     "cantidad": 5, "precio_unitario": 19.50, "region": "Valencia" }
+  ]
+}
