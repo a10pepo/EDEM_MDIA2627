@@ -1,0 +1,25 @@
+{
+  "fecha_reporte": "2026-11-25",
+  "sucursal": "EDEM Valencia",
+  "moneda": "EUR",
+  "ventas": [
+    {
+      "id_venta": 1001,
+      "producto": "Licencia Cloud Enterprise",
+      "cantidad": 2,
+      "precio_unitario": 450.00
+    },
+    {
+      "id_venta": 1002,
+      "producto": "Consultoría Data & IA",
+      "cantidad": 1,
+      "precio_unitario": 1200.50
+    },
+    {
+      "id_venta": 1003,
+      "producto": "Curso Automatización CI/CD",
+      "cantidad": 5,
+      "precio_unitario": 150.00
+    }
+  ]
+}
