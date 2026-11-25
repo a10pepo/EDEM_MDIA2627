@@ -1,0 +1,29 @@
+{
+  "ventas": [
+    {
+      "producto": "Elden Ring",
+      "cantidad": 120,
+      "precio": 59.99
+    },
+    {
+      "producto": "Minecraft",
+      "cantidad": 200,
+      "precio": 29.99
+    },
+    {
+      "producto": "Cyberpunk 2077",
+      "cantidad": 85,
+      "precio": 39.99
+    },
+    {
+      "producto": "GTA VI",
+      "cantidad": 150,
+      "precio": 19.99
+    },
+    {
+      "producto": "The Witcher 3",
+      "cantidad": 95,
+      "precio": 24.99
+    }
+  ]
+}
