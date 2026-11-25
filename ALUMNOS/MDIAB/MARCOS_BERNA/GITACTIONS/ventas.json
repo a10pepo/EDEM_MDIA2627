@@ -1,0 +1,12 @@
+{
+  "empresa": "Comercial Ejemplo S.L.",
+  "periodo": "2026-11",
+  "moneda": "EUR",
+  "ventas": [
+    { "id": 1, "fecha": "2026-11-03", "producto": "Portátil", "cantidad": 2, "precio_unitario": 899.99, "region": "Madrid" },
+    { "id": 2, "fecha": "2026-11-05", "producto": "Monitor", "cantidad": 5, "precio_unitario": 189.50, "region": "Barcelona" },
+    { "id": 3, "fecha": "2026-11-09", "producto": "Teclado", "cantidad": 12, "precio_unitario": 45.00, "region": "Valencia" },
+    { "id": 4, "fecha": "2026-11-14", "producto": "Ratón", "cantidad": 20, "precio_unitario": 19.90, "region": "Madrid" },
+    { "id": 5, "fecha": "2026-11-20", "producto": "Auriculares", "cantidad": 8, "precio_unitario": 79.00, "region": "Sevilla" }
+  ]
+}
