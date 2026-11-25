@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "producto": "Monitor",
+    "cantidad": 2,
+    "importe_total": 119.90
+  },
+  {
+    "id": 2,
+    "producto": "Ratón Inalámbrico",
+    "cantidad": 1,
+    "importe_total": 24.50
+  }
+]
