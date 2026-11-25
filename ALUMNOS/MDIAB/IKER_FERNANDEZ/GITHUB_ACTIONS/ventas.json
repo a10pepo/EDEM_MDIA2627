@@ -1,0 +1,14 @@
+{
+  "empresa": "EDEM Data Corp",
+  "periodo": "2026-11",
+  "moneda": "EUR",
+  "ventas": [
+    { "id": 1, "fecha": "2026-11-02", "producto": "Portátil", "categoria": "Electrónica", "unidades": 3, "precio_unitario": 899.99, "region": "Valencia" },
+    { "id": 2, "fecha": "2026-11-05", "producto": "Monitor 27\"", "categoria": "Electrónica", "unidades": 5, "precio_unitario": 229.50, "region": "Madrid" },
+    { "id": 3, "fecha": "2026-11-08", "producto": "Silla ergonómica", "categoria": "Mobiliario", "unidades": 4, "precio_unitario": 189.00, "region": "Barcelona" },
+    { "id": 4, "fecha": "2026-11-12", "producto": "Teclado mecánico", "categoria": "Periféricos", "unidades": 10, "precio_unitario": 79.90, "region": "Valencia" },
+    { "id": 5, "fecha": "2026-11-15", "producto": "Ratón inalámbrico", "categoria": "Periféricos", "unidades": 12, "precio_unitario": 24.99, "region": "Sevilla" },
+    { "id": 6, "fecha": "2026-11-19", "producto": "Mesa elevable", "categoria": "Mobiliario", "unidades": 2, "precio_unitario": 349.00, "region": "Madrid" },
+    { "id": 7, "fecha": "2026-11-22", "producto": "Auriculares", "categoria": "Electrónica", "unidades": 7, "precio_unitario": 59.95, "region": "Barcelona" }
+  ]
+}
