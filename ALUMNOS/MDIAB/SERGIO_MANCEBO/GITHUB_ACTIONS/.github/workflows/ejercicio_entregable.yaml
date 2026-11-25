@@ -1,0 +1,82 @@
+name: Entregable - Sergio Mancebo
+
+# 1. ACTIVACION MANUAL CON INPUT
+on:
+  workflow_dispatch:
+    inputs:
+      test_seguridad:
+        description: '¿Quieres ejecutar los Tests de Seguridad?'
+        required: true
+        default: true
+        type: boolean
+
+jobs:
+  ci_seguridad:
+    name: "Job 1: CI & Seguridad"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar código del repositorio
+        uses: actions/checkout@v4 # Permite a la máquina visualizar el archivo .json
+
+      - name: Validar archivo ventas.json
+        run: |
+          echo "Validando archivo JSON..."
+          python3 -m json.tool ventas.json > /dev/null
+          echo "El archivo ventas.json es un JSON válido."
+        # El módulo nativo json.tool de Python comprueba que ventas.json
+        # está bien escrito (comillas cerradas, llaves correctas, etc.).
+        # Añadimos > /dev/null para evitar ensuciar la consola,
+        # ya que json.tool imprime todo el archivo si es válido.
+
+      - name: Escaneo de seguridad (Claves API expuestas)
+        if: ${{ inputs.test_seguridad }}
+        run: python3 security_scan.py
+
+  procesamiento:
+    name: "Job 2: Procesar Ventas (${{ matrix.environment }})"
+    needs: ci_seguridad
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment: [staging, production]
+    steps:
+      - name: Descargar código del repositorio
+        uses: actions/checkout@v4
+
+      - name: Generar reporte para ${{ matrix.environment }}
+        run: |
+          python3 -c '
+          import json
+
+          with open("ventas.json", "r") as f:
+              datos = json.load(f)
+
+          env = "${{ matrix.environment }}"
+          nombre_archivo = f"reporte_{env}.txt"
+
+          with open(nombre_archivo, "w") as salida:
+              salida.write(f"REPORTE DE VENTAS - ENTORNO: {env.upper()}\n")
+              salida.write("Estado: Procesado correctamente\n\n")
+              salida.write("Contenido procesado:\n")
+              salida.write(json.dumps(datos, indent=2))
+
+          print(f"Archivo {nombre_archivo} generado correctamente.")
+          '
+
+      - name: Subir reporte como Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-ventas-${{ matrix.environment }}
+          path: reporte_${{ matrix.environment }}.txt
+
+  notificacion_exito:
+    name: "Job 3: Notificación de Éxito"
+    needs: [ci_seguridad, procesamiento]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simulación enviar notificación
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          echo "Pipeline completado con éxito."
+          echo "Enviando notificación al webhook: $DISCORD_WEBHOOK"
