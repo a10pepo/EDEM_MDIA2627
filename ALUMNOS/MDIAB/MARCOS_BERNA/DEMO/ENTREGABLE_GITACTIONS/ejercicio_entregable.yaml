@@ -1,0 +1,86 @@
+name: Pipeline de Datos Seguro y Automatizado
+
+# 1. Activación manual con input para elegir si se ejecutan los Tests de Seguridad
+on:
+  workflow_dispatch:
+    inputs:
+      tests_seguridad:
+        description: "¿Quieres ejecutar los Tests de Seguridad?"
+        required: true
+        default: "sí"
+        type: choice
+        options:
+          - "sí"
+          - "no"
+
+jobs:
+  # 2. Job 1: CI & Seguridad
+  ci_seguridad:
+    name: "Job 1 - CI & Seguridad"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validar que ventas.json es un JSON válido
+        run: |
+          python -m json.tool ventas.json > /dev/null
+          echo "✅ ventas.json es un JSON válido"
+
+      - name: Escaneo de seguridad (claves API expuestas)
+        if: ${{ inputs.tests_seguridad == 'sí' }}
+        run: python scripts/security_scan.py
+
+      - name: Escaneo de seguridad omitido
+        if: ${{ inputs.tests_seguridad == 'no' }}
+        run: echo "⏭️ El usuario eligió NO ejecutar los Tests de Seguridad"
+
+  # 3. Job 2: Procesamiento con Matrix (staging y production)
+  procesamiento:
+    name: "Job 2 - Procesamiento (${{ matrix.entorno }})"
+    needs: ci_seguridad
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        entorno: [staging, production]
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generar reporte de ${{ matrix.entorno }}
+        run: python scripts/procesar_ventas.py ${{ matrix.entorno }}
+
+      - name: Subir reporte como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-${{ matrix.entorno }}
+          path: reporte_${{ matrix.entorno }}.txt
+          retention-days: 7
+
+  # 4. Job 3: Notificación de éxito
+  notificacion:
+    name: "Job 3 - Notificación de Éxito"
+    needs: [ci_seguridad, procesamiento]
+    if: ${{ success() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enviar notificación a Discord (simulada)
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          if [ -z "$DISCORD_WEBHOOK" ]; then
+            echo "::error::El secreto DISCORD_WEBHOOK no está configurado en el repositorio"
+            exit 1
+          fi
+          echo "📣 Enviando notificación de éxito a: $DISCORD_WEBHOOK"
+          echo "Mensaje: ✅ Pipeline de ventas completado (run #${{ github.run_number }}) por ${{ github.actor }}"
