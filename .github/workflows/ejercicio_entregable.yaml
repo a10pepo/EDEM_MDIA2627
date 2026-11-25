@@ -1,0 +1,106 @@
+name: Pipeline de datos de ventas
+
+on:
+  workflow_dispatch:
+    inputs:
+      tests_seguridad:
+        description: Ejecutar los tests de seguridad
+        type: boolean
+        required: true
+        default: false
+
+jobs:
+  ci_seguridad:
+    name: CI y Seguridad
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Validar ventas.json
+        run: python3 -m json.tool "ALUMNOS/MDIAB/JOAQUIN_CASELLES/GITHUB_ACTIONS/ventas.json" > /dev/null
+
+      - name: Buscar claves API expuestas
+        if: ${{ inputs.tests_seguridad }}
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          campo_detectado = False
+
+          def revisar_objeto(objeto):
+              global campo_detectado
+              for clave, valor in objeto.items():
+                  nombre = clave.lower().replace("-", "_")
+                  if nombre in {"api_key", "apikey", "api_token"} and isinstance(valor, str) and valor.strip():
+                      campo_detectado = True
+              return objeto
+
+          contenido = Path("ALUMNOS/MDIAB/JOAQUIN_CASELLES/GITHUB_ACTIONS/ventas.json").read_text(encoding="utf-8")
+          json.loads(contenido, object_hook=revisar_objeto)
+
+          if campo_detectado:
+              raise SystemExit("Escaneo fallido: se ha detectado un posible campo con una clave API.")
+
+          print("Escaneo completado: no se detectaron campos con claves API.")
+          PY
+
+  procesamiento:
+    name: Procesar ventas en ${{ matrix.entorno }}
+    needs: ci_seguridad
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        entorno: [staging, production]
+
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Generar reporte de ventas
+        env:
+          ENTORNO: ${{ matrix.entorno }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          from decimal import Decimal
+          from pathlib import Path
+
+          entorno = os.environ["ENTORNO"]
+          contenido = Path("ALUMNOS/MDIAB/JOAQUIN_CASELLES/GITHUB_ACTIONS/ventas.json").read_text(encoding="utf-8")
+          ventas = json.loads(contenido, parse_float=Decimal)
+          total = sum(venta["importe_total"] for venta in ventas)
+
+          reporte = (
+              f"Entorno: {entorno}\n"
+              f"Número de ventas: {len(ventas)}\n"
+              f"Importe total: {total:.2f}\n"
+          )
+          Path(f"reporte-{entorno}.txt").write_text(reporte, encoding="utf-8")
+          PY
+
+      - name: Subir reporte como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-${{ matrix.entorno }}
+          path: reporte-${{ matrix.entorno }}.txt
+          if-no-files-found: error
+
+  notificacion:
+    name: Notificar éxito
+    needs: [ci_seguridad, procesamiento]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Simular notificación a Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          if [[ -z "$DISCORD_WEBHOOK" ]]; then
+            echo "::error::Configura el secreto DISCORD_WEBHOOK en GitHub."
+            exit 1
+          fi
+
+          echo "Notificación de éxito simulada. URL del webhook: ***"
