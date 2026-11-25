@@ -1,0 +1,46 @@
+{
+  "fecha_generacion": "2026-11-25",
+  "empresa": "MiEmpresa S.A.",
+  "ventas": [
+    {
+      "id": "V001",
+      "producto": "Laptop Pro",
+      "cantidad": 5,
+      "precio_unitario": 1200.00,
+      "vendedor": "Ana García",
+      "region": "Norte"
+    },
+    {
+      "id": "V002",
+      "producto": "Monitor 4K",
+      "cantidad": 10,
+      "precio_unitario": 450.00,
+      "vendedor": "Carlos López",
+      "region": "Sur"
+    },
+    {
+      "id": "V003",
+      "producto": "Teclado Mecánico",
+      "cantidad": 25,
+      "precio_unitario": 120.00,
+      "vendedor": "María Martínez",
+      "region": "Centro"
+    },
+    {
+      "id": "V004",
+      "producto": "Ratón Ergonómico",
+      "cantidad": 30,
+      "precio_unitario": 65.00,
+      "vendedor": "Pedro Sánchez",
+      "region": "Este"
+    },
+    {
+      "id": "V005",
+      "producto": "Auriculares BT",
+      "cantidad": 15,
+      "precio_unitario": 200.00,
+      "vendedor": "Laura Fernández",
+      "region": "Oeste"
+    }
+  ]
+}

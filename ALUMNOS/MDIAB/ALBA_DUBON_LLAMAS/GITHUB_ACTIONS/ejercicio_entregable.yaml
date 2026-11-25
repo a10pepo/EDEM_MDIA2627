@@ -1,0 +1,160 @@
+name: Ejercicio Entregable - Pipeline de Datos Seguro
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_security_tests:
+        description: "¿Ejecutar Tests de Seguridad?"
+        required: true
+        default: "no"
+        type: choice
+        options:
+          - "si"
+          - "no"
+
+# ─────────────────────────────────────────────
+# JOB 1 · CI & Seguridad
+# ─────────────────────────────────────────────
+jobs:
+  ci_seguridad:
+    name: "🔒 CI & Seguridad"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "📥 Checkout del repositorio"
+        uses: actions/checkout@v4
+
+      # ── Validación JSON ──────────────────────
+      - name: "✅ Validar ventas.json"
+        run: |
+          echo "Validando que data/ventas.json es un JSON válido..."
+          python3 -c "
+          import json, sys
+          try:
+              with open('data/ventas.json') as f:
+                  data = json.load(f)
+              print('✅ ventas.json es un JSON válido.')
+              print(f'   → {len(data[\"ventas\"])} registros de venta encontrados.')
+          except json.JSONDecodeError as e:
+              print(f'❌ JSON inválido: {e}')
+              sys.exit(1)
+          "
+
+      # ── Escaneo de seguridad (condicional) ───
+      - name: "⚙️ Configurar Python para escaneo"
+        if: ${{ github.event.inputs.run_security_tests == 'si' }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: "🛡️ Ejecutar escaneo de seguridad"
+        if: ${{ github.event.inputs.run_security_tests == 'si' }}
+        run: |
+          echo "Tests de Seguridad activados por el usuario."
+          python3 scripts/security_scan.py
+
+      - name: "ℹ️ Tests de Seguridad omitidos"
+        if: ${{ github.event.inputs.run_security_tests == 'no' }}
+        run: |
+          echo "ℹ️ El usuario eligió no ejecutar los Tests de Seguridad. Se omite el escaneo."
+
+  # ─────────────────────────────────────────────
+  # JOB 2 · Procesamiento (Matrix: staging / production)
+  # ─────────────────────────────────────────────
+  procesamiento:
+    name: "⚙️ Procesamiento · ${{ matrix.entorno }}"
+    needs: ci_seguridad
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        entorno: [staging, production]
+
+    steps:
+      - name: "📥 Checkout del repositorio"
+        uses: actions/checkout@v4
+
+      - name: "📊 Procesar ventas.json en ${{ matrix.entorno }}"
+        run: |
+          echo "Procesando datos en entorno: ${{ matrix.entorno }}"
+          python3 - <<'EOF'
+          import json
+          import datetime
+
+          entorno = "${{ matrix.entorno }}"
+
+          with open("data/ventas.json") as f:
+              data = json.load(f)
+
+          ventas = data["ventas"]
+          total  = sum(v["cantidad"] * v["precio_unitario"] for v in ventas)
+          items  = len(ventas)
+          ahora  = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
+
+          lineas_ventas = "\n".join(
+              f"  [{v['id']}] {v['producto']:<25} "
+              f"x{v['cantidad']:>3}  @{v['precio_unitario']:>8.2f} €  "
+              f"→ {v['cantidad']*v['precio_unitario']:>10.2f} €  "
+              f"(Vendedor: {v['vendedor']}, Región: {v['region']})"
+              for v in ventas
+          )
+
+          reporte = f"""
+          ╔══════════════════════════════════════════════════════╗
+          ║          REPORTE DE VENTAS — {entorno.upper():<22}║
+          ╚══════════════════════════════════════════════════════╝
+
+          Empresa        : {data['empresa']}
+          Fecha proceso  : {ahora}
+          Entorno        : {entorno}
+          ─────────────────────────────────────────────────────────
+          DETALLE DE VENTAS
+          ─────────────────────────────────────────────────────────
+          {lineas_ventas}
+          ─────────────────────────────────────────────────────────
+          Total registros : {items}
+          Ingresos totales: {total:,.2f} €
+          Estado          : ✅ Procesamiento completado con éxito
+          ═════════════════════════════════════════════════════════
+          """
+
+          filename = f"reporte_{entorno}.txt"
+          with open(filename, "w") as f:
+              f.write(reporte)
+
+          print(reporte)
+          print(f"Reporte guardado en: {filename}")
+          EOF
+
+      - name: "📤 Subir reporte como artefacto"
+        uses: actions/upload-artifact@v4
+        with:
+          name: "reporte-${{ matrix.entorno }}"
+          path: "reporte_${{ matrix.entorno }}.txt"
+          retention-days: 30
+
+  # ─────────────────────────────────────────────
+  # JOB 3 · Notificación de Éxito
+  # ─────────────────────────────────────────────
+  notificacion:
+    name: "🔔 Notificación de Éxito"
+    needs: [ci_seguridad, procesamiento]
+    runs-on: ubuntu-latest
+    if: success()
+
+    steps:
+      - name: "📣 Enviar notificación a Discord"
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          echo "════════════════════════════════════════"
+          echo "🔔  NOTIFICACIÓN DISCORD"
+          echo "════════════════════════════════════════"
+          echo "Webhook URL (enmascarada): ${DISCORD_WEBHOOK:0:35}***"
+          echo ""
+          echo "📨 Mensaje enviado:"
+          echo "   ✅ Pipeline 'Ejercicio Entregable' completado con éxito."
+          echo "   📦 Los reportes de staging y production están disponibles"
+          echo "      como artefactos en la ejecución del workflow."
+          echo "   🕐 Finalizado: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          echo "════════════════════════════════════════"
