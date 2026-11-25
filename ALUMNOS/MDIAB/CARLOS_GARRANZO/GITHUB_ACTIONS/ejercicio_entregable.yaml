@@ -1,0 +1,53 @@
+name: Ejercicio Entregable
+
+on:
+  workflow_dispatch:
+    inputs:
+      ejecutar_seguridad:
+        description: "¿Ejecutar los Tests de Seguridad?"
+        required: true
+        type: choice
+        options:
+          - "sí"
+          - "no"
+
+jobs:
+  ci_seguridad:
+    name: CI y Seguridad
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validar ventas.json
+        run: python3 -m json.tool ventas.json > /dev/null
+
+      - name: Escanear claves API
+        if: ${{ inputs.ejecutar_seguridad == 'sí' }}
+        run: |
+          python3 -c 'import re; texto=open("ventas.json").read(); claves=re.findall(r"(?:api_key|api-key)\s*[:=]\s*[\x22\x27]?[A-Za-z0-9_-]{8,}", texto, re.I); print("Posibles claves encontradas:", claves) if claves else print("Escaneo completado: no se encontraron claves API")'
+
+  procesamiento:
+    name: Procesamiento
+    needs: ci_seguridad
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        entorno: [staging, production]
+    steps:
+      - name: Generar reporte
+        run: echo "Reporte de ventas para ${{ matrix.entorno }}" > reporte_${{ matrix.entorno }}.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reporte-${{ matrix.entorno }}
+          path: reporte_${{ matrix.entorno }}.txt
+
+  notificacion:
+    name: Notificación de Éxito
+    needs: [ci_seguridad, procesamiento]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simular notificación a Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: echo "Notificación simulada - $DISCORD_WEBHOOK"
