@@ -1,0 +1,5 @@
+[
+  {"id": 1, "producto": "Naranjas Valencia", "cantidad": 120, "precio_unitario": 1.35, "region": "Sagunto"},
+  {"id": 2, "producto": "Mandarinas", "cantidad": 80, "precio_unitario": 1.1, "region": "Gandia"},
+  {"id": 3, "producto": "Limones", "cantidad": 45, "precio_unitario": 1.6, "region": "Valencia"}
+]
