@@ -1,15 +1,3 @@
 {
-    "python.analysis.autoImportCompletions": true,
-    "workbench.colorCustomizations": {
-        "activityBar.background": "#2289a6",
-        "titleBar.activeBackground": "#2f94c0",
-        "titleBar.activeForeground": "#FFFBFC"
-    },
-    "python-envs.pythonProjects": [
-        {
-            "path": "alumnos/mdiaa/lorenzo_sabbatini/python/ejercicio_1.py",
-            "envManager": "ms-python.python:venv",
-            "packageManager": "ms-python.python:pip"
-        }
-    ]
+    "python.analysis.autoImportCompletions": true
 }
