@@ -1,0 +1,57 @@
+name: Entregable GitHub Actions - Victor Tikhomirov
+
+on:
+  workflow_dispatch:
+    inputs:
+      seguridad:
+        description: '¿Ejecutar los tests de seguridad?'
+        required: true
+        type: choice
+        options:
+          - 'si'
+          - 'no'
+        default: 'si'
+
+jobs:
+  validacion:
+    name: CI y seguridad
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Validar ventas.json
+        run: python3 -m json.tool ventas.json
+
+      - name: Buscar claves API expuestas
+        if: inputs.seguridad == 'si'
+        run: python3 scan_seguridad.py
+
+  procesamiento:
+    name: Procesamiento
+    needs: validacion
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        entorno: [staging, production]
+    steps:
+      - name: Generar reporte
+        run: |
+          echo "Procesamiento de ventas completado en ${{ matrix.entorno }}" > reporte_${{ matrix.entorno }}.txt
+          cat reporte_${{ matrix.entorno }}.txt
+
+      - name: Subir reporte
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte_${{ matrix.entorno }}
+          path: reporte_${{ matrix.entorno }}.txt
+
+  notificacion:
+    name: Notificación de éxito
+    needs: [validacion, procesamiento]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simular aviso a Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: echo "Proceso terminado correctamente. Webhook de Discord $DISCORD_WEBHOOK"
