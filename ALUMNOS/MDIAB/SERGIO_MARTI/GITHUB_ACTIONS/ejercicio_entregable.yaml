@@ -1,102 +1,61 @@
-name: Pipeline de ventas
+name: Ejercicio GitHub Actions Entregable
 
-on:
-  workflow_dispatch:
+on: 
+  workflow dispatch:
     inputs:
       tests_seguridad:
-        description: Ejecutar los tests de seguridad
+        description: "Quieres usar los tests de seguridad?"
+        required: True
         type: choice
         options:
-          - 'sí'
-          - 'no'
-        default: 'sí'
-        required: true
-
-permissions:
-  contents: read
+          - "si"
+          - "no"
+        default: "no"
 
 jobs:
-  ci_seguridad:
-    name: CI y seguridad
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Validar ventas.json
-        run: python3 -m json.tool ventas.json > /dev/null
-      - name: Simular escaneo de claves API
-        if: ${{ inputs.tests_seguridad == 'sí' }}
-        run: |
-          python3 - <<'PY'
-          import json
-          import re
+  CI_Seguridad:
+  runs-on: "ubuntu-latest"
+  steps:
+    - name: Descargar repo
+      uses: actions/checkout@v4
 
-          def contiene_clave_expuesta(dato):
-              if isinstance(dato, dict):
-                  for nombre, valor in dato.items():
-                      campo = re.sub(r"[^a-z0-9]", "", nombre.lower())
-                      if campo.endswith("apikey") and isinstance(valor, str) and valor.strip():
-                          return True
-                      if contiene_clave_expuesta(valor):
-                          return True
-              if isinstance(dato, list):
-                  return any(contiene_clave_expuesta(elemento) for elemento in dato)
-              return False
+    - name: Comprobar JSON
+      run: python -m json.tool ventas.json
 
-          with open("ventas.json", encoding="utf-8") as archivo:
-              ventas = json.load(archivo)
+    - name: Escaneo seguridad claves API
+      if: ${{ inputs.tests_seguridad }}
+      run: python escaneo_api.py
 
-          if contiene_clave_expuesta(ventas):
-              raise SystemExit("Se detectó una posible clave API expuesta en ventas.json.")
-          print("Escaneo simulado completado sin coincidencias.")
-          PY
+  Procesamiento: 
+    needs: CI_Seguridad
+    runs on: ubuntu-latest
 
-  procesamiento:
-    name: Procesar ventas en ${{ matrix.entorno }}
-    needs: ci_seguridad
-    runs-on: ubuntu-latest
     strategy:
       matrix:
         entorno: [staging, production]
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Generar reporte
-        env:
-          ENTORNO: ${{ matrix.entorno }}
-        run: |
-          python3 - <<'PY'
-          import json
-          import os
-          from pathlib import Path
+      - name: Generar reportes
+        run: reporte-${{ matrix.entorno }}.txt
 
-          entorno = os.environ["ENTORNO"]
-          with open("ventas.json", encoding="utf-8") as archivo:
-              ventas = json.load(archivo)
-
-          Path(f"reporte-{entorno}.txt").write_text(
-              f"Reporte de ventas en {entorno}\nRegistros procesados: {len(ventas)}\n",
-              encoding="utf-8",
-          )
-          PY
       - name: Subir reporte
         uses: actions/upload-artifact@v4
         with:
           name: reporte-${{ matrix.entorno }}
           path: reporte-${{ matrix.entorno }}.txt
-          if-no-files-found: error
 
-  notificacion:
-    name: Notificación de éxito
-    needs: [ci_seguridad, procesamiento]
-    if: ${{ success() }}
+
+  notificacion_exito:
+    needs: [CI_Seguridad, Procesamiento]
     runs-on: ubuntu-latest
+
     steps:
-      - name: Simular notificación de Discord
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        run: |
-          if [ -z "$DISCORD_WEBHOOK" ]; then
-            echo "::error::Configura el secreto DISCORD_WEBHOOK en el repositorio."
-            exit 1
-          fi
-          echo "::add-mask::$DISCORD_WEBHOOK"
-          echo "Notificación de Discord simulada. Webhook: $DISCORD_WEBHOOK"
+    - name: Notificación de éxito
+      env: 
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      run: echo "Webhook configurado: $DISCORD_WEBHOOK"
+
+
+    
+
+
