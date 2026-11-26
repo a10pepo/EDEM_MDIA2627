@@ -1,0 +1,51 @@
+name: Ejercicio entregable Carlota Monleon
+on:
+  workflow_dispatch:
+    inputs:
+      test_security:
+        description: 'Test de seguridad (Sí/No)'
+        required: true
+        type: boolean
+
+jobs:
+  CI_Seguridad:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener archivos
+        uses: actions/checkout@v3
+
+      - name: Validar archivo
+        run: python -m json.tool ventas.json
+
+      - name: Condicional
+        if: ${{inputs.test_security}}
+        run: python seguridad.py
+  
+  Procesamiento:
+    needs: CI_Seguridad
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        entorno: [staging, production]
+
+    steps:
+      - name: Generar reporte
+        run: echo "Reporte de ${{ matrix.entorno }}" > reporte.txt
+
+      - name: Subir reportes
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-${{ matrix.entorno }}
+          path: reporte.txt
+
+
+  Notificacion_exito:
+    needs: Procesamiento
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Notificar exito
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: echo "$DISCORD_WEBHOOK"
