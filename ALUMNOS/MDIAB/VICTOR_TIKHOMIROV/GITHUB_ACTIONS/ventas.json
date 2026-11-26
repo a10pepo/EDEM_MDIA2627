@@ -1,0 +1,7 @@
+{
+  "ventas": [
+    {"producto": "Teclado", "importe": 35},
+    {"producto": "Monitor", "importe": 180},
+    {"producto": "Raton", "importe": 20}
+  ]
+}
