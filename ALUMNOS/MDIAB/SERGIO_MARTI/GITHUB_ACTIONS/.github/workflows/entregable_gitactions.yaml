@@ -1,0 +1,59 @@
+name: Ejercicio GitHub Actions Entregable
+
+on:
+  workflow_dispatch:
+    inputs:
+      tests_seguridad:
+        description: "Quieres usar los tests de seguridad?"
+        required: true
+        type: choice
+        options:
+          - "si"
+          - "no"
+        default: "no"
+
+jobs:
+  CI_Seguridad:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: Descargar repo
+        uses: actions/checkout@v4
+
+      - name: Comprobar JSON
+        run: python -m json.tool ventas.json
+
+      - name: Escaneo seguridad claves API
+        if: ${{ inputs.tests_seguridad == 'si' }}
+        run: python escaneo_api.py
+
+
+  Procesamiento:
+    needs: CI_Seguridad
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        entorno: [staging, production]
+
+    steps:
+      - name: Generar reportes
+        run: |
+          echo "Reporte de ventas en ${{ matrix.entorno }}" > "reporte-${{ matrix.entorno }}.txt"
+
+      - name: Subir reporte
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-${{ matrix.entorno }}
+          path: reporte-${{ matrix.entorno }}.txt
+
+
+  notificacion_exito:
+    needs: [CI_Seguridad, Procesamiento]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Notificación de éxito
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          echo "Webhook configurado: $DISCORD_WEBHOOK"

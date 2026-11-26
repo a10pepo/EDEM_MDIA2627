@@ -1,0 +1,8 @@
+{
+  "moneda": "EUR",
+  "ventas": [
+    {"id": 1, "producto": "Camiseta", "cantidad": 2, "precio_unitario": 19.95},
+    {"id": 2, "producto": "Sudadera", "cantidad": 1, "precio_unitario": 39.90},
+    {"id": 3, "producto": "Gorra", "cantidad": 3, "precio_unitario": 12.50}
+  ]
+}
