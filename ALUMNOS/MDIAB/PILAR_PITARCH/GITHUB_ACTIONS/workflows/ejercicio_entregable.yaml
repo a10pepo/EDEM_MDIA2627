@@ -1,0 +1,88 @@
+
+name: Pipeline de Datos Seguro y Automatizado
+
+on:
+  workflow_dispatch:
+    inputs:
+      tests_seguridad:
+        description: "¿Ejecutar los Tests de Seguridad?"
+        required: true
+        type: choice
+        options:
+          - "si"
+          - "no"
+        default: "si"
+
+permissions:
+  contents: read
+
+jobs:
+
+  # JOB 1: CI Y SEGURIDAD
+  ci_seguridad:
+    name: CI y Seguridad
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v6
+
+      - name: Configurar Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Validar archivo JSON
+        run: python -m json.tool ventas.json
+
+      - name: Ejecutar tests de seguridad
+        if: ${{ inputs.tests_seguridad == 'si' }}
+        run: python seguridad.py
+
+  # JOB 2: PROCESAMIENTO
+  procesamiento:
+    name: Procesamiento - ${{ matrix.entorno }}
+    needs: ci_seguridad
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        entorno: [staging, production]
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v6
+
+      - name: Generar reporte
+        run: |
+          echo "REPORTE DE VENTAS" > reporte_${{ matrix.entorno }}.txt
+          echo "Entorno: ${{ matrix.entorno }}" >> reporte_${{ matrix.entorno }}.txt
+          echo "Procesamiento realizado correctamente." >> reporte_${{ matrix.entorno }}.txt
+          echo "Datos procesados:" >> reporte_${{ matrix.entorno }}.txt
+          cat ventas.json >> reporte_${{ matrix.entorno }}.txt
+
+      - name: Subir reporte como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-${{ matrix.entorno }}
+          path: reporte_${{ matrix.entorno }}.txt
+
+  # JOB 3: NOTIFICACION DE EXITO
+  notificacion:
+    name: Notificacion de Exito
+    needs: [ci_seguridad, procesamiento]
+    if: ${{ success() }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Simular notificacion a Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          if [ -z "$DISCORD_WEBHOOK" ]; then
+            echo "ERROR: El secreto DISCORD_WEBHOOK no esta configurado."
+            exit 1
+          fi
+          echo "Pipeline ejecutado correctamente."
+          echo "Simulando envio de notificacion a Discord."
+          echo "Webhook: $DISCORD_WEBHOOK"
