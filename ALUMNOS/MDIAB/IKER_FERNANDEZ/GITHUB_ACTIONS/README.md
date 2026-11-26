@@ -12,9 +12,10 @@
 | `scripts/generar_reporte.py` | Procesa `ventas.json` y genera `reporte_<entorno>.txt` |
 | `Capturas/` | Capturas de pantalla de las ejecuciones del workflow |
 
-El workflow se ha ejecutado en mi fork
-[`ikerfernandez16-col/github-actions-edem-2026`](https://github.com/ikerfernandez16-col/github-actions-edem-2026/actions)
+El workflow se ha ejecutado en mi repositorio
+[`ikerfernandez16-col/ejercicio-github-actions`](https://github.com/ikerfernandez16-col/ejercicio-github-actions/actions)
 (en `.github/workflows/`, con `ventas.json` y `scripts/` en la raíz del repo).
+Ejecución #1 con tests de seguridad = **sí** y ejecución #2 con **no**; ambas en verde.
 
 ## Cómo cumple los requisitos
 

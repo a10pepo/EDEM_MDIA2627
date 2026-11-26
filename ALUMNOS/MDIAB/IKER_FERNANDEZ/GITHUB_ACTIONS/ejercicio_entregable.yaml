@@ -1,4 +1,4 @@
-name: 20. Ejercicio Entregable - Pipeline de Datos Seguro
+name: Ejercicio Entregable - Pipeline de Datos Seguro
 
 # 1. Activación manual con elección de los "Tests de Seguridad" (sí/no)
 on:
