@@ -1,7 +1,7 @@
 name: Ejercicio GitHub Actions Entregable
 
 on: 
-  workflow dispatch:
+  workflow_dispatch:
     inputs:
       tests_seguridad:
         description: "Quieres usar los tests de seguridad?"
