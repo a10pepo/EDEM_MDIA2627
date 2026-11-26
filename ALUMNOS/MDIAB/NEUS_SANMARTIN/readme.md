@@ -1,1 +1,0 @@
-Hola soy Neus, este es mi entregable DEMO.
