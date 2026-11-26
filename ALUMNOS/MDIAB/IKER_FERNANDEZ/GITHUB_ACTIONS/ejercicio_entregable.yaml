@@ -1,0 +1,89 @@
+name: Ejercicio Entregable - Pipeline de Datos Seguro
+
+# 1. Activación manual con elección de los "Tests de Seguridad" (sí/no)
+on:
+  workflow_dispatch:
+    inputs:
+      tests_seguridad:
+        description: '¿Ejecutar los Tests de Seguridad?'
+        type: choice
+        required: true
+        default: 'sí'
+        options:
+          - 'sí'
+          - 'no'
+
+jobs:
+  # 2. Job 1: CI & Seguridad
+  ci-seguridad:
+    name: CI & Seguridad
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validar que ventas.json es un JSON válido
+        run: |
+          if python -m json.tool ventas.json > /dev/null; then
+            echo "✅ ventas.json es un JSON válido"
+          else
+            echo "::error file=ventas.json::ventas.json NO es un JSON válido"
+            exit 1
+          fi
+
+      - name: Escaneo de seguridad (claves API expuestas)
+        if: ${{ inputs.tests_seguridad == 'sí' }}
+        run: python scripts/security_scan.py .
+
+      - name: Escaneo de seguridad omitido
+        if: ${{ inputs.tests_seguridad != 'sí' }}
+        run: echo "⏭️ El usuario eligió no ejecutar los Tests de Seguridad"
+
+  # 3. Job 2: Procesamiento (matrix staging / production)
+  procesamiento:
+    name: Procesamiento (${{ matrix.entorno }})
+    needs: ci-seguridad
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        entorno: [staging, production]
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generar reporte para ${{ matrix.entorno }}
+        run: python scripts/generar_reporte.py ${{ matrix.entorno }} ventas.json reportes
+
+      - name: Subir reporte como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-${{ matrix.entorno }}
+          path: reportes/reporte_${{ matrix.entorno }}.txt
+          retention-days: 7
+
+  # 4. Job 3: Notificación de éxito
+  notificacion:
+    name: Notificación de Éxito
+    needs: [ci-seguridad, procesamiento]
+    if: ${{ success() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enviar notificación a Discord (simulada)
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          if [ -z "$DISCORD_WEBHOOK" ]; then
+            echo "::warning::El secreto DISCORD_WEBHOOK no está configurado en el repositorio"
+          fi
+          echo "📣 Enviando notificación de éxito al webhook: $DISCORD_WEBHOOK"
+          echo "✅ Pipeline completado: reportes de staging y production disponibles como artefactos (run #${{ github.run_number }})"
