@@ -1,0 +1,34 @@
+# Ejercicio 3: matriz de estrategia
+name: "Ejercicio 3 - Matriz de Python"
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    # El nombre permite distinguir fácilmente cada combinación en la interfaz de Actions.
+    name: "Test con Python ${{ matrix.python-version }}"
+    runs-on: ubuntu-latest
+
+    strategy:
+      # Si una versión falla, las demás continúan y muestran su propio resultado.
+      fail-fast: false
+      matrix:
+        # El enunciado dice "tres" pero solo enumera 3.11 y 3.12; se añade 3.10
+        # como tercera versión consecutiva para cumplir ambas partes de la petición.
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+      - name: Instalar la versión de Python de la matriz
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Ejecutar el test de ejemplo
+        # Cada elemento de la matriz crea un job independiente y potencialmente paralelo.
+        run: |
+          python --version
+          python -c "assert 2 + 2 == 4"

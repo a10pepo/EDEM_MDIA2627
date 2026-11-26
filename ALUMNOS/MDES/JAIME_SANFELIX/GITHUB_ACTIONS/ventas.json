@@ -1,0 +1,16 @@
+{
+  "ventas": [
+    {
+      "id": "V-001",
+      "producto": "Cuaderno",
+      "unidades": 12,
+      "precio_unitario": 3.5
+    },
+    {
+      "id": "V-002",
+      "producto": "Bolígrafo",
+      "unidades": 25,
+      "precio_unitario": 1.2
+    }
+  ]
+}

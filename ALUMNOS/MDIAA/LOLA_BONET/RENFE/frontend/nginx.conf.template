@@ -1,0 +1,21 @@
+server {
+    listen 80;
+    root /usr/share/nginx/html;
+    index index.html;
+
+    # El navegador solo habla con este servidor. Las llamadas a /api/... se reenvian al backend
+    # FastAPI dentro de la red de Docker; el navegador nunca ve la base de datos ni sus credenciales.
+    location /api/ {
+        resolver 127.0.0.11 valid=10s;      # DNS de Docker: re-resuelve si el backend se recrea
+        set $backend ${BACKEND_URL};
+        rewrite ^/api/(.*)$ /$1 break;       # /api/getAlertas -> /getAlertas
+        proxy_pass $backend;
+        proxy_connect_timeout 3s;
+        proxy_read_timeout 10s;
+    }
+
+    location / {
+        try_files $uri /index.html;
+        add_header Cache-Control "no-cache";
+    }
+}

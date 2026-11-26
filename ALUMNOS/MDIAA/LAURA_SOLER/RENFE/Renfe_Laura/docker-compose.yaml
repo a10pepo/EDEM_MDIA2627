@@ -1,0 +1,58 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: renfe_db
+    environment:
+      POSTGRES_USER: renfe_user
+      POSTGRES_PASSWORD: renfe_password
+      POSTGRES_DB: renfe_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  collector:
+    build: .
+    container_name: renfe_collector
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=renfe_db
+      - DB_USER=renfe_user
+      - DB_PASSWORD=renfe_password
+      - UMBRAL_METROS=5000
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: renfe_api
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=renfe_db
+      - DB_USER=renfe_user
+      - DB_PASSWORD=renfe_password
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: renfe_frontend
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
+    environment:
+      - API_URL=http://api:8000
+
+volumes:
+  postgres_data:

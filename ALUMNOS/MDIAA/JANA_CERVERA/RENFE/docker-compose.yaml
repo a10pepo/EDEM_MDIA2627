@@ -1,0 +1,44 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: renfe
+      POSTGRES_USER: renfe_user
+      POSTGRES_PASSWORD: renfe_pass
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports:
+      - "5433:5432"
+
+  collector:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      RENFE_URL: https://gtfsrt.renfe.com/vehicle_positions_LD.json
+      ALERT_DISTANCE_METERS: 500
+      POLL_INTERVAL: 15
+      DB_HOST: db
+      DB_NAME: renfe
+      DB_USER: renfe_user
+      DB_PASS: renfe_pass
+
+  web:
+      build: ./web
+      restart: unless-stopped
+      depends_on:
+        - db
+      ports:
+        - "8000:8000"
+      environment:
+        DB_HOST: db
+        DB_NAME: renfe
+        DB_USER: renfe_user
+        DB_PASS: renfe_pass
+
+
+volumes:
+  pgdata:
