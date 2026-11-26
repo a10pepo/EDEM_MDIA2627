@@ -1,0 +1,57 @@
+name: "Ejercicio Entregable GitHub Actions"
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_seguridad:
+        description: "¿Quieres ejecutar los Tests de Seguridad?"
+        required: true
+        type: choice
+        options:
+          - "sí"
+          - "no"
+
+jobs:
+  ci_seguridad:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+      
+      - name: Configuración de Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validación del JSON
+        run: python -c "import json; json.load(open('ventas.json'))"
+
+      - name: Simulador Escaneo de Seguridad
+        if: ${{ inputs.test_seguridad == 'sí' }}
+        run: echo "Se ha completado con éxito el Escaneo de Seguridad"
+  
+  procesamiento:
+    needs: ci_seguridad
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        entorno: [staging, production]
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+      
+      - name: Generación del Archivo de Reporte
+        run: echo "${{ matrix.entorno }}" > reporte_${{ matrix.entorno }}.txt
+      
+      - name: Subir Reportes como Artefactos
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-${{ matrix.entorno }}
+          path: reporte_${{ matrix.entorno }}.txt
+
+  notificacion_exito:
+    needs: [ci_seguridad, procesamiento]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notificación de éxito
+        run: echo "Notificación enviada a ${{ secrets.DISCORD_WEBHOOK }}"
