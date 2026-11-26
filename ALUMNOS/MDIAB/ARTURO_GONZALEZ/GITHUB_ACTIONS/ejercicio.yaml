@@ -1,0 +1,97 @@
+name: Procesamiento de ventas
+
+on:
+  workflow_dispatch:
+    inputs:
+      tests_seguridad:
+        description: ¿Quieres ejecutar los Tests de Seguridad?
+        required: true
+        type: choice
+        options:
+          - 'sí'
+          - 'no'
+        default: 'no'
+
+permissions:
+  contents: read
+
+jobs:
+  ci_seguridad:
+    name: CI & Seguridad
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Localizar ventas.json
+        id: archivos
+        run: |
+          ventas=$(find . -type f -name 'ventas.json' -not -path './.git/*' -print -quit)
+
+          if [ -z "$ventas" ]; then
+            echo "Error: no se encontró ventas.json en el repositorio."
+            exit 1
+          fi
+
+          echo "ventas=$ventas" >> "$GITHUB_OUTPUT"
+
+      - name: Validar ventas.json
+        env:
+          VENTAS_FILE: ${{ steps.archivos.outputs.ventas }}
+        run: python3 -m json.tool "$VENTAS_FILE" > /dev/null
+
+      - name: Buscar posibles claves API
+        if: ${{ inputs.tests_seguridad == 'sí' }}
+        env:
+          VENTAS_FILE: ${{ steps.archivos.outputs.ventas }}
+        run: |
+          seguridad=$(find . -type f -name 'seguridad.py' -not -path './.git/*' -print -quit)
+          if [ -z "$seguridad" ]; then
+            echo "Error: no se encontró seguridad.py en el repositorio."
+            exit 1
+          fi
+          python3 "$seguridad" "$VENTAS_FILE"
+
+  procesamiento:
+    name: Procesamiento (${{ matrix.entorno }})
+    needs: ci_seguridad
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        entorno:
+          - staging
+          - production
+    steps:
+      - name: Crear reporte del entorno
+        run: |
+          {
+            echo "Reporte de procesamiento de ventas"
+            echo "Entorno: ${{ matrix.entorno }}"
+            echo "Archivo de entrada: ventas.json"
+            echo "Estado: procesado"
+          } > "reporte-${{ matrix.entorno }}.txt"
+
+      - name: Subir reporte como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-${{ matrix.entorno }}
+          path: reporte-${{ matrix.entorno }}.txt
+          if-no-files-found: error
+
+  notificacion_exito:
+    name: Notificación de éxito
+    needs:
+      - ci_seguridad
+      - procesamiento
+    if: ${{ needs.ci_seguridad.result == 'success' && needs.procesamiento.result == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simular notificación a Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          if [ -z "$DISCORD_WEBHOOK" ]; then
+            echo "Error: configura el secreto DISCORD_WEBHOOK en el repositorio."
+            exit 1
+          fi
+          echo "Notificación simulada a Discord mediante: $DISCORD_WEBHOOK"
