@@ -1,0 +1,34 @@
+{
+  "ventas": [
+    {
+      "referencia": "TAB-001",
+      "producto": "Tablet",
+      "cantidad": 4,
+      "precio": 350
+    },
+    {
+      "referencia": "RAT-001",
+      "producto": "Ratón",
+      "cantidad": 8,
+      "precio": 25
+    },
+    {
+      "referencia": "AUR-001",
+      "producto": "Auriculares",
+      "cantidad": 6,
+      "precio": 60
+    },
+    {
+      "referencia": "IMP-001",
+      "producto": "Impresora",
+      "cantidad": 2,
+      "precio": 180
+    },
+    {
+      "referencia": "WEB-001",
+      "producto": "Webcam",
+      "cantidad": 5,
+      "precio": 45
+    }
+  ]
+}
